@@ -50,12 +50,14 @@ public class CharacterController2D : MonoBehaviour
 				crouch = true;
 			}
 		}
+		// normal speed if player is grounded
 		if(m_Grounded){
 			horizontalMove(move, crouch);
 		}
+		// air control is allowed, but with lower speed 
 		else{
-			if( m_Rigidbody2D.velocity.x.magnitude < move/2 ){
-			horizontalMove(move/2, crouch);
+			if( Mathf.Abs(m_Rigidbody2D.velocity.x) < Mathf.Abs(move*5) ){
+				horizontalMove(move*3/5, crouch);
 			}
 		}
 
