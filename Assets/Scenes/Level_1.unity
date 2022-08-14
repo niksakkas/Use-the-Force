@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea063cd8c496ee14da6b220f68fabd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpFactor: 0.1
+  helpFactor: 0
   magnetSength: 2
   distanceImportance: 0.7
 --- !u!212 &771490070
@@ -399,8 +399,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 882522411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0115, y: -5.48, z: 0}
-  m_LocalScale: {x: 17.654484, y: 1.7915, z: 1}
+  m_LocalPosition: {x: -0.0236, y: -4.9228, z: 0}
+  m_LocalScale: {x: 18.42711, y: 0.67700785, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -443,7 +443,6 @@ GameObject:
   - component: {fileID: 1774397797}
   - component: {fileID: 1774397796}
   - component: {fileID: 1774397798}
-  - component: {fileID: 1774397799}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -541,21 +540,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1774397799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774397794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea063cd8c496ee14da6b220f68fabd8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  helpFactor: 0
-  magnetSength: 0
-  distanceImportance: 0
 --- !u!1 &1892069239
 GameObject:
   m_ObjectHideFlags: 0

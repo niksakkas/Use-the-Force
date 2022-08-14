@@ -16,6 +16,8 @@ public class MagnetController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collider)        
     {
+        Debug.Log(collider.GetComponent<PlayerController>().state == ChargeState.Blue);
+
         if(collider.GetComponent<Collider2D>().tag == "Player"){      
             Rigidbody2D playerRB = collider.attachedRigidbody;
             AddNewVelocity(playerRB);
