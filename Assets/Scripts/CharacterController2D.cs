@@ -9,7 +9,6 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -73,22 +72,6 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	private void horizontalMove(float move, bool crouch){
-
-		// If crouching
-		if (crouch)
-		{
-			// Reduce the speed by the crouchSpeed multiplier
-			move *= m_CrouchSpeed;
-
-			// Disable one of the colliders when crouching
-			if (m_CrouchDisableCollider != null)
-				m_CrouchDisableCollider.enabled = false;
-		} else
-		{
-			// Enable the collider when not crouching
-			if (m_CrouchDisableCollider != null)
-				m_CrouchDisableCollider.enabled = true;
-		}
 
 		// Move the character by finding the target velocity
 		Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
