@@ -12,9 +12,12 @@ public class MagnetController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collider)        
     {
         
-        if(collider.GetComponent<Collider2D>().tag == "Player"){            
-            Vector2 direction = (magnetPosition - collider.attachedRigidbody.position).normalized;
-            collider.attachedRigidbody.velocity = new Vector2(direction.x, direction.y ) * 3f;
+        if(collider.GetComponent<Collider2D>().tag == "Player"){      
+            Rigidbody2D prb = collider.attachedRigidbody;
+
+
+            Vector2 direction = (magnetPosition - prb.position).normalized;
+            prb.velocity = new Vector2(prb.velocity.x + (direction.x), prb.velocity.y + (direction.y));
         }
     }
 
