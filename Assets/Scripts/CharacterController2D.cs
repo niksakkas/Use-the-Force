@@ -32,7 +32,7 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
+			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "Magnet")
 				m_Grounded = true;
 		}
 	}
@@ -59,8 +59,6 @@ public class CharacterController2D : MonoBehaviour
 				horizontalMove(move*3/5, crouch);
 			}
 		}
-
-		//only control the player if grounded or airControl is turned on
 		
 		// If the player should jump...
 		if (m_Grounded && jump)
