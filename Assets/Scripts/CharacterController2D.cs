@@ -9,6 +9,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
+	[Range(0,1)] [SerializeField] private float airResistance;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -53,13 +54,12 @@ public class CharacterController2D : MonoBehaviour
 		if(m_Grounded){
 			horizontalMove(move, crouch);
 		}
-		// air control is allowed, but with lower speed 
+		// air control is allowed, but at lower speed 
 		else{
 			if( Mathf.Abs(m_Rigidbody2D.velocity.x) < Mathf.Abs(move*5) ){
 				horizontalMove(move*3/5, crouch);
 			}
 		}
-		
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
@@ -67,6 +67,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
+		applyAirResistance();
 	}
 
 	private void horizontalMove(float move, bool crouch){
@@ -99,5 +100,11 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+	private void applyAirResistance(){
+		Vector2 direction = - m_Rigidbody2D.velocity.normalized;
+		float v = m_Rigidbody2D.velocity.magnitude;
+		float forceAmount = v*v*airResistance;
+		m_Rigidbody2D.AddForce(direction * forceAmount);
 	}
 }

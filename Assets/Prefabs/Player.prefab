@@ -234,6 +234,7 @@ MonoBehaviour:
     m_Bits: 1
   m_GroundCheck: {fileID: 8824281998704798070}
   m_CeilingCheck: {fileID: 5884797657614940014}
+  airResistance: 20
 --- !u!114 &638214545583079930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,3 +247,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d0aa0059fd4ca48b2cf5d4bd5dd7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerState: 1
