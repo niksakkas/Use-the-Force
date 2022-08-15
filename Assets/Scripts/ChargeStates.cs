@@ -4,9 +4,9 @@ using UnityEngine;
 
     public enum ChargeState
     {
-        Blue,
-        Red,
-        Purple
+        Blue = -1,
+        Red = 1,
+        Purple = 0
     }
 
 public class ChargeStates : MonoBehaviour

@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public ChargeState state = ChargeState.Blue;
-    // Update is called once per frame
-
+    public ChargeState playerState = ChargeState.Red;
 }

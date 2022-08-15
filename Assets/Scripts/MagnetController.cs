@@ -8,6 +8,11 @@ public class MagnetController : MonoBehaviour
     public float helpFactor;           // [0,1] The degree to which the magnet's pull will assists the players current movement
     public float magnetSength;         // (0,inf) Power of the magnet
     public float distanceImportance;   // [0,inf) The higher the more powerful the magnet gets if the object is close
+    public float pushMultiplier;       // when magnet and target are both blue or red
+    public float hardPullMultiplier;   // when magnet and target are opposite colors
+    public float softPullMultiplier;   // when either the magnet or the target are purple
+
+    public ChargeState magnetCharge = ChargeState.Blue;
     
     private Vector2 magnetPosition;
 
@@ -16,21 +21,35 @@ public class MagnetController : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collider)        
     {
-        Debug.Log(collider.GetComponent<PlayerController>().state == ChargeState.Blue);
-
         if(collider.GetComponent<Collider2D>().tag == "Player"){      
             Rigidbody2D playerRB = collider.attachedRigidbody;
-            AddNewVelocity(playerRB);
+            float force = CalculatePullOrPush(collider.GetComponent<PlayerController>().playerState);
+            AddNewVelocity(playerRB, force);
         }
     }
-    private void AddNewVelocity(Rigidbody2D targetRB){
+    private void AddNewVelocity(Rigidbody2D targetRB, float force){
         // calculate distance between target and magnet
         float distance = Vector2.Distance(magnetPosition, targetRB.position);
         // calculate the direction of the new velocity and slightly adjust it based on the current's velocity direction
         Vector2 newVelocityDirection = ((magnetPosition - targetRB.position).normalized * (1-helpFactor)) + ((targetRB.velocity).normalized * helpFactor);
         // calculate the magnitude of the new velocity based on the magnetSength and the distanceImportance
-        float newVelocityMagnitude = magnetSength/(float)Math.Pow(distance, distanceImportance);
+        float newVelocityMagnitude = force * magnetSength/(float)Math.Pow(distance, distanceImportance);
         // add new velocity to current velocity
         targetRB.velocity += newVelocityDirection * newVelocityMagnitude;
+    }
+    private float CalculatePullOrPush(ChargeState targetCharge){
+        // Debug.Log("targetCharge: " + targetCharge);
+        // Debug.Log("magnetCharge: " + magnetCharge);
+        switch ((int)targetCharge * (int)magnetCharge)
+        {
+            case(-1):
+                return hardPullMultiplier;
+            case(0):
+                return softPullMultiplier;      
+            case(1):
+                return pushMultiplier;           
+            default:
+                return 0f;                                     
+        }
     }
 }
