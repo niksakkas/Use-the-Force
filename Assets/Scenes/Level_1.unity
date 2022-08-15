@@ -141,6 +141,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: helpFactor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: magnetSength
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -425,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2523887549726410065, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_GravityScale
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2527508806025846360, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: airResistance
@@ -512,6 +520,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: helpFactor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: magnetSength
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_RootOrder
       value: 4
