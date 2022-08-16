@@ -112,10 +112,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   helpFactor: 0
   magnetSength: 2
-  distanceImportance: 0.7
+  distanceImportance: 0
   pushMultiplier: -1
   hardPullMultiplier: 1
-  softPullMultiplier: 0.5
+  softPullMultiplier: 0
   magnetCharge: 1
 --- !u!212 &8085278851628682266
 SpriteRenderer:
