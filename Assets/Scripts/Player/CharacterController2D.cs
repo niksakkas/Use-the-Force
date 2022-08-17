@@ -38,25 +38,17 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump)
+	public void Move(float move, bool jump)
 	{
-		// If crouching, check to see if the character can stand up
-		if (!crouch)
-		{
-			// If the character has a ceiling preventing them from standing up, keep them crouching
-			if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-			{
-				crouch = true;
-			}
-		}
+	
 		// normal speed if player is grounded
 		if(m_Grounded){
-			horizontalMove(move, crouch);
+			horizontalMove(move);
 		}
 		// air control is allowed, but at lower speed 
 		else{
 			if( Mathf.Abs(m_Rigidbody2D.velocity.x) < Mathf.Abs(move*5) ){
-				horizontalMove(move*3/5, crouch);
+				horizontalMove(move*3/5);
 			}
 		}
 		// If the player should jump...
@@ -69,7 +61,7 @@ public class CharacterController2D : MonoBehaviour
 		applyAirResistance();
 	}
 
-	private void horizontalMove(float move, bool crouch){
+	private void horizontalMove(float move){
 
 		// Move the character by finding the target velocity
 		Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
