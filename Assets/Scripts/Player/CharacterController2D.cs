@@ -9,14 +9,14 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[Range(0,1)] [SerializeField] private float airResistance;
-
+	public bool verticalControl = false;
+	public float flyingSpeedMultiplier = 2.5f;
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
-
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -32,24 +32,32 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider")
+			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField")
 				m_Grounded = true;
 		}
 	}
 
-
-	public void Move(float move, bool jump)
+	public void Move(float horizontalMove, float verticalMove, bool jump)
 	{
-	
-		// normal speed if player is grounded
-		if(m_Grounded){
-			horizontalMove(move);
+		// If the player has no vertival control ignore vertical commands
+		if (verticalControl == false)
+		{
+			verticalMove = 0f;
 		}
-		// air control is allowed, but at lower speed 
-		else{
-			if( Mathf.Abs(m_Rigidbody2D.velocity.x) < Mathf.Abs(move*5) ){
-				horizontalMove(move*3/5);
-			}
+		// If the player has vertival control, he is flying, so we want hom to go faster
+		else
+		{
+			horizontalMove *= flyingSpeedMultiplier;
+			verticalMove *= flyingSpeedMultiplier;
+		}
+		// Normal speed if player is grounded
+		if (m_Grounded){
+			this.applyMovement(horizontalMove, verticalMove);
+		}
+		// Air control is allowed, but at lower speed 
+		else
+		{
+			this.applyMovement(horizontalMove * 0.5f, verticalMove * 0.5f);
 		}
 		// If the player should jump...
 		if (m_Grounded && jump)
@@ -61,21 +69,23 @@ public class CharacterController2D : MonoBehaviour
 		applyAirResistance();
 	}
 
-	private void horizontalMove(float move){
+
+	private void applyMovement(float horizontalMove, float verticalMove)
+	{
 
 		// Move the character by finding the target velocity
-		Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+		Vector3 targetVelocity = new Vector2(horizontalMove, m_Rigidbody2D.velocity.y + verticalMove);
 		// And then smoothing it out and applying it to the character
 		m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
 
 		// If the input is moving the player right and the player is facing left...
-		if (move > 0 && !m_FacingRight)
+		if (horizontalMove > 0 && !m_FacingRight)
 		{
 			// ... flip the player.
 			Flip();
 		}
 		// Otherwise if the input is moving the player left and the player is facing right...
-		else if (move < 0 && m_FacingRight)
+		else if (horizontalMove < 0 && m_FacingRight)
 		{
 			// ... flip the player.
 			Flip();

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - MagnetCollider
+  - ZeroGravityField
   layers:
   - Default
   - TransparentFX
