@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 8085278852637615208, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -383,6 +387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeroGravityField (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2236738541581970723, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
 --- !u!1 &882522411
@@ -445,7 +453,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -581,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170639815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.73, y: -3.04, z: -10}
+  m_LocalPosition: {x: -2.662, y: -3.0119996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -596,6 +604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 1476366508070471810, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_Name
       value: RedHomogenousField
@@ -662,6 +674,8 @@ GameObject:
   - component: {fileID: 1892069241}
   - component: {fileID: 1892069240}
   - component: {fileID: 1892069243}
+  - component: {fileID: 1892069244}
+  - component: {fileID: 1892069245}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -728,7 +742,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892069239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.73, y: -3.04, z: -10}
+  m_LocalPosition: {x: -2.662, y: -3.0119996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -769,6 +783,99 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1892069244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892069239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!114 &1892069245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892069239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1892069242}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!4 &2002902699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
@@ -792,6 +899,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476366508070471809, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 1476366508070471810, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_Name
       value: BlueHomogenousField
@@ -901,6 +1012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeroGravityField
       objectReference: {fileID: 0}
+    - target: {fileID: 2236738541581970723, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
 --- !u!1001 &6183605693880962759
@@ -922,6 +1037,10 @@ PrefabInstance:
       propertyPath: flyingSpeedMultiplier
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6183605693714556880, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -932,11 +1051,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.73
+      value: -2.662
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.32
+      value: -4.292
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -995,6 +1114,10 @@ PrefabInstance:
       propertyPath: magneticFieldScript
       value: 
       objectReference: {fileID: 77403336}
+    - target: {fileID: 8085278852637615208, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_RootOrder
       value: 4
