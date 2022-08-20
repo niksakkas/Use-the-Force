@@ -5,4 +5,27 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public ChargeState playerState = ChargeState.Red;
+    public SpriteRenderer spriteRenderer;
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("ChangeCharge"))
+        {
+            changePlayerCharge();
+        }
+    }
+    private void changePlayerCharge()
+    {
+        if(playerState == ChargeState.Red) { 
+            playerState = ChargeState.Blue;
+            spriteRenderer.material.SetFloat("_Red", 0);
+            spriteRenderer.material.SetFloat("_Blue", 1);
+        }
+        else
+        {
+            playerState = ChargeState.Red;
+            spriteRenderer.material.SetFloat("_Red", 1);
+            spriteRenderer.material.SetFloat("_Blue", 0);
+        }
+    }
 }
