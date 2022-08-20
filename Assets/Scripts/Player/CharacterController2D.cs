@@ -17,6 +17,8 @@ public class CharacterController2D : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
+	public Animator animator;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -32,9 +34,15 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField")
+			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
+			{
 				m_Grounded = true;
+				animator.SetBool("OnAir", false);
+				return;
+			}
 		}
+		animator.SetBool("OnAir", true);
+
 	}
 
 	public void Move(float horizontalMove, float verticalMove, bool jump)
@@ -108,4 +116,23 @@ public class CharacterController2D : MonoBehaviour
 		float forceAmount = v*v*airResistance;
 		m_Rigidbody2D.AddForce(direction * forceAmount);
 	}
+	//public void stopAirArimation()
+	//{
+	//	animator.SetBool("OnAir", false);
+	//	animator.SetBool("IsFalling", false);
+	//}
+
+	//public void setAirAnimation()
+	//{
+	//	if (m_Rigidbody2D.velocity.y >= 0)
+	//	{
+	//		animator.SetBool("IsJumping", true);
+	//		animator.SetBool("IsFalling", false);
+	//	}
+	//	else
+	//	{
+	//		animator.SetBool("IsJumping", false);
+	//		animator.SetBool("IsFalling", true);
+	//	}
+	//}
 }

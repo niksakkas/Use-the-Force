@@ -6,6 +6,8 @@ TagManager:
   tags:
   - MagnetCollider
   - ZeroGravityField
+  - PlayerSprite
+  - HomogenousField
   layers:
   - Default
   - TransparentFX

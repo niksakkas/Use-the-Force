@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 8085278851628682264}
   - component: {fileID: 8085278851628682265}
   - component: {fileID: 8085278851628682266}
+  - component: {fileID: 564314032}
   m_Layer: 0
   m_Name: MagnetCollider
   m_TagString: MagnetCollider
@@ -111,11 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpFactor: 0
-  magnetSength: 2
   distanceImportance: 0
-  pushMultiplier: -1
-  hardPullMultiplier: 1
-  softPullMultiplier: 0
+  playerScript: {fileID: 0}
+  magneticFieldScript: {fileID: 564314032}
   magnetCharge: 1
 --- !u!212 &8085278851628682266
 SpriteRenderer:
@@ -159,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -100
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 0.03529412, b: 0, a: 0.09803922}
+  m_Color: {r: 1, g: 0.19607843, b: 0.19607843, a: 0.09803922}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -169,6 +168,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &564314032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8085278851628682269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd00940c1bcf80478266e0cd56cf6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushMultiplier: -1
+  hardPullMultiplier: 1
+  softPullMultiplier: 0
+  magnetSength: 1
+  magnetCharge: 1
 --- !u!1 &8085278852637615214
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +240,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -246,7 +262,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.0319609, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.08627451, b: 0.08627451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
