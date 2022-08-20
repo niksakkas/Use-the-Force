@@ -85,6 +85,7 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 targetVelocity = new Vector2(horizontalMove, m_Rigidbody2D.velocity.y + verticalMove);
 		// And then smoothing it out and applying it to the character
 		m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref velocity, m_MovementSmoothing);
+		animator.SetFloat("Xspeed", Mathf.Abs(m_Rigidbody2D.velocity.x));
 
 		// If the input is moving the player right and the player is facing left...
 		if (horizontalMove > 0 && !m_FacingRight)
