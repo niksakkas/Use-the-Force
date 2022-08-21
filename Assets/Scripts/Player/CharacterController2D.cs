@@ -107,9 +107,7 @@ public class CharacterController2D : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 
 		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
+		transform.Rotate(0, 180f, 0);
 	}
 	private void applyAirResistance(){
 		Vector2 direction = - m_Rigidbody2D.velocity.normalized;
@@ -117,23 +115,4 @@ public class CharacterController2D : MonoBehaviour
 		float forceAmount = v*v*airResistance;
 		m_Rigidbody2D.AddForce(direction * forceAmount);
 	}
-	//public void stopAirArimation()
-	//{
-	//	animator.SetBool("OnAir", false);
-	//	animator.SetBool("IsFalling", false);
-	//}
-
-	//public void setAirAnimation()
-	//{
-	//	if (m_Rigidbody2D.velocity.y >= 0)
-	//	{
-	//		animator.SetBool("IsJumping", true);
-	//		animator.SetBool("IsFalling", false);
-	//	}
-	//	else
-	//	{
-	//		animator.SetBool("IsJumping", false);
-	//		animator.SetBool("IsFalling", true);
-	//	}
-	//}
 }

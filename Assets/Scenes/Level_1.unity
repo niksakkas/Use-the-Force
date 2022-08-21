@@ -143,7 +143,7 @@ MonoBehaviour:
   pushMultiplier: -1
   hardPullMultiplier: 1
   softPullMultiplier: 0
-  magnetSength: 1
+  magnetSength: 1.5
   magnetCharge: -1
 --- !u!1001 &341673567
 PrefabInstance:
@@ -152,10 +152,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 564314032, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: magnetSength
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
+    - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: distanceImportance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1053,6 +1061,10 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
+    - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: distanceImportance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: magneticFieldScript
       value: 

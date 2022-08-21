@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpFactor: 0
-  distanceImportance: 0
+  distanceImportance: 0.3
   playerScript: {fileID: 0}
   magneticFieldScript: {fileID: 564314032}
   magnetCharge: 1
@@ -183,7 +183,7 @@ MonoBehaviour:
   pushMultiplier: -1
   hardPullMultiplier: 1
   softPullMultiplier: 0
-  magnetSength: 1
+  magnetSength: 1.5
   magnetCharge: 1
 --- !u!1 &8085278852637615214
 GameObject:
