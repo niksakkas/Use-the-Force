@@ -123,28 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &77403331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8085278851628682269, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-  m_PrefabInstance: {fileID: 8085278851148696844}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &77403336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77403331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd00940c1bcf80478266e0cd56cf6fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushMultiplier: -1
-  hardPullMultiplier: 1
-  softPullMultiplier: 0
-  magnetSength: 1.5
-  magnetCharge: -1
 --- !u!1001 &341673567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,18 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 564314032, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: magnetSength
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
-    - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: distanceImportance
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1054,25 +1024,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: magnetSength
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
-    - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: distanceImportance
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: magneticFieldScript
-      value: 
-      objectReference: {fileID: 77403336}
-    - target: {fileID: 8085278852637615208, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_RootOrder
       value: 4
