@@ -12,13 +12,10 @@ public class PlayerMovement : MonoBehaviour {
 	float verticalMove = 0f;
 	bool jump = false;
 	
-	// Update is called once per frame
 	void Update () {
 		
-
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 		verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
-
 		animator.SetBool("IsMoving", horizontalMove!=0f);
 
 		if (Input.GetButtonDown("Jump"))
@@ -29,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		// Move our character
+		// Move the player
 		controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, jump);
 		jump = false;
 	}
