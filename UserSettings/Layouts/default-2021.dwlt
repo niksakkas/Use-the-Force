@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
-  controlID: 68
+  controlID: 95
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 300}
   m_MaxSize: {x: 16192, y: 24288}
   vertical: 1
-  controlID: 56
+  controlID: 96
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 57
+  controlID: 97
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -240,8 +240,8 @@ MonoBehaviour:
     y: 0
     width: 410.4
     height: 492
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -266,8 +266,8 @@ MonoBehaviour:
     y: 0
     width: 1137.6
     height: 733.6
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: AnimationWindow
+  m_Name: PackageManagerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -295,15 +295,15 @@ MonoBehaviour:
     y: 733.6
     width: 1548
     height: 277.20007
-  m_MinSize: {x: 100, y: 100}
+  m_MinSize: {x: 800, y: 250}
   m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 14}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 22}
   - {fileID: 14}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -360,7 +360,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1356
+  m_LastSelectedObjectID: -1410
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -727,9 +727,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.07562628, y: -1.4735701, z: 298.0751}
+    m_Target: {x: 6.5162535, y: -1.7616558, z: 239.71466}
     speed: 2
-    m_Value: {x: -0.07562628, y: -1.4735701, z: 298.0751}
+    m_Value: {x: 6.5162535, y: -1.7616558, z: 239.71466}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -780,9 +780,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.876704
+    m_Target: 6.2569313
     speed: 2
-    m_Value: 7.876704
+    m_Value: 6.2569313
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -838,9 +838,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b4faffff
-      m_LastClickedID: -1356
-      m_ExpandedIDs: 5cfaffffcefaffffd0faffff
+      m_SelectedIDs: 7efaffff
+      m_LastClickedID: -1410
+      m_ExpandedIDs: defaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -997,22 +997,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\nikit\Desktop\Use-the-Force
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 11.400024}
-    m_SelectedIDs: 44750000
-    m_LastClickedID: 30020
-    m_ExpandedIDs: 000000007c7300007e73000080730000827300008473000086730000887300008a7300008c73000038750000
+    scrollPos: {x: 0, y: 75.400024}
+    m_SelectedIDs: fe870000
+    m_LastClickedID: 34814
+    m_ExpandedIDs: 000000006a7300006c7300006e73000070730000727300007473000076730000787300007a730000287500003c750000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1040,7 +1040,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c7300007e73000080730000827300008473000086730000887300008a7300008c730000
+    m_ExpandedIDs: 000000006a7300006c7300006e73000070730000727300007473000076730000787300007a730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1118,7 +1118,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 807.2
-    width: 1711
+    width: 1547
     height: 256.20007
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
