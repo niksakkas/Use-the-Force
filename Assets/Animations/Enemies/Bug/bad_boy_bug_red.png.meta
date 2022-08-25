@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 081ce5574d78f154fbc2c36d30725b89
+guid: e72694e72d3dc7148800c03cc0e98fef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bad_boy_bug_0
+      name: bad_boy_bug_red_0
       rect:
         serializedVersion: 2
         x: 4
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b79bf3d41c3334d4fa153acefa1cb9ee
-      internalID: -76132326
+      spriteID: 39c0a804280c7694188de6214df01381
+      internalID: 134671332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bad_boy_bug_1
+      name: bad_boy_bug_red_1
       rect:
         serializedVersion: 2
         x: 35
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6bf0da1b25dc62448d6d66d432961ec
-      internalID: -952955571
+      spriteID: f93adbd0492d5154b96a810e96a09e30
+      internalID: 869267497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bad_boy_bug_2
+      name: bad_boy_bug_red_2
       rect:
         serializedVersion: 2
         x: 65
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44079248cccae014e9e8ace111a4d59d
-      internalID: 1649490207
+      spriteID: 203ec377e66510a44bd47ff09e6ad3e2
+      internalID: -1325219591
       vertices: []
       indices: 
       edges: []
@@ -177,9 +177,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bad_boy_bug_2: 1649490207
-      bad_boy_bug_1: -952955571
-      bad_boy_bug_0: -76132326
+      bad_boy_bug_red_2: -1325219591
+      bad_boy_bug_red_1: 869267497
+      bad_boy_bug_red_0: 134671332
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
