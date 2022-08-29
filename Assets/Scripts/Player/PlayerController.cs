@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.material.SetFloat("_Blue", 0);
         }
     }
+    public void die()
+    {
+        Destroy(gameObject);
+    }
     private void blast()
     {
         animator.SetTrigger("Blast");
