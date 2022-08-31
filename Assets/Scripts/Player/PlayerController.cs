@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
     public ChargeState playerState = ChargeState.Red;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    public ParticleSystem RedDeathParticles;
-    public ParticleSystem BlueDeathParticles;
+    public Object explosionPrefab;
+
 
     private void Update()
     {
@@ -40,19 +40,24 @@ public class PlayerController : MonoBehaviour
     }
     public void die()
     {
-        if (playerState == ChargeState.Red)
-        {
-            Instantiate(RedDeathParticles, transform.position, transform.rotation);
-        }
-        else if(playerState == ChargeState.Blue)
-        {
-            Instantiate(BlueDeathParticles, transform.position, transform.rotation);
-        }
+        createDeathParticles();
         Destroy(gameObject);
     }
     private void blast()
     {
         animator.SetTrigger("Blast");
 
+    }
+    public void createDeathParticles()
+    {
+        GameObject newObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
+        if (playerState == ChargeState.Red)
+        {
+            newObject.GetComponent<explosionController>().color = ChargeState.Red;
+        }
+        else if (playerState == ChargeState.Blue)
+        {
+            newObject.GetComponent<explosionController>().color = ChargeState.Blue;
+        }
     }
 }

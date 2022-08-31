@@ -254,8 +254,7 @@ MonoBehaviour:
   playerState: 1
   spriteRenderer: {fileID: 6183605693714556880}
   animator: {fileID: 2002902706}
-  RedDeathParticles: {fileID: 1228038360579859021, guid: 977f98f1229606c42bfb975dcd35c982, type: 3}
-  BlueDeathParticles: {fileID: 1228038360579859021, guid: f128c19f4ac6e964d8ae468ce6958097, type: 3}
+  explosionPrefab: {fileID: 1228038360579859010, guid: fd17c280c136b1948b71963032c47f76, type: 3}
 --- !u!95 &2002902706
 Animator:
   serializedVersion: 4
