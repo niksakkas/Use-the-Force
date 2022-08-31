@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public ChargeState playerState = ChargeState.Red;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    public ParticleSystem RedDeathParticles;
+    public ParticleSystem BlueDeathParticles;
 
     private void Update()
     {
@@ -38,6 +40,14 @@ public class PlayerController : MonoBehaviour
     }
     public void die()
     {
+        if (playerState == ChargeState.Red)
+        {
+            Instantiate(RedDeathParticles, transform.position, transform.rotation);
+        }
+        else if(playerState == ChargeState.Blue)
+        {
+            Instantiate(BlueDeathParticles, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
     private void blast()

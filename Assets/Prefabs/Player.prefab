@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2527508806025846360}
+  animator: {fileID: 2002902706}
   runSpeed: 400
 --- !u!114 &2527508806025846360
 MonoBehaviour:
@@ -253,6 +254,8 @@ MonoBehaviour:
   playerState: 1
   spriteRenderer: {fileID: 6183605693714556880}
   animator: {fileID: 2002902706}
+  RedDeathParticles: {fileID: 1228038360579859021, guid: 977f98f1229606c42bfb975dcd35c982, type: 3}
+  BlueDeathParticles: {fileID: 1228038360579859021, guid: f128c19f4ac6e964d8ae468ce6958097, type: 3}
 --- !u!95 &2002902706
 Animator:
   serializedVersion: 4
