@@ -8,6 +8,7 @@ public class explosionController : MonoBehaviour
     public ParticleSystem part;
     public GameObject splatter;
 
+
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     void Start()
@@ -29,10 +30,27 @@ public class explosionController : MonoBehaviour
     {
 
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-        for (int i = 0; i < numCollisionEvents; i++)
+
+            createSplatter(collisionEvents[0].intersection, collisionEvents[0].velocity.magnitude);
+
+    }
+    void createSplatter(Vector3 newSplashosition, float velocityMagnitude)
+    {
+
+
+        Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 360f)));
+        GameObject newObject = Instantiate(splatter, newSplashosition, rotation);
+        float scaleMultiplier = Random.Range(0.05f, 0.1f) * velocityMagnitude;
+
+        newObject.GetComponent<Transform>().localScale *= scaleMultiplier;
+
+        if (color == ChargeState.Red)
         {
-            Debug.Log(collisionEvents[i].intersection);
-            Instantiate(splatter, collisionEvents[i].intersection, transform.rotation);
+            newObject.GetComponent<splatterController>().color = ChargeState.Red;
+        }
+        else if (color == ChargeState.Blue)
+        {
+            newObject.GetComponent<splatterController>().color = ChargeState.Blue;
         }
     }
 }

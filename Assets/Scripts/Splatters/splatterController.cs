@@ -12,10 +12,9 @@ public class splatterController : MonoBehaviour
         {
             case ChargeState.Red:
                 renderer.color = new Color(GlobalVariables.redColor.r, GlobalVariables.redColor.b, GlobalVariables.redColor.g, GlobalVariables.redColor.a);
-                Debug.Log(GetComponent<SpriteRenderer>().color);
                 break;
             case ChargeState.Blue:
-                renderer.sharedMaterial.color = new Color(255, 255, 255, 255);
+                renderer.color = new Color(GlobalVariables.blueColor.r, GlobalVariables.blueColor.b, GlobalVariables.blueColor.g, GlobalVariables.blueColor.a);
                 break;
             default:
                 break;
