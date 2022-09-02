@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float respawnTimer;
+
     public ChargeState playerState = ChargeState.Red;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    public Object explosionPrefab;
+    public GameObject explosionPrefab;
+    public Transform respawnPortalTransform;
+    private Rigidbody2D rb;
 
+    private void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody2D>();
 
+    }
     private void Update()
     {
         if (Input.GetButtonDown("ChangeCharge"))
@@ -41,7 +49,7 @@ public class PlayerController : MonoBehaviour
     public void die()
     {
         createDeathParticles();
-        Destroy(gameObject);
+        StartCoroutine(dieAndRespawn());
     }
     private void blast()
     {
@@ -59,5 +67,20 @@ public class PlayerController : MonoBehaviour
         {
             newObject.GetComponent<explosionController>().color = ChargeState.Blue;
         }
+    }
+
+
+    IEnumerator dieAndRespawn()
+    {
+        //Die
+        Color color = spriteRenderer.color;
+        transform.position = respawnPortalTransform.position;
+        spriteRenderer.color = new Color(0f, 0f, 0f, 0f);
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        //Wait
+        yield return new WaitForSeconds(respawnTimer);
+        //Respawn
+        spriteRenderer.color = color;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
