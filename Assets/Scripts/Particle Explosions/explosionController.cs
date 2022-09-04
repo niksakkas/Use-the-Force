@@ -13,14 +13,17 @@ public class explosionController : MonoBehaviour
 
     void Start()
     {
-        ParticleSystem.MainModule settings = GetComponent<ParticleSystem>().main;
+        ParticleSystemRenderer renderer = GetComponent<ParticleSystemRenderer>();
+        //ParticleSystem.MainModule settings = GetComponent<ParticleSystem>().main;
         switch (color)
         {
             case ChargeState.Red:
-                settings.startColor = new ParticleSystem.MinMaxGradient(GlobalVariables.redColor);
+                renderer.material.SetFloat("_Red", 1);
+                renderer.material.SetFloat("_Blue", 0);
                 break;
             case ChargeState.Blue:
-                settings.startColor = new ParticleSystem.MinMaxGradient(GlobalVariables.blueColor);
+                renderer.material.SetFloat("_Red", 0);
+                renderer.material.SetFloat("_Blue", 1);
                 break;
             default:
                 break;

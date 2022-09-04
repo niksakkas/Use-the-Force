@@ -98,3 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 1
+  redMaterial: {fileID: 2100000, guid: 0d2d9b7f33df15848bfeb8cbca17ca38, type: 2}
+  blueMaterial: {fileID: 2100000, guid: 1512b8a036a31c14b8ddd05d3e48f428, type: 2}
