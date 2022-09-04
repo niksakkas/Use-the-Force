@@ -14,7 +14,7 @@ public class explosionController : MonoBehaviour
     void Start()
     {
         ParticleSystemRenderer renderer = GetComponent<ParticleSystemRenderer>();
-        //ParticleSystem.MainModule settings = GetComponent<ParticleSystem>().main;
+        //pick explosion color
         switch (color)
         {
             case ChargeState.Red:
@@ -31,21 +31,20 @@ public class explosionController : MonoBehaviour
     }
     void OnParticleCollision(GameObject other)
     {
-
+        //create splatters on particle collisions
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
-
             createSplatter(collisionEvents[0].intersection, collisionEvents[0].velocity.magnitude);
 
     }
     void createSplatter(Vector3 newSplashosition, float velocityMagnitude)
     {
 
-
+        //add a random rotation and scale to splatter
         Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 360f)));
         GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
         float scaleMultiplier = Random.Range(0.12f, 0.24f) * velocityMagnitude;
-
         splatterObject.GetComponent<Transform>().localScale *= scaleMultiplier;
+        //tell splatter to pick its color
         splatterObject.SendMessage("pickColor", color);
     }
 }

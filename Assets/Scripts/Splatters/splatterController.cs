@@ -5,14 +5,14 @@ using UnityEngine;
 public class splatterController : MonoBehaviour
 {
     public ChargeState color;
-    //public Material redMaterial;
-    //public Material blueMaterial;
+
 
     void Start()
     {
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
 
     }
+    //pick splatter color
     void pickColor(ChargeState charge)
     {
         

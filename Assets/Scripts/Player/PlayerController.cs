@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     private void changePlayerCharge()
     {
+        // set player color
         if(playerState == ChargeState.Red) { 
             playerState = ChargeState.Blue;
             spriteRenderer.material.SetFloat("_Red", 0);
@@ -46,9 +47,12 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.material.SetFloat("_Blue", 0);
         }
     }
+    //runs when player dies
     public void die()
     {
+        //create explosion
         createDeathParticles();
+        //die and respawn
         StartCoroutine(dieAndRespawn());
     }
     private void blast()
