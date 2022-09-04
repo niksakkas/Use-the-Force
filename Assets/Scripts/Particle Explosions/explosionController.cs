@@ -39,18 +39,10 @@ public class explosionController : MonoBehaviour
 
 
         Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 360f)));
-        GameObject newObject = Instantiate(splatter, newSplashosition, rotation);
+        GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
         float scaleMultiplier = Random.Range(0.12f, 0.24f) * velocityMagnitude;
 
-        newObject.GetComponent<Transform>().localScale *= scaleMultiplier;
-
-        if (color == ChargeState.Red)
-        {
-            newObject.GetComponent<splatterController>().color = ChargeState.Red;
-        }
-        else if (color == ChargeState.Blue)
-        {
-            newObject.GetComponent<splatterController>().color = ChargeState.Blue;
-        }
+        splatterObject.GetComponent<Transform>().localScale *= scaleMultiplier;
+        splatterObject.SendMessage("pickColor", color);
     }
 }
