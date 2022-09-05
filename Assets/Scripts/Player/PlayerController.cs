@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float respawnTimer;
+    [SerializeField] private float scaleIncreaseIncrement = 0.04f;
+    [SerializeField] private float respawnStartingScale = 0.4f;
 
     public ChargeState playerState = ChargeState.Red;
     public SpriteRenderer spriteRenderer;
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject explosionPrefab;
     public Transform respawnPortalTransform;
     private Rigidbody2D rb;
+    private Vector3 scale;
 
     private void Start()
     {
@@ -24,18 +27,23 @@ public class PlayerController : MonoBehaviour
         {
             changePlayerCharge();
         }
-        if (Input.GetButtonDown("MainAbility"))
+        else if (Input.GetButtonDown("MainAbility"))
         {
-            if(playerState == ChargeState.Red)
+            if (playerState == ChargeState.Red)
             {
                 blast();
             }
+        }
+        if (transform.localScale.x <= 1.5)
+        {
+            transform.localScale = new Vector3(transform.localScale.x + scaleIncreaseIncrement, transform.localScale.y + scaleIncreaseIncrement, transform.localScale.y + scaleIncreaseIncrement);
         }
     }
     private void changePlayerCharge()
     {
         // set player color
-        if(playerState == ChargeState.Red) { 
+        if (playerState == ChargeState.Red)
+        {
             playerState = ChargeState.Blue;
             spriteRenderer.material.SetFloat("_Red", 0);
             spriteRenderer.material.SetFloat("_Blue", 1);
@@ -84,6 +92,8 @@ public class PlayerController : MonoBehaviour
         //Wait
         yield return new WaitForSeconds(respawnTimer);
         //Respawn
+
+        transform.localScale = new Vector3(respawnStartingScale, respawnStartingScale, respawnStartingScale);
         spriteRenderer.color = color;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }

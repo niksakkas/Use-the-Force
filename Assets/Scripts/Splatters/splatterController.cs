@@ -11,6 +11,9 @@ public class splatterController : MonoBehaviour
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         Sprite randomSprite = splatterSprites[Random.Range(0, splatterSprites.Length)];
         renderer.sprite = randomSprite;
+        //put it in front of previous splatters
+        renderer.sortingOrder = GlobalVariables.splatterCounter;
+        GlobalVariables.splatterCounter++;
     }
     //pick splatter color
     void pickColor(ChargeState charge)

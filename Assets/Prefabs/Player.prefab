@@ -232,7 +232,7 @@ MonoBehaviour:
   m_MovementSmoothing: 0.05
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   m_GroundCheck: {fileID: 8824281998704798070}
   m_CeilingCheck: {fileID: 5884797657614940014}
   airResistance: 0.1
@@ -251,10 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3d0aa0059fd4ca48b2cf5d4bd5dd7a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnTimer: 2
   playerState: 1
   spriteRenderer: {fileID: 6183605693714556880}
   animator: {fileID: 2002902706}
   explosionPrefab: {fileID: 1228038360579859010, guid: fd17c280c136b1948b71963032c47f76, type: 3}
+  respawnPortalTransform: {fileID: 0}
 --- !u!95 &2002902706
 Animator:
   serializedVersion: 4

@@ -7,6 +7,7 @@ public class explosionController : MonoBehaviour
     public ChargeState color;
     public ParticleSystem part;
     public GameObject splatter;
+    int splatOrder;
 
 
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
@@ -46,5 +47,7 @@ public class explosionController : MonoBehaviour
         splatterObject.GetComponent<Transform>().localScale *= scaleMultiplier;
         //tell splatter to pick its color
         splatterObject.SendMessage("pickColor", color);
+        splatOrder++;
+
     }
 }
