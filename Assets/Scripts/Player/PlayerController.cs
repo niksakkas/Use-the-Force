@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float respawnTimer;
-    [SerializeField] private float scaleIncreaseIncrement = 0.04f;
+    [SerializeField] private float scaleIncreaseIncrement = 0.1f;
     [SerializeField] private float respawnStartingScale = 0.4f;
 
     public ChargeState playerState = ChargeState.Red;
@@ -14,12 +14,12 @@ public class PlayerController : MonoBehaviour
     public GameObject explosionPrefab;
     public Transform respawnPortalTransform;
     private Rigidbody2D rb;
-    private Vector3 scale;
+    private float playerStartingScale;
 
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-
+        playerStartingScale = transform.localScale.x;
     }
     private void Update()
     {
@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
                 blast();
             }
         }
-        if (transform.localScale.x <= 1.5)
+        //if the player just spawned from the portal, increase his scale back to normal
+        if (transform.localScale.x < playerStartingScale)
         {
             transform.localScale = new Vector3(transform.localScale.x + scaleIncreaseIncrement, transform.localScale.y + scaleIncreaseIncrement, transform.localScale.y + scaleIncreaseIncrement);
         }
@@ -91,9 +92,9 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         //Wait
         yield return new WaitForSeconds(respawnTimer);
-        //Respawn
-
+        //Make the player smaller
         transform.localScale = new Vector3(respawnStartingScale, respawnStartingScale, respawnStartingScale);
+        //Respawn
         spriteRenderer.color = color;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
