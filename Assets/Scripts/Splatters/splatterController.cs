@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class splatterController : MonoBehaviour
 {
-    public ChargeState color;
-
-
+    public Sprite[] splatterSprites;
     void Start()
     {
+        //pick a random splatter sprite
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-
+        Sprite randomSprite = splatterSprites[Random.Range(0, splatterSprites.Length)];
+        renderer.sprite = randomSprite;
     }
     //pick splatter color
     void pickColor(ChargeState charge)
