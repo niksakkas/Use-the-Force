@@ -39,7 +39,6 @@ public class explosionController : MonoBehaviour
     }
     void createSplatter(Vector3 newSplashosition, float velocityMagnitude)
     {
-
         //add a random rotation and scale to splatter
         Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 359f)));
         GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
