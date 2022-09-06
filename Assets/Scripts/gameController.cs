@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class gameController : MonoBehaviour
 {
-    GameObject[] portals;
+    //portals
     public GameObject activeRespawnPortal;
+    public Material activePortalMaterial;
+    public Material inactivePortalMaterial;
+
     PlayerController player;
+
     // Start is called before the first frame update
     void Start()
     {
-        portals = GameObject.FindGameObjectsWithTag("Portal");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         player.respawnPortalTransform = activeRespawnPortal.transform;
 
@@ -19,7 +22,9 @@ public class gameController : MonoBehaviour
     // Adjust the Active Portal
     void setActiveRespawnPortal(GameObject portal)
     {
+        activeRespawnPortal.GetComponent<SpriteRenderer>().material = inactivePortalMaterial;
         activeRespawnPortal = portal;
+        activeRespawnPortal.GetComponent<SpriteRenderer>().material = activePortalMaterial;
         player.respawnPortalTransform = activeRespawnPortal.transform;
     }
 }

@@ -142,7 +142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10000
   m_Sprite: {fileID: 21300000, guid: 33ed45c9696568f48b8918b4fbe92137, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,6 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTimer: 2
+  scaleIncreaseIncrement: 0.005
+  respawnStartingScale: 0.4
   playerState: 1
   spriteRenderer: {fileID: 6183605693714556880}
   animator: {fileID: 2002902706}

@@ -13,8 +13,9 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject explosionPrefab;
     public Transform respawnPortalTransform;
-    private Rigidbody2D rb;
-    private float playerStartingScale;
+    
+    Rigidbody2D rb;
+    float playerStartingScale;
 
     private void Start()
     {
