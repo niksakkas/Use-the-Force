@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b1ac260d004d341b10f66d53edf675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePortalMaterial: {fileID: 0}
+  inactivePortalMaterial: {fileID: 0}
 --- !u!60 &1534678639
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -231,3 +233,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b1ac260d004d341b10f66d53edf675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activePortalMaterial: {fileID: 2100000, guid: e47f1a13b2685eb4198daed2ff5f0571, type: 2}
+  inactivePortalMaterial: {fileID: 2100000, guid: 4e88b1ae644b96c42915179699a92fd8, type: 2}

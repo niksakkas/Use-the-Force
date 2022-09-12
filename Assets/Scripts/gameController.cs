@@ -6,8 +6,6 @@ public class gameController : MonoBehaviour
 {
     //portals
     public GameObject activeRespawnPortal;
-    public Material activePortalMaterial;
-    public Material inactivePortalMaterial;
 
     PlayerController player;
 
@@ -19,12 +17,13 @@ public class gameController : MonoBehaviour
 
     }
 
-    // Adjust the Active Portal
+    // Change the active Portal
     void setActiveRespawnPortal(GameObject portal)
     {
-        activeRespawnPortal.GetComponent<SpriteRenderer>().material = inactivePortalMaterial;
+        activeRespawnPortal.SendMessage("deactivate");
         activeRespawnPortal = portal;
-        activeRespawnPortal.GetComponent<SpriteRenderer>().material = activePortalMaterial;
+        activeRespawnPortal.SendMessage("activate");
+
         player.respawnPortalTransform = activeRespawnPortal.transform;
     }
 }

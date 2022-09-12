@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InactivePortalMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 275b70a6a9532b04a8ebcae3bd849df0, type: 3}
+  m_Name: PortalMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: a2ba28802d62dbd4491486acacd86584, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -57,6 +57,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Transition: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
