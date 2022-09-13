@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float respawnTimer;
-    [SerializeField] private float scaleIncreaseIncrement = 0.1f;
+    [SerializeField] private float scaleIncreaseIncrement = 2f;
     [SerializeField] private float respawnStartingScale = 0.4f;
 
     public ChargeState playerState = ChargeState.Red;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         //if the player just spawned from the portal, increase his scale back to normal
         if (transform.localScale.x < playerStartingScale)
         {
-            transform.localScale = new Vector3(transform.localScale.x + scaleIncreaseIncrement, transform.localScale.y + scaleIncreaseIncrement, transform.localScale.y + scaleIncreaseIncrement);
+            transform.localScale = new Vector3(transform.localScale.x + scaleIncreaseIncrement*Time.deltaTime, transform.localScale.y + scaleIncreaseIncrement*Time.deltaTime, transform.localScale.y + scaleIncreaseIncrement*Time.deltaTime);
         }
     }
     private void changePlayerCharge()

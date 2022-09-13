@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnTimer: 2
-  scaleIncreaseIncrement: 0.005
+  scaleIncreaseIncrement: 2
   respawnStartingScale: 0.4
   playerState: 1
   spriteRenderer: {fileID: 6183605693714556880}
