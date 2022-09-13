@@ -26,7 +26,7 @@ public class portalController : MonoBehaviour
         if(isActivating){
             if(change > 0f){
                 m_SpriteRenderer.material.SetFloat("_Transition", change);
-                change -= Time.deltaTime;
+                change -= 2*Time.deltaTime;
             }
             else{
                 change = 0f;
