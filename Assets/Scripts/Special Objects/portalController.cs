@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class portalController : MonoBehaviour
 {
+    public bool isActive;
     gameController gameController;
     SpriteRenderer m_SpriteRenderer;
+    bool isActivating = false;
+    float change = 1;
     
     private void Start()
     {
@@ -19,8 +22,25 @@ public class portalController : MonoBehaviour
             gameController.SendMessage("setActiveRespawnPortal", gameObject);
         }
     }
+    private void Update(){
+        if(isActivating){
+            if(change > 0f){
+                m_SpriteRenderer.material.SetFloat("_Transition", change);
+                change -= Time.deltaTime;
+            }
+            else{
+                change = 0f;
+                m_SpriteRenderer.material.SetFloat("_Transition", change);
+                isActivating = false;
+            }
+        }
+    }
     private void activate(){
-        m_SpriteRenderer.material.SetFloat("_Transition", 0);
+        if(isActivating == false){
+            change = 1;
+            isActivating = true;
+        }
+
     }
     private void deactivate(){
         m_SpriteRenderer.material.SetFloat("_Transition", 1);

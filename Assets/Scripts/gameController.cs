@@ -14,16 +14,18 @@ public class gameController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         player.respawnPortalTransform = activeRespawnPortal.transform;
+        activeRespawnPortal.SendMessage("activate");
 
     }
 
     // Change the active Portal
     void setActiveRespawnPortal(GameObject portal)
     {
-        activeRespawnPortal.SendMessage("deactivate");
-        activeRespawnPortal = portal;
-        activeRespawnPortal.SendMessage("activate");
-
+        if(portal != activeRespawnPortal){
+            activeRespawnPortal.SendMessage("deactivate");
+            activeRespawnPortal = portal;
+            activeRespawnPortal.SendMessage("activate");
+        }
         player.respawnPortalTransform = activeRespawnPortal.transform;
     }
 }
