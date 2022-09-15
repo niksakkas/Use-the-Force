@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     }
     private void changePlayerCharge()
     {
+        //TODO: update the direction of all magnetic fields
+
         // set player color
         if (playerState == ChargeState.Red)
         {

@@ -14,8 +14,6 @@ public class MagneticField : MonoBehaviour
 
     public float CalculatePullOrPush(ChargeState targetCharge)
     {
-        // Debug.Log("targetCharge: " + targetCharge);
-        // Debug.Log("magnetCharge: " + magnetCharge);
         switch ((int)targetCharge * (int)magnetCharge)
         {
             case (-1):
