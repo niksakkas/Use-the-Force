@@ -183,7 +183,7 @@ MonoBehaviour:
   pushMultiplier: -1
   hardPullMultiplier: 1
   softPullMultiplier: 0
-  magnetSength: 1.5
+  magnetStrength: 1.5
   magnetCharge: 1
 --- !u!1 &8085278852637615214
 GameObject:

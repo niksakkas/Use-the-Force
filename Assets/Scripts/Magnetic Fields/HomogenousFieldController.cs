@@ -20,7 +20,7 @@ public class HomogenousFieldController : MonoBehaviour
         {
             Rigidbody2D playerRB = collider.attachedRigidbody;
             float pullOrPush = magneticFieldScript.CalculatePullOrPush(playerScript.playerState);
-            playerRB.AddForce(forceDirection * magneticFieldScript.magnetSength * pullOrPush);
+            playerRB.AddForce(forceDirection * magneticFieldScript.magnetStrength * pullOrPush);
 
         }
     }

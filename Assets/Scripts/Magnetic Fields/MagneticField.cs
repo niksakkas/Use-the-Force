@@ -8,9 +8,14 @@ public class MagneticField : MonoBehaviour
     public float pushMultiplier;       // when magnet and target are both blue or red
     public float hardPullMultiplier;   // when magnet and target are opposite colors
     public float softPullMultiplier;   // when either the magnet or the target are purple
-    [Range(0, 30)][SerializeField] public float magnetSength;         // (0,inf) Power of the magnet
+    [Range(0, 30)][SerializeField] public float magnetStrength;         // (0,inf) Power of the magnet
     public ChargeState magnetCharge;
+    SpriteRenderer m_SpriteRenderer;
 
+    private void Start(){
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        displayMagnitude();
+    }
 
     public float CalculatePullOrPush(ChargeState targetCharge)
     {
@@ -25,6 +30,10 @@ public class MagneticField : MonoBehaviour
             default:
                 return 0f;
         }
+    }
+    private void displayMagnitude(){
+        Debug.Log(magnetStrength);
+        m_SpriteRenderer.material.SetFloat("_Magnitude", magnetStrength/3f);
     }
 
 }

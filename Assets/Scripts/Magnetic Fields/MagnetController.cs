@@ -31,8 +31,8 @@ public class MagnetController : MonoBehaviour
         float distance = Vector2.Distance(magnetPosition, targetRB.position);
         // calculate the direction of the new velocity and slightly adjust it based on the current's velocity direction
         Vector2 newVelocityDirection = ((magnetPosition - targetRB.position).normalized * (1-helpFactor)) + ((targetRB.velocity).normalized * helpFactor);
-        // calculate the magnitude of the new velocity based on the magnetSength and the distanceImportance
-        float newVelocityMagnitude = force * magneticFieldScript.magnetSength / (float)Math.Pow(distance, distanceImportance);
+        // calculate the magnitude of the new velocity based on the magnetStrength and the distanceImportance
+        float newVelocityMagnitude = force * magneticFieldScript.magnetStrength / (float)Math.Pow(distance, distanceImportance);
         // add new velocity to current velocity
         targetRB.velocity += newVelocityDirection * newVelocityMagnitude;
     }
