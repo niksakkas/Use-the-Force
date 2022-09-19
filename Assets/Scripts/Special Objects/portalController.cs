@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class portalController : MonoBehaviour
+public class PortalController : MonoBehaviour
 {
     public bool isActive;
-    gameController gameController;
+    GameController gameController;
     SpriteRenderer m_SpriteRenderer;
     bool isActivating = false;
     float change = 1;
@@ -13,7 +13,7 @@ public class portalController : MonoBehaviour
     private void Start()
     {
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {

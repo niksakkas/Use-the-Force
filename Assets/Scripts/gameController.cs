@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     //portals
     public GameObject activeRespawnPortal;
@@ -18,10 +18,6 @@ public class gameController : MonoBehaviour
         activeRespawnPortal.SendMessage("activate");
 
         magneticFields = GameObject.FindObjectsOfType<MagneticField>();
-        // foreach(Object field in GameObject.FindObjectsOfType<MagneticField>()) //des an iparxei method tou object
-        // {
-        //     magneticFields.append(field.GetComponent<MagneticField>());
-        // }
         updateDirectionOfFields();
     }
 

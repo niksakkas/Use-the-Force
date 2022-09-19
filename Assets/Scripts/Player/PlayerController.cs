@@ -15,14 +15,14 @@ public class PlayerController : MonoBehaviour
     public Transform respawnPortalTransform;
     
     Rigidbody2D rb;
-    gameController gameController;
+    GameController gameController;
     float playerStartingScale;
 
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerStartingScale = transform.localScale.x;
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
     private void Update()
     {
