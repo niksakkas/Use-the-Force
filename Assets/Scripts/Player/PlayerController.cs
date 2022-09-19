@@ -15,12 +15,14 @@ public class PlayerController : MonoBehaviour
     public Transform respawnPortalTransform;
     
     Rigidbody2D rb;
+    gameController gameController;
     float playerStartingScale;
 
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerStartingScale = transform.localScale.x;
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<gameController>();
     }
     private void Update()
     {
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private void changePlayerCharge()
     {
         //TODO: update the direction of all magnetic fields
+        gameController.SendMessage("updateDirectionOfFields", gameObject);
+
 
         // set player color
         if (playerState == ChargeState.Red)

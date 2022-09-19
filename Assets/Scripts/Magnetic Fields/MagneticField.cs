@@ -11,8 +11,13 @@ public class MagneticField : MonoBehaviour
     [Range(0, 30)][SerializeField] public float magnetStrength;         // (0,inf) Power of the magnet
     public ChargeState magnetCharge;
     SpriteRenderer m_SpriteRenderer;
+    PlayerController player;
+    float direction;
+    
 
     private void Start(){
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        direction = CalculatePullOrPush(player.playerState);
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         displayMagnitude();
     }
@@ -31,9 +36,13 @@ public class MagneticField : MonoBehaviour
                 return 0f;
         }
     }
+
     private void displayMagnitude(){
-        Debug.Log(magnetStrength);
         m_SpriteRenderer.material.SetFloat("_Magnitude", magnetStrength/3f);
+    }
+    private void changeDirection(){
+        m_SpriteRenderer.material.SetFloat("_Direction", direction);
+        direction *= -1f;
     }
 
 }

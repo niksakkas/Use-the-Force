@@ -8,14 +8,21 @@ public class gameController : MonoBehaviour
     public GameObject activeRespawnPortal;
 
     PlayerController player;
+    MagneticField[] magneticFields;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         player.respawnPortalTransform = activeRespawnPortal.transform;
+
         activeRespawnPortal.SendMessage("activate");
 
+        magneticFields = GameObject.FindObjectsOfType<MagneticField>();
+        // foreach(Object field in GameObject.FindObjectsOfType<MagneticField>()) //des an iparxei method tou object
+        // {
+        //     magneticFields.append(field.GetComponent<MagneticField>());
+        // }
+        updateDirectionOfFields();
     }
 
     // Change the active Portal
@@ -27,5 +34,11 @@ public class gameController : MonoBehaviour
             activeRespawnPortal.SendMessage("activate");
         }
         player.respawnPortalTransform = activeRespawnPortal.transform;
+    }
+    void updateDirectionOfFields(){
+        foreach(MagneticField field in magneticFields)
+        {
+            field.SendMessage("changeDirection");
+        }
     }
 }
