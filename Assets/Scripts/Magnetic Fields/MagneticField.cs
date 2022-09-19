@@ -41,8 +41,8 @@ public class MagneticField : MonoBehaviour
         m_SpriteRenderer.material.SetFloat("_Magnitude", magnetStrength/3f);
     }
     private void changeDirection(){
-        m_SpriteRenderer.material.SetFloat("_Direction", direction);
         direction *= -1f;
+        m_SpriteRenderer.material.SetFloat("_Direction", direction);
     }
 
 }

@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     }
     private void changePlayerCharge()
     {
-        //TODO: update the direction of all magnetic fields
+        //Update the direction of all magnetic fields
         gameController.SendMessage("updateDirectionOfFields", gameObject);
 
 
