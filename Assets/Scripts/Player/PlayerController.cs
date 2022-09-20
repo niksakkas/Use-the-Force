@@ -81,11 +81,11 @@ public class PlayerController : MonoBehaviour
         GameObject newObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
         if (playerState == ChargeState.Red)
         {
-            newObject.GetComponent<explosionController>().color = ChargeState.Red;
+            newObject.GetComponent<ExplosionController>().color = ChargeState.Red;
         }
         else if (playerState == ChargeState.Blue)
         {
-            newObject.GetComponent<explosionController>().color = ChargeState.Blue;
+            newObject.GetComponent<ExplosionController>().color = ChargeState.Blue;
         }
     }
 

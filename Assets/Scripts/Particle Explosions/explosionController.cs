@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class explosionController : MonoBehaviour
+public class ExplosionController : MonoBehaviour
 {
     public ChargeState color;
     public ParticleSystem part;
