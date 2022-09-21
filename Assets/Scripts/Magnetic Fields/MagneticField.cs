@@ -15,11 +15,13 @@ public class MagneticField : MonoBehaviour
     float direction;
     
 
-    private void Start(){
+    private void Awake(){
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         direction = CalculatePullOrPush(player.playerState);
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+
         displayMagnitude();
+        setShaderDirection();
     }
 
     public float CalculatePullOrPush(ChargeState targetCharge)
@@ -39,6 +41,14 @@ public class MagneticField : MonoBehaviour
 
     private void displayMagnitude(){
         m_SpriteRenderer.material.SetFloat("_Magnitude", magnetStrength/3f);
+    }
+    private void setShaderDirection(){
+        if(player.playerState == magnetCharge){
+            m_SpriteRenderer.material.SetFloat("_Direction", -1);
+        }
+        else{
+            m_SpriteRenderer.material.SetFloat("_Direction", 1);
+        }
     }
     private void changeDirection(){
         direction *= -1f;

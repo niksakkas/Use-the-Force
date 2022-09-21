@@ -18,7 +18,6 @@ public class GameController : MonoBehaviour
         activeRespawnPortal.SendMessage("activate");
 
         magneticFields = GameObject.FindObjectsOfType<MagneticField>();
-        updateDirectionOfFields();
     }
 
     // Change the active Portal

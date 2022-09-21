@@ -682,13 +682,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
+      propertyPath: m_Color.a
+      value: 0.09803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471810, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_Name
       value: RedHomogenousField
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476366508070471810, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471814, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_RootOrder
@@ -1038,10 +1050,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1080836350, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
-      propertyPath: magnetStrength
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471810, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_Name
       value: BlueHomogenousField

@@ -89,7 +89,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 244c6ea44772a404bab490d31ae4d0a1, type: 2}
+  - {fileID: 2100000, guid: 94c860a1ba6b5dc48bb9963afc84ebf5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   pushMultiplier: -1
   hardPullMultiplier: 1
   softPullMultiplier: 0
-  magnetStrength: 15
+  magnetStrength: 30
   magnetCharge: -1
 --- !u!1 &1476366508417022471
 GameObject:
