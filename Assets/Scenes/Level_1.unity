@@ -343,14 +343,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeroGravityField (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 2236738541581970722, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2236738541581970723, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
 --- !u!1 &882522411
@@ -1159,14 +1151,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeroGravityField
       objectReference: {fileID: 0}
-    - target: {fileID: 2236738541581970722, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2236738541581970723, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
 --- !u!1001 &2441206256447721970
