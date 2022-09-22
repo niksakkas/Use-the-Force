@@ -134,17 +134,13 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
-    - target: {fileID: 8085278852637615208, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.b
-      value: 0.08627451
+    - target: {fileID: 8085278851628682266, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8085278852637615208, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.g
-      value: 0.08627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278852637615208, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 8085278851628682266, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: m_Color.a
+      value: 0.18431373
       objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
@@ -193,10 +189,6 @@ PrefabInstance:
     - target: {fileID: 8085278852637615214, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_Name
       value: RedMagnet
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278852637615214, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
@@ -1042,6 +1034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476366508070471809, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.09803922
+      objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471810, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_Name
       value: BlueHomogenousField
@@ -1473,6 +1469,10 @@ PrefabInstance:
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
+    - target: {fileID: 8085278851628682266, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db75a7317f781b049b6ed3506b9a93dc, type: 2}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_RootOrder
       value: 4

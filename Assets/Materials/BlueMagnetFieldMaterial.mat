@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MagnetFieldMaterial
-  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
+  m_Name: BlueMagnetFieldMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: dbf917b6391722a4482d229fbead2b39, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -36,11 +36,32 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3590cb27278c41898cf96063baf531ff_Texture_1:
+        m_Texture: {fileID: 2800000, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Boolean: 1
     - _EnableExternalAlpha: 0
+    - _Float: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color_1: {r: 0.2901961, g: 0.087960035, b: 0.04313725, a: 1}
+    - _FieldColor: {r: 0.2588235, g: 0.31605148, b: 1, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _LinesColor: {r: 0, g: 0.75888014, b: 1, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
