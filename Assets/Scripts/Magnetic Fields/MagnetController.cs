@@ -9,7 +9,6 @@ public class MagnetController : MonoBehaviour
     [Range(0,2)][SerializeField] public float distanceImportance;    // [0,inf) The higher this is, the more powerful the magnet gets if the object is close
     public PlayerController playerScript;
     public MagneticField magneticFieldScript;
-
     public ChargeState magnetCharge = ChargeState.Blue;
     
     private Vector2 magnetPosition;
@@ -18,6 +17,7 @@ public class MagnetController : MonoBehaviour
         magnetPosition = new Vector2(transform.position.x , transform.position.y);
     }
 
+    //pushes player accordingly when he is within the field
     private void OnTriggerStay2D(Collider2D collider)        
     {
         if (collider.GetComponent<Collider2D>().tag == "Player"){      

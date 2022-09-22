@@ -18,7 +18,6 @@ public class SplatterController : MonoBehaviour
     //pick splatter color
     void pickColor(ChargeState charge)
     {
-        
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         switch (charge)
         {
