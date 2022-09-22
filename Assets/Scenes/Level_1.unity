@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 564314032, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: magnetStrength
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: playerScript
       value: 
@@ -141,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 8085278851628682266, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_Color.a
       value: 0.18431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 8085278851628682270, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
@@ -1034,6 +1042,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1080836350, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
+      propertyPath: magnetStrength
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471809, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_Color.a
       value: 0.09803922
@@ -1465,6 +1477,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 77403336, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: magnetStrength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: playerScript
       value: 
@@ -1473,6 +1489,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: db75a7317f781b049b6ed3506b9a93dc, type: 2}
+    - target: {fileID: 8085278851628682270, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_RootOrder
       value: 4
