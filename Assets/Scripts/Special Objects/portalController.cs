@@ -25,14 +25,16 @@ public class PortalController : MonoBehaviour
     private void Update(){
         if(isActivating){
             if(change > 0f){
-                m_SpriteRenderer.material.SetFloat("_Transition", change);
+                m_SpriteRenderer.material.SetFloat("_ColorTransition", change);
                 change -= 2*Time.deltaTime;
             }
             else{
                 change = 0f;
-                m_SpriteRenderer.material.SetFloat("_Transition", change);
+                m_SpriteRenderer.material.SetFloat("_ColorTransition", change);
                 isActivating = false;
             }
+
+
         }
     }
     private void activate(){
@@ -40,9 +42,10 @@ public class PortalController : MonoBehaviour
             change = 1;
             isActivating = true;
         }
-
+        m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.6f);
     }
     private void deactivate(){
-        m_SpriteRenderer.material.SetFloat("_Transition", 1);
+        m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.2f);
+        m_SpriteRenderer.material.SetFloat("_ColorTransition", 1);
     }
 }
