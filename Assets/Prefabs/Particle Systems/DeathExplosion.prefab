@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8985462643077898486}
   - component: {fileID: 4587311543579610407}
   m_Layer: 3
-  m_Name: Explosion
+  m_Name: DeathExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2640,7 +2640,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2694,7 +2694,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 0
-    dampen: 0.5
+    dampen: 0.3
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -4908,3 +4908,5 @@ MonoBehaviour:
   color: 0
   part: {fileID: 1228038360579859021}
   splatter: {fileID: 4715435649366159177, guid: 854befed69d1c354f82f1316bff6800c, type: 3}
+  minScale: 0.12
+  maxScale: 0.24

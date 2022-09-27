@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public ChargeState playerState = ChargeState.Red;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    public GameObject explosionPrefab;
+    public GameObject deathExplosionPrefab;
+    public GameObject redExplosionPrefab;
     public Transform respawnPortalTransform;
     
     Rigidbody2D rb;
@@ -74,11 +75,15 @@ public class PlayerController : MonoBehaviour
     private void blast()
     {
         animator.SetTrigger("Blast");
+    }
+    private void playRedExplosion()
+    {
+        GameObject newObject = Instantiate(redExplosionPrefab, transform.position, transform.rotation) as GameObject;
 
     }
     public void createDeathParticles()
     {
-        GameObject newObject = Instantiate(explosionPrefab, transform.position, transform.rotation) as GameObject;
+        GameObject newObject = Instantiate(deathExplosionPrefab, transform.position, transform.rotation) as GameObject;
         if (playerState == ChargeState.Red)
         {
             newObject.GetComponent<ExplosionController>().color = ChargeState.Red;
