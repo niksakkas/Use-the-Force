@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
     public GameObject deathExplosionPrefab;
     public GameObject redExplosionPrefab;
     public Transform respawnPortalTransform;
-    
+
+    private GameObject currentRedExplosion;
+
     Rigidbody2D rb;
     GameController gameController;
     float playerStartingScale;
@@ -42,6 +44,10 @@ public class PlayerController : MonoBehaviour
         if (transform.localScale.x < playerStartingScale)
         {
             transform.localScale = new Vector3(transform.localScale.x + scaleIncreaseIncrement*Time.deltaTime, transform.localScale.y + scaleIncreaseIncrement*Time.deltaTime, transform.localScale.y + scaleIncreaseIncrement*Time.deltaTime);
+        }
+        if (currentRedExplosion)
+        {
+            currentRedExplosion.GetComponent<Rigidbody2D>().velocity = rb.velocity;
         }
     }
     private void changePlayerCharge()
@@ -78,8 +84,7 @@ public class PlayerController : MonoBehaviour
     }
     private void playRedExplosion()
     {
-        GameObject newObject = Instantiate(redExplosionPrefab, transform.position, transform.rotation) as GameObject;
-
+        currentRedExplosion = Instantiate(redExplosionPrefab, transform.position, transform.rotation) as GameObject;
     }
     public void createDeathParticles()
     {
