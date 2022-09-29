@@ -58,11 +58,12 @@ Material:
     - _Direction: 0
     - _EnableExternalAlpha: 0
     - _Float: 0
+    - _LineIntensity: 2.5
     - _Magnitude: 1
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _Color_1: {r: 0.2901961, g: 0.087960035, b: 0.04313725, a: 1}
-    - _FieldColor: {r: 0, g: 0.23139048, b: 1, a: 0}
+    - _FieldColor: {r: 0, g: 0.47852492, b: 1, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _LinesColor: {r: 0.37169808, g: 0.7669118, b: 1, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
