@@ -1555,18 +1555,6 @@ PrefabInstance:
       propertyPath: activeRespawnPortal
       value: 
       objectReference: {fileID: 1534678634}
-    - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
-      propertyPath: activePortalMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: e47f1a13b2685eb4198daed2ff5f0571, type: 2}
-    - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
-      propertyPath: inActivePortalMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 4e88b1ae644b96c42915179699a92fd8, type: 2}
-    - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
-      propertyPath: inactivePortalMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 4e88b1ae644b96c42915179699a92fd8, type: 2}
     - target: {fileID: 4953091105930488435, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
       propertyPath: m_Name
       value: GameController
@@ -1580,25 +1568,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: redExplosionPrefab
-      value: 
-      objectReference: {fileID: 1170567192047786, guid: dfbdf2134f769dc4486867bd0989e1f4, type: 3}
-    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: deathExplosionPrefab
-      value: 
-      objectReference: {fileID: 1228038360579859010, guid: fd17c280c136b1948b71963032c47f76, type: 3}
-    - target: {fileID: 6183605693714556880, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: m_Color.b
+    - target: {fileID: 1285637597, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6183605693714556880, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: m_Color.g
-      value: 1
+    - target: {fileID: 1285637597, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6183605693714556880, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 1285637597, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285637597, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name

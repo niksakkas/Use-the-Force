@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1285637596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285637597}
+  m_Layer: 3
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1285637597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285637596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.058, y: 0.023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6183605693714556895}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6029257605238035237
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,6 +109,7 @@ GameObject:
   - component: {fileID: 2527508806025846360}
   - component: {fileID: 638214545583079930}
   - component: {fileID: 2002902706}
+  - component: {fileID: 2002902707}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -99,6 +131,7 @@ Transform:
   m_Children:
   - {fileID: 5884797657614940014}
   - {fileID: 8824281998704798070}
+  - {fileID: 1285637597}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -257,7 +290,8 @@ MonoBehaviour:
   playerState: 1
   spriteRenderer: {fileID: 6183605693714556880}
   animator: {fileID: 2002902706}
-  explosionPrefab: {fileID: 1228038360579859010, guid: fd17c280c136b1948b71963032c47f76, type: 3}
+  deathExplosionPrefab: {fileID: 1228038360579859010, guid: fd17c280c136b1948b71963032c47f76, type: 3}
+  redExplosionPrefab: {fileID: 1170567192047786, guid: dfbdf2134f769dc4486867bd0989e1f4, type: 3}
   respawnPortalTransform: {fileID: 0}
 --- !u!95 &2002902706
 Animator:
@@ -279,3 +313,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2002902707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183605693714556881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1772c7365d458274082d2eb3fcab8774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1285637597}
+  bullet: {fileID: 5314603815027780300, guid: 90b26bf009391c3448791ae9f3aff325, type: 3}
+  pointerPosition: {fileID: -5252416606915266118, guid: a4196e83202f81f4dbcd1753d2609a6b, type: 3}

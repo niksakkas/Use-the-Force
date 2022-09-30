@@ -33,12 +33,13 @@ public class PlayerController : MonoBehaviour
         {
             changePlayerCharge();
         }
-        else if (Input.GetButtonDown("MainAbility"))
+        if (Input.GetButtonDown("MainAbility"))
         {
             if (playerState == ChargeState.Red)
             {
                 blast();
             }
+
         }
         //if the player just spawned from the portal, increase his scale back to normal
         if (transform.localScale.x < playerStartingScale)
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("Blast");
     }
+
     private void playRedExplosion()
     {
         currentRedExplosion = Instantiate(redExplosionPrefab, transform.position, transform.rotation) as GameObject;
