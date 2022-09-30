@@ -6,15 +6,19 @@ public class ZeroGravityFieldController : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collider)
     {
+        if (collider.GetComponent<Collider2D>().tag == "Player")
+        {
         disableVerticalControl(collider.gameObject);
         applyPlayerGravityPull(collider.attachedRigidbody);
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collider)
     {
-        enableVerticalControl(collider.gameObject);
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
+            enableVerticalControl(collider.gameObject);
             removePlayerGravityPull(collider.attachedRigidbody);
         }
     }
