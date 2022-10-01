@@ -10,6 +10,12 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         bulletRb.velocity = transform.right * speed;
+        StartCoroutine(destroyBullet());
+    }
+    IEnumerator destroyBullet()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
 }
