@@ -22,10 +22,10 @@ public class SplatterController : MonoBehaviour
         switch (charge)
         {
             case ChargeState.Red:
-                renderer.color = GlobalVariables.redColor;
+                renderer.color = Random.ColorHSV(0f, 0.038f, 0.82f, 0.90f, 1f, 1f);
                 break;
             case ChargeState.Blue:
-                renderer.color = GlobalVariables.blueColor;
+                renderer.color = Random.ColorHSV(0.52f, 0.60f, 0.87f, 0.87f, 0.87f, 0.87f);
                 break;
             default:
                 break;
