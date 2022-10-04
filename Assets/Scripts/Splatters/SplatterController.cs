@@ -5,8 +5,22 @@ using UnityEngine;
 public class SplatterController : MonoBehaviour
 {
     public Sprite[] splatterSprites;
-    void Start()
+    public Color minRed;
+    public Color maxRed;
+    public Color minBlue;
+    public Color maxBlue;
+
+    private float minBH, minBS, minBV, minRH, minRS, minRV;
+    private float maxBH, maxBS, maxBV, maxRH, maxRS, maxRV;
+
+    void Awake()
     {
+        Color.RGBToHSV(minBlue, out minBH, out minBS, out minBV);
+        Color.RGBToHSV(maxBlue, out maxBH, out maxBS, out maxBV);
+        Color.RGBToHSV(minRed, out minRH, out minRS, out minRV);
+        Color.RGBToHSV(maxRed, out maxRH, out maxRS, out maxRV);
+
+
         //pick a random splatter sprite
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         Sprite randomSprite = splatterSprites[Random.Range(0, splatterSprites.Length)];
@@ -15,6 +29,8 @@ public class SplatterController : MonoBehaviour
         renderer.sortingOrder = GlobalVariables.splatterCounter;
         GlobalVariables.splatterCounter++;
     }
+
+
     //pick splatter color
     void pickColor(ChargeState charge)
     {
@@ -22,10 +38,15 @@ public class SplatterController : MonoBehaviour
         switch (charge)
         {
             case ChargeState.Red:
-                renderer.color = Random.ColorHSV(0f, 0.038f, 0.82f, 0.90f, 1f, 1f);
+                //Debug.Log(minRH + "," + maxRH + "," + minRS + "," + maxRS + "," + minRV + "," + maxRV);a
+                renderer.color = Random.ColorHSV(minRH, maxRH, minRS, maxRS, minRV, maxRV);
+                //Debug.Log(renderer.color);
+                //Debug.Log(Random.ColorHSV(0f, 0.038f, 0.82f, 0.90f, 1f, 1f));
+
+
                 break;
             case ChargeState.Blue:
-                renderer.color = Random.ColorHSV(0.52f, 0.60f, 0.87f, 0.87f, 0.87f, 0.87f);
+                renderer.color = Random.ColorHSV(minBH, maxBH, minBS, maxBS, minBV, maxBV);
                 break;
             default:
                 break;
