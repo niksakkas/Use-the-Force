@@ -7,8 +7,9 @@ public class BlueAbility : MonoBehaviour
 {
 
     public Transform firePoint;
-    public GameObject bullet;
-    
+    public GameObject blueBullet;
+    public GameObject purpleBullet;
+
     private PlayerController playerController;
 
     [SerializeField]
@@ -25,20 +26,31 @@ public class BlueAbility : MonoBehaviour
     void Update()
     {  
         pointerInput = getPointerInput();
-        if (playerController.playerState == ChargeState.Blue)
+        if (playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true)
         {
             aim();
-
             if (Input.GetButtonDown("MainAbility"))
             {
-                shoot();
+
+                if ( playerController.purplePowerupActive == false)
+                {
+                    shoot();
+                }
+                else
+                {
+                    shootPurple();
+                }
             }
         }
     }
 
     private void shoot()
     {
-        Instantiate(bullet, firePoint.position, firePoint.rotation);
+        Instantiate(blueBullet, firePoint.position, firePoint.rotation);
+    }
+    private void shootPurple()
+    {
+        Instantiate(purpleBullet, firePoint.position, firePoint.rotation);
     }
     private void aim()
     {

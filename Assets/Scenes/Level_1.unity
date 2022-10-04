@@ -1757,6 +1757,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purpleBullet
+      value: 
+      objectReference: {fileID: 5314603815027780300, guid: ee0f6135723df67498acb0d9b40d70c4, type: 3}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1952,22 +1956,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 77403336, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: magnetStrength
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
-    - target: {fileID: 8085278851628682266, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: db75a7317f781b049b6ed3506b9a93dc, type: 2}
-    - target: {fileID: 8085278851628682270, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2015,14 +2007,6 @@ PrefabInstance:
     - target: {fileID: 8085278852637615214, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_Name
       value: BlueMagnet
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278852637615214, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278852637615214, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}

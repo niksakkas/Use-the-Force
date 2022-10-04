@@ -293,6 +293,8 @@ MonoBehaviour:
   deathExplosionPrefab: {fileID: 1228038360579859010, guid: fd17c280c136b1948b71963032c47f76, type: 3}
   redExplosionPrefab: {fileID: 1170567192047786, guid: dfbdf2134f769dc4486867bd0989e1f4, type: 3}
   respawnPortalTransform: {fileID: 0}
+  purplePowerupActive: 0
+  purplePowerUpTimer: 10
 --- !u!95 &2002902706
 Animator:
   serializedVersion: 4
@@ -326,5 +328,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1285637597}
-  bullet: {fileID: 5314603815027780300, guid: 90b26bf009391c3448791ae9f3aff325, type: 3}
+  blueBullet: {fileID: 5314603815027780300, guid: 90b26bf009391c3448791ae9f3aff325, type: 3}
   pointerPosition: {fileID: -5252416606915266118, guid: a4196e83202f81f4dbcd1753d2609a6b, type: 3}

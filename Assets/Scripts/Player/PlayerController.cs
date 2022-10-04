@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject deathExplosionPrefab;
     public GameObject redExplosionPrefab;
-    public Transform respawnPortalTransform;
+    public Transform respawnPortalTransform; 
+    public bool purplePowerupActive = false;
+    public float purplePowerUpTimer;
 
     private GameObject currentRedExplosion;
-
-    Rigidbody2D rb;
-    GameController gameController;
-    float playerStartingScale;
+    private Rigidbody2D rb;
+    private GameController gameController;
+    private float playerStartingScale;
 
     private void Start()
     {
@@ -29,20 +30,23 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown("ChangeCharge"))
+        if (Input.GetButtonDown("ChangeCharge") && playerState!=ChargeState.Purple)
         {
             changePlayerCharge();
         }
         if (Input.GetButtonDown("MainAbility"))
         {
-            if (playerState == ChargeState.Red)
+            if (playerState == ChargeState.Red && purplePowerupActive == false)
             {
                 blast();
             }
-
         }
-        //if the player just spawned from the portal, increase his scale back to normal
-        if (transform.localScale.x < playerStartingScale)
+        if (Input.GetButtonDown("PurplePowerup"))
+        {
+            StartCoroutine(purplePowerUp());
+        }
+            //if the player just spawned from the portal, increase his scale back to normal
+            if (transform.localScale.x < playerStartingScale)
         {
             transform.localScale = new Vector3(transform.localScale.x + scaleIncreaseIncrement*Time.deltaTime, transform.localScale.y + scaleIncreaseIncrement*Time.deltaTime, transform.localScale.y + scaleIncreaseIncrement*Time.deltaTime);
         }
@@ -60,16 +64,30 @@ public class PlayerController : MonoBehaviour
         // set player color
         if (playerState == ChargeState.Red)
         {
-            playerState = ChargeState.Blue;
-            spriteRenderer.material.SetFloat("_Red", 0);
-            spriteRenderer.material.SetFloat("_Blue", 1);
+            becomeBlue();
         }
         else
         {
-            playerState = ChargeState.Red;
-            spriteRenderer.material.SetFloat("_Red", 1);
-            spriteRenderer.material.SetFloat("_Blue", 0);
+            becomeRed();
         }
+    }
+    private void becomeBlue()
+    {
+        playerState = ChargeState.Blue;
+        spriteRenderer.material.SetFloat("_Red", 0);
+        spriteRenderer.material.SetFloat("_Blue", 1);
+    }
+    private void becomeRed()
+    {
+        playerState = ChargeState.Red;
+        spriteRenderer.material.SetFloat("_Red", 1);
+        spriteRenderer.material.SetFloat("_Blue", 0);
+    }
+    private void becomePurple()
+    {
+        playerState = ChargeState.Purple;
+        spriteRenderer.material.SetFloat("_Red", 1);
+        spriteRenderer.material.SetFloat("_Blue", 1);
     }
     //runs when player dies
     public void die()
@@ -100,8 +118,6 @@ public class PlayerController : MonoBehaviour
             newObject.GetComponent<ExplosionController>().color = ChargeState.Blue;
         }
     }
-
-
     IEnumerator dieAndRespawn()
     {
         //Die
@@ -116,5 +132,12 @@ public class PlayerController : MonoBehaviour
         //Respawn
         spriteRenderer.color = color;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+    IEnumerator purplePowerUp()
+    {
+        purplePowerupActive = true;
+        yield return new WaitForSeconds(purplePowerUpTimer);
+        purplePowerupActive = false;
+
     }
 }
