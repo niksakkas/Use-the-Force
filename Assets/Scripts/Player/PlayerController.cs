@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.color = color;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+    //this coroutine depletes the purple power over "purplePowerUpDuration" seconds. Each change happens every 0.1 second.
     IEnumerator purplePowerUp()
     {
         float secondInterval = 0.1f;
