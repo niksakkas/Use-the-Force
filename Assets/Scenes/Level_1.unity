@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 15144255}
   - component: {fileID: 15144254}
   m_Layer: 5
-  m_Name: T_2_lighthing_
+  m_Name: PurplePowerupIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 57245945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.024359, y: -9.012762, z: -363.52545}
+  m_LocalPosition: {x: 0.3, y: 8, z: -363.52545}
   m_LocalScale: {x: 89.512, y: 45.304955, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2150,6 +2150,14 @@ PrefabInstance:
       propertyPath: purpleBullet
       value: 
       objectReference: {fileID: 5314603815027780300, guid: ee0f6135723df67498acb0d9b40d70c4, type: 3}
+    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purplePowerUpDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purplePowerUpIconMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ff83d0b8d7fd1cc469981fd5489e1fc0, type: 2}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
       value: Player

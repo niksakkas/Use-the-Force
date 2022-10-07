@@ -16,7 +16,6 @@ public class BlueAbility : MonoBehaviour
     private InputActionReference pointerPosition;
     Vector2 pointerInput;
 
-    //public Vector2 PointerPosition { get; set; }
     void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -34,6 +33,7 @@ public class BlueAbility : MonoBehaviour
 
                 if ( playerController.purplePowerupActive == false)
                 {
+                    playerController.updatePurplePower(0.1f);
                     shoot();
                 }
                 else

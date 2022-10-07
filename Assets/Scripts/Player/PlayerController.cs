@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     public GameObject redExplosionPrefab;
     public Transform respawnPortalTransform; 
     public bool purplePowerupActive = false;
-    public float purplePowerUpTimer;
+    public float purplePowerUpDuration;
+    public float purplePower = 0;
+    public Material purplePowerUpIconMaterial;
 
     private GameObject currentRedExplosion;
     private Rigidbody2D rb;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        purplePowerUpIconMaterial.SetFloat("_Fill", purplePower);
         if (Input.GetButtonDown("ChangeCharge") && playerState!=ChargeState.Purple)
         {
             changePlayerCharge();
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
             if (playerState == ChargeState.Red && purplePowerupActive == false)
             {
                 blast();
+
             }
         }
         if (Input.GetButtonDown("PurplePowerup"))
@@ -83,12 +87,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.material.SetFloat("_Red", 1);
         spriteRenderer.material.SetFloat("_Blue", 0);
     }
-    private void becomePurple()
-    {
-        playerState = ChargeState.Purple;
-        spriteRenderer.material.SetFloat("_Red", 1);
-        spriteRenderer.material.SetFloat("_Blue", 1);
-    }
+
     //runs when player dies
     public void die()
     {
@@ -104,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void playRedExplosion()
     {
+        updatePurplePower(0.1f);
         currentRedExplosion = Instantiate(redExplosionPrefab, transform.position, transform.rotation) as GameObject;
     }
     public void createDeathParticles()
@@ -116,6 +116,22 @@ public class PlayerController : MonoBehaviour
         else if (playerState == ChargeState.Blue)
         {
             newObject.GetComponent<ExplosionController>().color = ChargeState.Blue;
+        }
+    }
+    public void updatePurplePower(float change)
+    {
+        if (purplePower < 0f || purplePower > 1f)
+        {
+            return;
+        }
+        purplePower += change;
+        if (purplePower < 0f)
+        {
+            purplePower = 0f;
+        }
+        if (purplePower > 1f)
+        {
+            purplePower = 1f;
         }
     }
     IEnumerator dieAndRespawn()
@@ -135,9 +151,21 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator purplePowerUp()
     {
-        purplePowerupActive = true;
-        yield return new WaitForSeconds(purplePowerUpTimer);
-        purplePowerupActive = false;
+        float secondInterval = 0.1f;
+        float increment = secondInterval / purplePowerUpDuration;
+        if (purplePower == 1f && purplePowerupActive == false)
+        {
+            purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 1);
+            purplePowerupActive = true;
+            while (purplePower > 0)
+            {
+                purplePower -= increment;
+                yield return new WaitForSeconds(secondInterval);
+            }
+            purplePower = 0;
+            purplePowerupActive = false;
+            purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
 
+        }
     }
 }
