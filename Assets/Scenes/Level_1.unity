@@ -2146,6 +2146,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2126981279}
     m_Modifications:
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: blueAimLineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: blueAimLineColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: blueAimLineColor.g
+      value: 0.6403699
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: blueAimLineColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purpleAimLineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purpleAimLineColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purpleAimLineColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: purpleAimLineColor.r
+      value: 0.45431995
+      objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
       value: Player

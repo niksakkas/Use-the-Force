@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BlueAbility : MonoBehaviour
+public class ShootingController : MonoBehaviour
 {
 
     public Transform firePoint;
     public GameObject blueBullet;
     public GameObject purpleBullet;
     public LineRenderer aimLineRenderer;
-    
+    public Color blueAimLineColor;
+    public Color purpleAimLineColor;
+
     private PlayerController playerController;
     [SerializeField]
     private InputActionReference pointerPosition;
@@ -37,7 +39,7 @@ public class BlueAbility : MonoBehaviour
                 if ( playerController.purplePowerupActive == false)
                 {
                     playerController.updatePurplePower(0.1f);
-                    shoot();
+                    shootBlue();
                 }
                 else
                 {
@@ -51,7 +53,7 @@ public class BlueAbility : MonoBehaviour
         }
     }
 
-    private void shoot()
+    private void shootBlue()
     {
         Instantiate(blueBullet, firePoint.position, firePoint.rotation);
     }
@@ -61,6 +63,15 @@ public class BlueAbility : MonoBehaviour
     }
     private void aim()
     {
+        if (playerController.purplePowerupActive == false)
+        {
+            aimLineRenderer.material.SetColor("_Color", blueAimLineColor);
+        }
+        else
+        {
+            aimLineRenderer.material.SetColor("_Color", purpleAimLineColor);
+
+        }
         Vector3 toOther = (pointerInput - (Vector2)transform.position);
         float angle = (float)((Mathf.Atan2(toOther.x, toOther.y) / Mathf.PI) * 180f);
         if (angle < 0) angle += 360f;
