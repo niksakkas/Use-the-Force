@@ -29,10 +29,13 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerStartingScale = transform.localScale.x;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
+
     }
     private void Update()
     {
         purplePowerUpIconMaterial.SetFloat("_Fill", purplePower);
+
         if (Input.GetButtonDown("ChangeCharge") && playerState!=ChargeState.Purple)
         {
             changePlayerCharge();

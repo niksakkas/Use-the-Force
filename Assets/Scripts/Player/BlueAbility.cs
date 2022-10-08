@@ -9,15 +9,17 @@ public class BlueAbility : MonoBehaviour
     public Transform firePoint;
     public GameObject blueBullet;
     public GameObject purpleBullet;
-
+    public LineRenderer aimLineRenderer;
+    
     private PlayerController playerController;
-
     [SerializeField]
     private InputActionReference pointerPosition;
-    Vector2 pointerInput;
+    private Vector2 pointerInput;
+    private LayerMask surfacesMask;
 
     void Start()
     {
+        surfacesMask = LayerMask.GetMask("Surfaces");
         playerController = GetComponent<PlayerController>();
     }
 
@@ -27,6 +29,7 @@ public class BlueAbility : MonoBehaviour
         pointerInput = getPointerInput();
         if (playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true)
         {
+            aimLineRenderer.enabled = true;
             aim();
             if (Input.GetButtonDown("MainAbility"))
             {
@@ -41,6 +44,10 @@ public class BlueAbility : MonoBehaviour
                     shootPurple();
                 }
             }
+        }
+        else
+        {
+            aimLineRenderer.enabled = false;
         }
     }
 
@@ -58,6 +65,22 @@ public class BlueAbility : MonoBehaviour
         float angle = (float)((Mathf.Atan2(toOther.x, toOther.y) / Mathf.PI) * 180f);
         if (angle < 0) angle += 360f;
         firePoint.rotation = Quaternion.Euler(0, 0, 90 - angle);
+        updateLaser();
+    }
+    private void updateLaser()
+    {
+        Vector2 direction = pointerInput - (Vector2)firePoint.position;
+        Vector2 laserEnd = pointerInput + direction.normalized * 10f;
+
+        aimLineRenderer.SetPosition(0, firePoint.position);
+        aimLineRenderer.SetPosition(1, laserEnd);
+
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.normalized.magnitude*10f, surfacesMask);
+        if (hit)
+        {
+            aimLineRenderer.SetPosition(1, hit.point);
+        }
+
     }
     private Vector2 getPointerInput()
     {
