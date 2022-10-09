@@ -71,7 +71,6 @@ public class ShootingController : MonoBehaviour
 
     private void shootBlue()
     {
-        blueHit.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
         Instantiate(blueBullet, firePoint.position, firePoint.rotation);
     }
     private void shootPurple()
@@ -99,7 +98,7 @@ public class ShootingController : MonoBehaviour
     private void updateLaser()
     {
         Vector2 direction = pointerInput - (Vector2)firePoint.position;
-        Vector2 laserEnd = pointerInput + direction.normalized * 10f;
+        Vector2 laserEnd = pointerInput + direction.normalized * 20f;
 
         aimLineRenderer.SetPosition(0, firePoint.position);
         aimLineRenderer.SetPosition(1, laserEnd);
@@ -116,17 +115,17 @@ public class ShootingController : MonoBehaviour
 
     private void handleRaycastHit(Vector2 direction)
     {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.normalized.magnitude * 10f, surfacesMask);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.normalized.magnitude * 20f, surfacesMask);
         if (hit)
         {
             aimLineRenderer.SetPosition(1, hit.point);
             if (playerController.purplePowerupActive == false)
             {
-                updateHitEmission(hit.point, direction, blueHitEmissionGameObject, purpleHitEmissionGameObject);
+                updateHitEmission(hit.point, blueHitEmissionGameObject, purpleHitEmissionGameObject);
             }
             else
             {
-                updateHitEmission(hit.point, direction, purpleHitEmissionGameObject, blueHitEmissionGameObject);
+                updateHitEmission(hit.point, purpleHitEmissionGameObject, blueHitEmissionGameObject);
             }
         }
         else
@@ -135,12 +134,9 @@ public class ShootingController : MonoBehaviour
             purpleHitEmissionGameObject.SetActive(false);
         }
     }
-    private void updateHitEmission(Vector2 hitPos, Vector2 direction, GameObject activeEmissionObject, GameObject disabledEmissionObject)
+    private void updateHitEmission(Vector2 hitPos, GameObject activeEmissionObject, GameObject disabledEmissionObject)
     {
 
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.Euler(angle, -90, 0f);
-        activeEmissionObject.transform.rotation = q;
         activeEmissionObject.transform.position = hitPos;
         activeEmissionObject.SetActive(true);
         disabledEmissionObject.SetActive(false);
