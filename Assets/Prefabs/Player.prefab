@@ -497,4 +497,7 @@ MonoBehaviour:
   blueBullet: {fileID: 5314603815027780300, guid: 90b26bf009391c3448791ae9f3aff325, type: 3}
   purpleBullet: {fileID: 5314603815027780300, guid: ee0f6135723df67498acb0d9b40d70c4, type: 3}
   aimLineRenderer: {fileID: 5412709142619127853}
+  blueAimLineColor: {r: 0, g: 0.6403699, b: 1, a: 1}
+  purpleAimLineColor: {r: 0.45431995, g: 0, b: 1, a: 1}
+  blueHitParticleSystem: {fileID: -4714015409177412959, guid: fa1e8b59db8ee504aad75db314a69233, type: 3}
   pointerPosition: {fileID: -5252416606915266118, guid: a4196e83202f81f4dbcd1753d2609a6b, type: 3}

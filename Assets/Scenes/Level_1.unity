@@ -1790,6 +1790,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1476366508070471814, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
   m_PrefabInstance: {fileID: 1476366506995435642}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2125526443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125526444}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2125526444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125526443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.435434, y: -4.1758127, z: 43.459213}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126981278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,37 +2178,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 2126981279}
     m_Modifications:
     - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: blueAimLineColor.a
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: blueHit
+      value: 
+      objectReference: {fileID: 8228594578903491614, guid: fa1e8b59db8ee504aad75db314a69233, type: 3}
     - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: blueAimLineColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: blueAimLineColor.g
-      value: 0.6403699
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: blueAimLineColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: purpleAimLineColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: purpleAimLineColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: purpleAimLineColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
-      propertyPath: purpleAimLineColor.r
-      value: 0.45431995
-      objectReference: {fileID: 0}
+      propertyPath: purpleHit
+      value: 
+      objectReference: {fileID: 8228594578903491614, guid: 1f65df8cd204ea540aca8aa6f709a587, type: 3}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
       value: Player

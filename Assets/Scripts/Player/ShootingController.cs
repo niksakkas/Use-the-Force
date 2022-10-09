@@ -12,17 +12,31 @@ public class ShootingController : MonoBehaviour
     public LineRenderer aimLineRenderer;
     public Color blueAimLineColor;
     public Color purpleAimLineColor;
+    public GameObject blueHit;
+    public GameObject purpleHit;
 
     private PlayerController playerController;
     [SerializeField]
     private InputActionReference pointerPosition;
     private Vector2 pointerInput;
     private LayerMask surfacesMask;
+    private GameObject blueHitEmissionGameObject;
+    private GameObject purpleHitEmissionGameObject;
+    private Quaternion rotation;
 
+
+    private void Awake()
+    {
+        blueHitEmissionGameObject = Instantiate(blueHit);
+        blueHitEmissionGameObject.SetActive(false);
+        purpleHitEmissionGameObject = Instantiate(purpleHit);
+        purpleHitEmissionGameObject.SetActive(false);
+    }
     void Start()
     {
         surfacesMask = LayerMask.GetMask("Surfaces");
         playerController = GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -50,11 +64,14 @@ public class ShootingController : MonoBehaviour
         else
         {
             aimLineRenderer.enabled = false;
+            blueHitEmissionGameObject.SetActive(false);
+            purpleHitEmissionGameObject.SetActive(false);
         }
     }
 
     private void shootBlue()
     {
+        blueHit.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
         Instantiate(blueBullet, firePoint.position, firePoint.rotation);
     }
     private void shootPurple()
@@ -75,7 +92,8 @@ public class ShootingController : MonoBehaviour
         Vector3 toOther = (pointerInput - (Vector2)transform.position);
         float angle = (float)((Mathf.Atan2(toOther.x, toOther.y) / Mathf.PI) * 180f);
         if (angle < 0) angle += 360f;
-        firePoint.rotation = Quaternion.Euler(0, 0, 90 - angle);
+        rotation = Quaternion.Euler(0, 0, 90 - angle);
+        firePoint.rotation = rotation;
         updateLaser();
     }
     private void updateLaser()
@@ -86,11 +104,7 @@ public class ShootingController : MonoBehaviour
         aimLineRenderer.SetPosition(0, firePoint.position);
         aimLineRenderer.SetPosition(1, laserEnd);
 
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.normalized.magnitude*10f, surfacesMask);
-        if (hit)
-        {
-            aimLineRenderer.SetPosition(1, hit.point);
-        }
+        handleRaycastHit(direction);
 
     }
     private Vector2 getPointerInput()
@@ -99,6 +113,36 @@ public class ShootingController : MonoBehaviour
         mousePos.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePos);
     }
+
+    private void handleRaycastHit(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, direction.normalized, direction.normalized.magnitude * 10f, surfacesMask);
+        if (hit)
+        {
+            aimLineRenderer.SetPosition(1, hit.point);
+            if (playerController.purplePowerupActive == false)
+            {
+                updateHitEmission(hit.point, direction, blueHitEmissionGameObject, purpleHitEmissionGameObject);
+            }
+            else
+            {
+                updateHitEmission(hit.point, direction, purpleHitEmissionGameObject, blueHitEmissionGameObject);
+            }
+        }
+        else
+        {
+            blueHitEmissionGameObject.SetActive(false);
+            purpleHitEmissionGameObject.SetActive(false);
+        }
+    }
+    private void updateHitEmission(Vector2 hitPos, Vector2 direction, GameObject activeEmissionObject, GameObject disabledEmissionObject)
+    {
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.Euler(angle, -90, 0f);
+        activeEmissionObject.transform.rotation = q;
+        activeEmissionObject.transform.position = hitPos;
+        activeEmissionObject.SetActive(true);
+        disabledEmissionObject.SetActive(false);
+    }
 }
-
-
