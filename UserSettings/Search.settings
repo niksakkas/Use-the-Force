@@ -7,7 +7,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.10697386" = "bullet"
+	"last_search.10697386" = "deat"
 	"OpenInspectorPreview.10697386" = "0"
 	"currentGroup.10697386" = "asset"
 	"last_search.C9C5C5C4" = "level"
@@ -59,6 +59,8 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"de"
+	"s"
 ]
 searchItemFavorites = [
 ]

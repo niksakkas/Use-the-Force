@@ -176,7 +176,6 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator destroyRedExplosion(GameObject redExplosionObject)
     {
-        Debug.Log(redExplosionObject);
         yield return new WaitForSeconds(5);
 
         Destroy(redExplosionObject);
