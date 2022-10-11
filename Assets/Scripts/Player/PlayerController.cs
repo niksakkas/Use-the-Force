@@ -104,10 +104,12 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("Blast");
     }
 
+    //player's blast animation triggers the playRedExplosion() function
     private void playRedExplosion()
     {
         updatePurplePower(0.1f);
         currentRedExplosion = Instantiate(redExplosionPrefab, transform.position, transform.rotation) as GameObject;
+        StartCoroutine(destroyRedExplosion(currentRedExplosion));
     }
     public void createDeathParticles()
     {
@@ -171,5 +173,13 @@ public class PlayerController : MonoBehaviour
             purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
 
         }
+    }
+    IEnumerator destroyRedExplosion(GameObject redExplosionObject)
+    {
+        Debug.Log(redExplosionObject);
+        yield return new WaitForSeconds(5);
+
+        Destroy(redExplosionObject);
+        Debug.Log(redExplosionObject);
     }
 }

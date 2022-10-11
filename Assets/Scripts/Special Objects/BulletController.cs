@@ -10,20 +10,28 @@ public class BulletController : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject muzzlePrefab;
 
+    GameObject newMuzzle;
+    GameObject newHit;
+
     void Start()
     {
-        Instantiate(muzzlePrefab, gameObject.transform.position, hitPrefab.transform.rotation);
+        newMuzzle = Instantiate(muzzlePrefab, gameObject.transform.position, hitPrefab.transform.rotation);
         bulletRb.velocity = transform.right * speed;
-        StartCoroutine(destroyBullet());
-    }
-    IEnumerator destroyBullet()
-    {
-        yield return new WaitForSeconds(5);
-        Destroy(gameObject);
+        StartCoroutine(destroyObjectsSoon(10));
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(hitPrefab, gameObject.transform.position, hitPrefab.transform.rotation);
+        newHit = Instantiate(hitPrefab, gameObject.transform.position, hitPrefab.transform.rotation);
+    }
+
+    IEnumerator destroyObjectsSoon(float time)
+    {
+        yield return new WaitForSeconds(time);
+        if (newHit)
+        {
+            Destroy(newHit);
+        }
+        Destroy(newMuzzle);
         Destroy(gameObject);
     }
 }

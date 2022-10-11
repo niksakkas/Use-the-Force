@@ -71,7 +71,7 @@ public class ShootingController : MonoBehaviour
 
     private void shootBlue()
     {
-        Instantiate(blueBullet, firePoint.position, firePoint.rotation);
+        GameObject newBlueBullet = Instantiate(blueBullet, firePoint.position, firePoint.rotation);
     }
     private void shootPurple()
     {
@@ -141,4 +141,6 @@ public class ShootingController : MonoBehaviour
         activeEmissionObject.SetActive(true);
         disabledEmissionObject.SetActive(false);
     }
+
+
 }
