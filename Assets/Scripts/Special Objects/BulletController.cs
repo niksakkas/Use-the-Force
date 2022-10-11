@@ -17,16 +17,21 @@ public class BulletController : MonoBehaviour
     {
         newMuzzle = Instantiate(muzzlePrefab, gameObject.transform.position, hitPrefab.transform.rotation);
         bulletRb.velocity = transform.right * speed;
-        StartCoroutine(destroyObjectsSoon(10));
+        StartCoroutine(destroyAllSoon(10));
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         newHit = Instantiate(hitPrefab, gameObject.transform.position, hitPrefab.transform.rotation);
+        gameObject.SetActive(false);
     }
 
-    IEnumerator destroyObjectsSoon(float time)
+    IEnumerator destroyAllSoon(float time)
     {
         yield return new WaitForSeconds(time);
+        destroyAll();
+    }
+    private void destroyAll()
+    {
         if (newHit)
         {
             Destroy(newHit);
