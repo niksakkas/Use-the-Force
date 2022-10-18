@@ -29,7 +29,6 @@ public class BulletController : MonoBehaviour
             StartCoroutine(destroyAllSoon(3));
             hideBullet();
         }
-
     }
     private void destroyAll()
     {
