@@ -10,8 +10,9 @@ public class BulletController : MonoBehaviour
     public GameObject hitPrefab;
     public GameObject muzzlePrefab;
 
-    GameObject newMuzzle;
-    GameObject newHit;
+    private bool hasHit = false;
+    private GameObject newMuzzle;
+    private GameObject newHit;
 
     void Start()
     {
@@ -21,14 +22,14 @@ public class BulletController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        newHit = Instantiate(hitPrefab, gameObject.transform.position, hitPrefab.transform.rotation);
-        gameObject.SetActive(false);
-    }
+        if(hasHit == false)
+        {
+            hasHit = true;
+            newHit = Instantiate(hitPrefab, gameObject.transform.position, hitPrefab.transform.rotation);
+            StartCoroutine(destroyAllSoon(3));
+            hideBullet();
+        }
 
-    IEnumerator destroyAllSoon(float time)
-    {
-        yield return new WaitForSeconds(time);
-        destroyAll();
     }
     private void destroyAll()
     {
@@ -38,5 +39,19 @@ public class BulletController : MonoBehaviour
         }
         Destroy(newMuzzle);
         Destroy(gameObject);
+    }
+    IEnumerator destroyAllSoon(float time)
+    {
+        yield return new WaitForSeconds(time);
+        gameObject.SetActive(true);
+        destroyAll();
+    }
+
+    private void hideBullet()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(false);
     }
 }
