@@ -42,12 +42,15 @@ public class ExplosionController : MonoBehaviour
     }
     void createSplatter(Vector3 newSplashosition, float velocityMagnitude)
     {
+        //get splatter from pool
+        GameObject splatterObject = gameController.GetComponentInChildren<GameController>().setSplattersPosition(color);
+        //set splatter position to the point of collision
+        splatterObject.transform.position = newSplashosition;
         //add a random rotation and scale to splatter
         Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 359f)));
-        GameObject splatterObject = gameController.GetComponentInChildren<GameController>().setSplattersPosition(color);
-        splatterObject.transform.position = newSplashosition;
         splatterObject.transform.rotation = rotation;
         float scaleMultiplier = Random.Range(minScale, maxScale) * velocityMagnitude;
+        //display splatter at the front
         splatterObject.GetComponent<Transform>().localScale = splatter.GetComponent<Transform>().localScale * scaleMultiplier;
         splatterObject.GetComponent<SpriteRenderer>().sortingOrder = GlobalVariables.splatterCounter;
         GlobalVariables.splatterCounter++;
