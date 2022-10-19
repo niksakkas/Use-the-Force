@@ -53,7 +53,5 @@ public class ExplosionController : MonoBehaviour
         splatterObject.GetComponent<SpriteRenderer>().sortingOrder = GlobalVariables.splatterCounter;
         GlobalVariables.splatterCounter++;
 
-        //tell splatter to pick its color
-        //splatterObject.SendMessage("pickColor", color);
     }
 }
