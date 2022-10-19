@@ -7,6 +7,7 @@ public class ExplosionController : MonoBehaviour
     public ChargeState color;
     public ParticleSystem part;
     public GameObject splatter;
+    public GameController gameController;
     [SerializeField] private float minScale = 0.12f;
     [SerializeField] private float maxScale = 0.24f;
 
@@ -15,6 +16,8 @@ public class ExplosionController : MonoBehaviour
 
     void Start()
     {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
         ParticleSystemRenderer renderer = GetComponent<ParticleSystemRenderer>();
         //pick explosion color
         switch (color)
@@ -41,10 +44,14 @@ public class ExplosionController : MonoBehaviour
     {
         //add a random rotation and scale to splatter
         Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 359f)));
-        GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
+        //GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
+        GameObject splatterObject = gameController.GetComponentInChildren<GameController>().setSplattersPosition(color);
+        Debug.Log(splatterObject);
+        splatterObject.transform.position = newSplashosition;
+        splatterObject.transform.rotation = rotation;
         float scaleMultiplier = Random.Range(minScale, maxScale) * velocityMagnitude;
-        splatterObject.GetComponent<Transform>().localScale *= scaleMultiplier;
+        splatterObject.GetComponent<Transform>().localScale = splatter.GetComponent<Transform>().localScale * scaleMultiplier;
         //tell splatter to pick its color
-        splatterObject.SendMessage("pickColor", color);
+        //splatterObject.SendMessage("pickColor", color);
     }
 }
