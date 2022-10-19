@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
 
         magneticFields = GameObject.FindObjectsOfType<MagneticField>();
 
+        //pooling
         pooledRedSplatters = new GameObject[amountToPool/2];
         pooledBlueSplatters = new GameObject[amountToPool/2];
         Vector3 splatterStartingPosition = new Vector3(0.0f, 0.0f, -1000.0f);
@@ -68,18 +69,5 @@ public class GameController : MonoBehaviour
             bluePoolingCounter += 1;
             return pooledBlueSplatters[bluePoolingCounter % pooledBlueSplatters.Length];
         }
-        //pooledRedSplatters[redPoolingCounter % pooledRedSplatters.Length].transform.position = position;
-
     }
-    //void createSplatters(Vector3 newSplashosition)
-    //{
-    //    for(int i = 0; i < splatterPoolSize.Length/2; i++)
-    //    {
-    //        Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 359f)));
-    //        GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
-    //        //tell splatter to pick its color
-    //        splatterObject.SendMessage("pickColor", color);
-    //    }
-
-    //}
 }
