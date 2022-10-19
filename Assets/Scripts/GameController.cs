@@ -26,15 +26,17 @@ public class GameController : MonoBehaviour
         magneticFields = GameObject.FindObjectsOfType<MagneticField>();
 
         pooledRedSplatters = new GameObject[amountToPool/2];
-        pooledBlueSplatters = new GameObject[amountToPool / 2];
-        for(int i = 0; i < amountToPool/2; i++)
+        pooledBlueSplatters = new GameObject[amountToPool/2];
+        Vector3 splatterStartingPosition = new Vector3(0.0f, 0.0f, -1000.0f);
+
+        for (int i = 0; i < amountToPool/2; i++)
         {
-            pooledRedSplatters[i] = Instantiate(splatter);
+            pooledRedSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
             pooledRedSplatters[i].SendMessage("pickColor", ChargeState.Red);
         }
         for (int i = 0; i < amountToPool/2; i++)
         {
-            pooledBlueSplatters[i] = Instantiate(splatter);
+            pooledBlueSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
             pooledBlueSplatters[i].SendMessage("pickColor", ChargeState.Blue);
         }
     }
@@ -59,13 +61,11 @@ public class GameController : MonoBehaviour
     {
         if (color == ChargeState.Red) { 
             redPoolingCounter += 1;
-            Debug.Log(redPoolingCounter);
             return pooledRedSplatters[redPoolingCounter % pooledRedSplatters.Length];
         }
         else
         {
             bluePoolingCounter += 1;
-            Debug.Log(bluePoolingCounter);
             return pooledBlueSplatters[bluePoolingCounter % pooledBlueSplatters.Length];
         }
         //pooledRedSplatters[redPoolingCounter % pooledRedSplatters.Length].transform.position = position;

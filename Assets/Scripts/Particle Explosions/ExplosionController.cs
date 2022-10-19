@@ -46,11 +46,13 @@ public class ExplosionController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, 0.0f, Random.Range(0f, 359f)));
         //GameObject splatterObject = Instantiate(splatter, newSplashosition, rotation);
         GameObject splatterObject = gameController.GetComponentInChildren<GameController>().setSplattersPosition(color);
-        Debug.Log(splatterObject);
         splatterObject.transform.position = newSplashosition;
         splatterObject.transform.rotation = rotation;
         float scaleMultiplier = Random.Range(minScale, maxScale) * velocityMagnitude;
         splatterObject.GetComponent<Transform>().localScale = splatter.GetComponent<Transform>().localScale * scaleMultiplier;
+        splatterObject.GetComponent<SpriteRenderer>().sortingOrder = GlobalVariables.splatterCounter;
+        GlobalVariables.splatterCounter++;
+
         //tell splatter to pick its color
         //splatterObject.SendMessage("pickColor", color);
     }

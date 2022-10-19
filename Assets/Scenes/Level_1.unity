@@ -2166,7 +2166,7 @@ PrefabInstance:
       objectReference: {fileID: 4715435649366159177, guid: 854befed69d1c354f82f1316bff6800c, type: 3}
     - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
       propertyPath: amountToPool
-      value: 100
+      value: 30000
       objectReference: {fileID: 0}
     - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
       propertyPath: activeRespawnPortal
