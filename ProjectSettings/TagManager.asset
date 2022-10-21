@@ -9,6 +9,8 @@ TagManager:
   - PlayerSprite
   - HomogenousField
   - Portal
+  - Enemy
+  - Explosion
   layers:
   - Default
   - TransparentFX

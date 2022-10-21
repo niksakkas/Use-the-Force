@@ -99,6 +99,14 @@ public class PlayerController : MonoBehaviour
         //die and respawn
         StartCoroutine(dieAndRespawn());
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.GetComponent<Collider2D>().tag == "Enemy")
+        {
+            die();
+        }
+    }
     private void blast()
     {
         animator.SetTrigger("Blast");

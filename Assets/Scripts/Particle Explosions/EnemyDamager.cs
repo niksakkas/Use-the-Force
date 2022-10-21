@@ -11,9 +11,8 @@ public class EnemyDamager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
     }
-
 
     IEnumerator removeCollider()
     {
