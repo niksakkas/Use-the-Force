@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1096240776}
   - component: {fileID: 1096240778}
   - component: {fileID: 1096240777}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 4081011982167210}
   - component: {fileID: 198647197407222458}
   - component: {fileID: 199438796865304604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9856,7 +9856,9 @@ GameObject:
   - component: {fileID: 198051911276860236}
   - component: {fileID: 199014684854316822}
   - component: {fileID: 370079163}
-  m_Layer: 0
+  - component: {fileID: 8752656889973911502}
+  - component: {fileID: 1144768582226685058}
+  m_Layer: 9
   m_Name: PurpleBulletHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14753,6 +14755,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &8752656889973911502
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170567192047786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 8
+--- !u!114 &1144768582226685058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170567192047786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308e8a7369a060b46a7bad92b846f302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1922646198546730
 GameObject:
   m_ObjectHideFlags: 0
@@ -14764,7 +14794,7 @@ GameObject:
   - component: {fileID: 4295538811336400}
   - component: {fileID: 198638239388234578}
   - component: {fileID: 199093918778574386}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19820,7 +19850,7 @@ GameObject:
   - component: {fileID: 3143254517509125244}
   - component: {fileID: 5858332600085703184}
   - component: {fileID: 6292771638717387509}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24666,7 +24696,7 @@ GameObject:
   - component: {fileID: 3009783513896357130}
   - component: {fileID: 2005920823920916548}
   - component: {fileID: 226933020520092114}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Triangles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

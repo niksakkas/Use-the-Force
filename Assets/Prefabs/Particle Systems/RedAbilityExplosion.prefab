@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1096240776}
   - component: {fileID: 1096240778}
   - component: {fileID: 1096240777}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 4081011982167210}
   - component: {fileID: 198647197407222458}
   - component: {fileID: 199438796865304604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9856,8 +9856,9 @@ GameObject:
   - component: {fileID: 198051911276860236}
   - component: {fileID: 199014684854316822}
   - component: {fileID: 370079163}
-  - component: {fileID: 7261967116107416629}
-  m_Layer: 0
+  - component: {fileID: 7468125846230221333}
+  - component: {fileID: 6653730346135551060}
+  m_Layer: 9
   m_Name: RedAbilityExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10884,7 +10885,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 0
+        scalar: 1
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -10942,7 +10943,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 0
+        scalar: 1
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -11000,7 +11001,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 0
+        scalar: 1
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -13693,7 +13694,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     type: 1
     collisionMode: 1
@@ -13872,7 +13873,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 64
+      m_Bits: 256
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -14926,7 +14927,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7261967116107416629
+--- !u!58 &7468125846230221333
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170567192047786}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7
+--- !u!114 &6653730346135551060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14935,10 +14952,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1170567192047786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770b67315452baf47afc0d886462c1df, type: 3}
+  m_Script: {fileID: 11500000, guid: 308e8a7369a060b46a7bad92b846f302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 198051911276860236}
 --- !u!1 &7384121569949569518
 GameObject:
   m_ObjectHideFlags: 0
@@ -14950,7 +14966,7 @@ GameObject:
   - component: {fileID: 3143254517509125244}
   - component: {fileID: 5858332600085703184}
   - component: {fileID: 6292771638717387509}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
