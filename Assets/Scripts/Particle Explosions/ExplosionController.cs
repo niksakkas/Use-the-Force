@@ -33,6 +33,7 @@ public class ExplosionController : MonoBehaviour
             default:
                 break;
         }
+        StartCoroutine(destroyExplosion());
     }
     void OnParticleCollision(GameObject other)
     {
@@ -54,6 +55,10 @@ public class ExplosionController : MonoBehaviour
         splatterObject.GetComponent<Transform>().localScale = splatter.GetComponent<Transform>().localScale * scaleMultiplier;
         splatterObject.GetComponent<SpriteRenderer>().sortingOrder = GlobalVariables.splatterCounter;
         GlobalVariables.splatterCounter++;
-
+    }
+    IEnumerator destroyExplosion()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
     }
 }
