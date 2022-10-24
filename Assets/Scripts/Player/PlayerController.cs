@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     public float purplePowerUpDuration;
     public float purplePower = 0;
     public Material purplePowerUpIconMaterial;
+    // aiming stuff
+    public GameObject aimingLaser;
+    public ShootingController shootingController;
 
     private GameObject currentRedExplosion;
     private Rigidbody2D rb;
@@ -30,7 +33,6 @@ public class PlayerController : MonoBehaviour
         playerStartingScale = transform.localScale.x;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
-
     }
     private void Update()
     {
@@ -151,16 +153,29 @@ public class PlayerController : MonoBehaviour
     {
         //Die
         Color color = spriteRenderer.color;
-        transform.position = respawnPortalTransform.position;
         spriteRenderer.color = new Color(0f, 0f, 0f, 0f);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        disableAiming();
         //Wait
         yield return new WaitForSeconds(respawnTimer);
         //Make the player smaller
+        transform.position = respawnPortalTransform.position;
         transform.localScale = new Vector3(respawnStartingScale, respawnStartingScale, respawnStartingScale);
         //Respawn
         spriteRenderer.color = color;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        enableAiming();
+    }
+    private void disableAiming()
+    {
+        shootingController.disableAiming();
+        shootingController.enabled = false;
+        aimingLaser.SetActive(false);
+    }
+    private void enableAiming()
+    {
+        shootingController.enabled = true;
+        aimingLaser.SetActive(true);
     }
     //this coroutine depletes the purple power over "purplePowerUpDuration" seconds. Each change happens every 0.1 second.
     IEnumerator purplePowerUp()

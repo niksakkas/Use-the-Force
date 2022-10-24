@@ -15,6 +15,7 @@ public class ShootingController : MonoBehaviour
     public GameObject blueHit;
     public GameObject purpleHit;
 
+
     private PlayerController playerController;
     [SerializeField]
     private InputActionReference pointerPosition;
@@ -23,6 +24,7 @@ public class ShootingController : MonoBehaviour
     private GameObject blueHitEmissionGameObject;
     private GameObject purpleHitEmissionGameObject;
     private Quaternion rotation;
+
 
 
     private void Awake()
@@ -141,6 +143,12 @@ public class ShootingController : MonoBehaviour
         activeEmissionObject.SetActive(true);
         disabledEmissionObject.SetActive(false);
     }
+    public void disableAiming()
+    {
+        purpleHitEmissionGameObject.SetActive(false);
+        blueHitEmissionGameObject.SetActive(false);
+    }
+
 
 
 }
