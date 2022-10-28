@@ -12,6 +12,7 @@ public class ShootingController : MonoBehaviour
     public LineRenderer aimLineRenderer;
     public Color blueAimLineColor;
     public Color purpleAimLineColor;
+    
     public GameObject blueHit;
     public GameObject purpleHit;
 
@@ -83,11 +84,11 @@ public class ShootingController : MonoBehaviour
     {
         if (playerController.purplePowerupActive == false)
         {
-            aimLineRenderer.material.SetColor("_Color", blueAimLineColor);
+            aimLineRenderer.material.SetColor("_Color", blueAimLineColor * 3);
         }
         else
         {
-            aimLineRenderer.material.SetColor("_Color", purpleAimLineColor);
+            aimLineRenderer.material.SetColor("_Color", purpleAimLineColor * 3);
 
         }
         Vector3 toOther = (pointerInput - (Vector2)transform.position);
