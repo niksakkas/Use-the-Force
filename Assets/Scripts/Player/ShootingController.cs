@@ -12,7 +12,9 @@ public class ShootingController : MonoBehaviour
     public LineRenderer aimLineRenderer;
     public Color blueAimLineColor;
     public Color purpleAimLineColor;
-    
+    public Color baseColor;
+
+
     public GameObject blueHit;
     public GameObject purpleHit;
 
@@ -39,6 +41,7 @@ public class ShootingController : MonoBehaviour
     {
         surfacesMask = LayerMask.GetMask("Surfaces");
         playerController = GetComponent<PlayerController>();
+        aimLineRenderer.material.SetColor("_Color", baseColor * 3);
 
     }
 
@@ -84,11 +87,13 @@ public class ShootingController : MonoBehaviour
     {
         if (playerController.purplePowerupActive == false)
         {
-            aimLineRenderer.material.SetColor("_Color", blueAimLineColor * 3);
+            //aimLineRenderer.material.SetColor("_Color", blueAimLineColor *3 );
+            aimLineRenderer.material.SetInt("_PurplePowerup", 0);
         }
         else
         {
-            aimLineRenderer.material.SetColor("_Color", purpleAimLineColor * 3);
+            aimLineRenderer.material.SetInt("_PurplePowerup", 1);
+            //aimLineRenderer.material.SetColor("_Color", purpleAimLineColor );
 
         }
         Vector3 toOther = (pointerInput - (Vector2)transform.position);
