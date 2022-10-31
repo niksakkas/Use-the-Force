@@ -44,10 +44,11 @@ public class Throw : MonoBehaviour
         int indexAngle = Angles.XYTo8Angle(Target.x, Target.y);
 
         // Mirror the Animation (Except for Top & Bottom angles)
-        if (Target.x > 0 || indexAngle == 2 || indexAngle == 6) 
-            spriteRenderer.transform.localScale = Vector3.one;
-        else 
-            spriteRenderer.transform.localScale = flipX;
+        //TODO: HEREEEE
+        //if (Target.x > 0 || indexAngle == 2 || indexAngle == 6) 
+        //    spriteRenderer.transform.localScale = Vector3.one;
+        //else 
+        //    spriteRenderer.transform.localScale = flipX;
 
         // IndexAnim Local Var
         int frameCount;
@@ -61,7 +62,7 @@ public class Throw : MonoBehaviour
         int IndexAnimOffset = indexAngle * frameCount;
 
         // Simple Repeater Animator
-        int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * 40, frameCount - 0.01f));
+        int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * 10, frameCount - 0.01f));
 
 
         if (!withSword)
@@ -79,7 +80,7 @@ public class Throw : MonoBehaviour
         if (Target.magnitude < deadzone) 
         {
             // Simple Pingpong Animator
-            int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * 10, 1.99f));
+            int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * 10, 10.99f));
 
             if (!withSword)
             {
