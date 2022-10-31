@@ -7,6 +7,11 @@ public class FastScrollTo : MonoBehaviour
 {
     public ScrollRect scroll;
 
+    // void Update () 
+    // {
+    //     Debug.Log(scroll.verticalNormalizedPosition);
+    // } 
+
     public void ScrollToTop () 
     {
         StartCoroutine(ScrollToPosition(1));

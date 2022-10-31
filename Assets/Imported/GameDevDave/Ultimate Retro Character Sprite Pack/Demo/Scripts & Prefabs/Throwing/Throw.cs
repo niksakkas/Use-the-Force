@@ -10,11 +10,10 @@ public class Throw : MonoBehaviour
     [Header("Import Texture2D Images here")]
     public Texture2D[] frames, framesSword;
     private Text title;
-    private RawImage imageRenderer;
-
+    private SpriteRenderer spriteRenderer;
+    private Texture2D currentFrame;
     // Rest Image
     public Texture2D[] restPose, restPoseWithSword;
-    private Slider animSlider;
     // Flipping the character image
     Vector3 flipX = new Vector3 (-1, 1, 1);
     [HideInInspector]
@@ -23,8 +22,7 @@ public class Throw : MonoBehaviour
 
     void Awake () 
     {
-        imageRenderer = GetComponentInChildren<RawImage>();
-        animSlider = GetComponentInChildren<Slider>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -47,9 +45,9 @@ public class Throw : MonoBehaviour
 
         // Mirror the Animation (Except for Top & Bottom angles)
         if (Target.x > 0 || indexAngle == 2 || indexAngle == 6) 
-            imageRenderer.transform.localScale = Vector3.one;
+            spriteRenderer.transform.localScale = Vector3.one;
         else 
-            imageRenderer.transform.localScale = flipX;
+            spriteRenderer.transform.localScale = flipX;
 
         // IndexAnim Local Var
         int frameCount;
@@ -63,23 +61,40 @@ public class Throw : MonoBehaviour
         int IndexAnimOffset = indexAngle * frameCount;
 
         // Simple Repeater Animator
-        int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * animSlider.value * 40, frameCount - 0.01f));
+        int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * 40, frameCount - 0.01f));
+
 
         if (!withSword)
-            imageRenderer.texture = frames[IndexAnimOffset + indexAnim];
+        {
+            currentFrame = frames[IndexAnimOffset + indexAnim];
+            setFrame(currentFrame);
+        }
         else
-            imageRenderer.texture = framesSword[IndexAnimOffset + indexAnim];
+        {
+            currentFrame = frames[IndexAnimOffset + indexAnim];
+            setFrame(currentFrame);
+        }
 
         // Rest pose if we are below the deadzone
         if (Target.magnitude < deadzone) 
         {
             // Simple Pingpong Animator
-            int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * animSlider.value * 10, 1.99f));
+            int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * 10, 1.99f));
 
             if (!withSword)
-                imageRenderer.texture = restPose[indexAnimRest];
+            {
+                currentFrame = restPose[indexAnimRest];
+                setFrame(currentFrame);
+            }
             else
-                imageRenderer.texture = restPoseWithSword[indexAnimRest];
+            {
+                currentFrame = restPoseWithSword[indexAnimRest];
+                setFrame(currentFrame);
+            }
         }   
+    }
+    void setFrame(Texture2D frame)
+    {
+        spriteRenderer.sprite = Sprite.Create(frame, new Rect(0.0f, 0.0f, frame.width, frame.height), new Vector2(0.5f, 0.5f), 100.0f);
     }
 }
