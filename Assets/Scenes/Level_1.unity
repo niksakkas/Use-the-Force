@@ -5174,6 +5174,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_rigidbody2D
+      value: 
+      objectReference: {fileID: 6183605693880962767}
+    - target: {fileID: 2002902707, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: blueAimLineColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -5391,6 +5395,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7d08cf29a17499d4ea0404d246c139be, type: 3}
   withSword: 0
   InAir: 0
+--- !u!50 &6183605693880962767 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2523887549726410065, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+  m_PrefabInstance: {fileID: 6183605693880962759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6602093516808629913
 PrefabInstance:
   m_ObjectHideFlags: 0

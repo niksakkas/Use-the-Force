@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
 	public Animator animator;
-	public bool movementEnabled = true;
+	public float disabledTimer = 0f;
 
 	public float runSpeed = 400f;
 	float horizontalMove = 0f;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () {
 
-        if (movementEnabled)
+        if (disabledTimer == 0)
         {
 			horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 			verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
@@ -32,11 +32,15 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		if (movementEnabled)
+		if (disabledTimer == 0)
 		{
 			// Move the player
 			controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, jump);
 			jump = false;
 		}
+        else
+        {
+			disabledTimer--;
+        }
 	}
 }

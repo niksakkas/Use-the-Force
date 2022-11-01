@@ -13,6 +13,7 @@ public class ShootingController : MonoBehaviour
     public Color blueAimLineColor;
     public Color purpleAimLineColor;
     public Color baseColor;
+    public Rigidbody2D m_rigidbody2D;
 
 
     public GameObject blueHit;
@@ -50,22 +51,25 @@ public class ShootingController : MonoBehaviour
     void Update()
     {  
         pointerInput = getPointerInput();
-        if (playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true)
+        if ((playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true) && m_rigidbody2D.velocity.magnitude <= 1f)
         {
-            aimLineRenderer.enabled = true;
-            aim();
-            if (Input.GetButtonDown("MainAbility"))
-            {
-                StartCoroutine(disableMoving());
-                if ( playerController.purplePowerupActive == false)
+
+                aimLineRenderer.enabled = true;
+                aim();
+                if (Input.GetButtonDown("MainAbility"))
                 {
-                    playerController.updatePurplePower(0.1f);
-                    shootBlue();
-                }
-                else
-                {
-                    shootPurple();
-                }
+                    //disable player for a short duration
+                    playerMovement.disabledTimer = 15f;
+
+                    if (playerController.purplePowerupActive == false)
+                    {
+                        playerController.updatePurplePower(0.1f);
+                        shootBlue();
+                    }
+                    else
+                    {
+                        shootPurple();
+                    }
             }
         }
         else
@@ -155,14 +159,5 @@ public class ShootingController : MonoBehaviour
         purpleHitEmissionGameObject.SetActive(false);
         blueHitEmissionGameObject.SetActive(false);
     }
-
-
-    private IEnumerator disableMoving()
-    {
-        playerMovement.movementEnabled = false;
-        yield return new WaitForSeconds(2f);
-        playerMovement.movementEnabled = true;
-    }
-
 
 }
