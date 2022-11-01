@@ -6,28 +6,37 @@ public class PlayerMovement : MonoBehaviour {
 
 	public CharacterController2D controller;
 	public Animator animator;
+	public bool movementEnabled = true;
 
 	public float runSpeed = 400f;
 	float horizontalMove = 0f;
 	float verticalMove = 0f;
 	bool jump = false;
 	
-	void Update () {
-		
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-		verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
-		animator.SetBool("IsMoving", horizontalMove!=0f);
 
-		if (Input.GetButtonDown("Jump"))
-		{
-			jump = true;
+
+	void Update () {
+
+        if (movementEnabled)
+        {
+			horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+			verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
+			animator.SetBool("IsMoving", horizontalMove != 0f);
+
+			if (Input.GetButtonDown("Jump"))
+			{
+				jump = true;
+			}
 		}
 	}
 
 	void FixedUpdate ()
 	{
-		// Move the player
-		controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, jump);
-		jump = false;
+		if (movementEnabled)
+		{
+			// Move the player
+			controller.Move(horizontalMove * Time.fixedDeltaTime, verticalMove * Time.fixedDeltaTime, jump);
+			jump = false;
+		}
 	}
 }

@@ -18,7 +18,7 @@ public class ShootingController : MonoBehaviour
     public GameObject blueHit;
     public GameObject purpleHit;
 
-
+    private PlayerMovement playerMovement;
     private PlayerController playerController;
     [SerializeField]
     private InputActionReference pointerPosition;
@@ -41,6 +41,7 @@ public class ShootingController : MonoBehaviour
     {
         surfacesMask = LayerMask.GetMask("Surfaces");
         playerController = GetComponent<PlayerController>();
+        playerMovement = GetComponent<PlayerMovement>();
         aimLineRenderer.material.SetColor("_Color", baseColor * 3);
 
     }
@@ -55,7 +56,7 @@ public class ShootingController : MonoBehaviour
             aim();
             if (Input.GetButtonDown("MainAbility"))
             {
-
+                StartCoroutine(disableMoving());
                 if ( playerController.purplePowerupActive == false)
                 {
                     playerController.updatePurplePower(0.1f);
@@ -155,6 +156,13 @@ public class ShootingController : MonoBehaviour
         blueHitEmissionGameObject.SetActive(false);
     }
 
+
+    private IEnumerator disableMoving()
+    {
+        playerMovement.movementEnabled = false;
+        yield return new WaitForSeconds(2f);
+        playerMovement.movementEnabled = true;
+    }
 
 
 }

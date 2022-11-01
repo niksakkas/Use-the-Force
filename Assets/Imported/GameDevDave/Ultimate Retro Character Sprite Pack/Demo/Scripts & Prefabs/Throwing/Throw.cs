@@ -45,10 +45,17 @@ public class Throw : MonoBehaviour
 
         // Mirror the Animation (Except for Top & Bottom angles)
         //TODO: HEREEEE
-        //if (Target.x > 0 || indexAngle == 2 || indexAngle == 6) 
-        //    spriteRenderer.transform.localScale = Vector3.one;
-        //else 
-        //    spriteRenderer.transform.localScale = flipX;
+        if (Target.x > 0 || indexAngle == 2 || indexAngle == 6)
+        {
+            //spriteRenderer.transform.localScale = Vector3.one;
+
+        }
+        else
+        {
+            //Flip();
+        }
+
+        //spriteRenderer.transform.localScale = flipX;
 
         // IndexAnim Local Var
         int frameCount;
@@ -81,6 +88,7 @@ public class Throw : MonoBehaviour
         {
             // Simple Pingpong Animator
             int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * 10, 10.99f));
+            Debug.Log(indexAnimRest);
 
             if (!withSword)
             {
@@ -97,5 +105,13 @@ public class Throw : MonoBehaviour
     void setFrame(Texture2D frame)
     {
         spriteRenderer.sprite = Sprite.Create(frame, new Rect(0.0f, 0.0f, frame.width, frame.height), new Vector2(0.5f, 0.5f), 100.0f);
+    }
+    private void Flip()
+    {
+        // Switch the way the player is labelled as facing.
+        //m_FacingRight = !m_FacingRight;
+
+        // Multiply the player's x local scale by -1.
+        transform.Rotate(0, 180f, 0);
     }
 }
