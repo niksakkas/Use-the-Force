@@ -55,8 +55,10 @@ public class Throw : MonoBehaviour
 
         currentFrame = frames[IndexAnimOffset + indexAnim];
         setFrame(currentFrame);
+        //if we reached the third frame, shoot the bullet
         if (indexAnim % 7 == 3)
         {
+            //don't shoot more than one bullet for each click
             if (alreadyShot == false)
             {
                 shootingController.shoot();
@@ -67,6 +69,7 @@ public class Throw : MonoBehaviour
         {
             alreadyShot = false;
         }
+        //if we reached the last frame, stop this script
         if (indexAnim % 7 == 6)
         {
             playerAnimator.enabled = true;
