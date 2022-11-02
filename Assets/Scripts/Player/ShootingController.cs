@@ -171,11 +171,13 @@ public class ShootingController : MonoBehaviour
     }
     private IEnumerator throwAnimation()
     {
+        if (throwScript.enabled == false)
+        {
         playerAnimator.enabled = false;
         throwScript.enabled = true;
         yield return new WaitForSeconds(0.5f);
-        playerAnimator.enabled = true;
-        throwScript.enabled = false;
+        }
+
     }
 
 }

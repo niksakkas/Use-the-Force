@@ -6,28 +6,25 @@ using GameDevDave;
 
 public class Throw : MonoBehaviour
 {
-    public float deadzone;
-
     [Header("Import Texture2D Images here")]
     public Texture2D[] frames, framesSword;
-    private Text title;
     private SpriteRenderer spriteRenderer;
     private Texture2D currentFrame;
+    private Animator playerAnimator;
     public ShootingController shootingController;
     // Rest Image
     public Texture2D[] restPose, restPoseWithSword;
     // Flipping the character image
-    Vector3 flipX = new Vector3 (-1, 1, 1);
-    [HideInInspector]
     public bool withSword;
-    public bool InAir;
     private bool alreadyShot = false;
     
 
     void Awake () 
     {
+        playerAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
+    
 
     // Update is called once per frame
     void FixedUpdate()
@@ -46,34 +43,15 @@ public class Throw : MonoBehaviour
 
         // Continuously loading up the frame loop with the walk animation that has the correct angle
         int indexAngle = Angles.XYTo8Angle(Target.x, Target.y);
-
-        // Mirror the Animation (Except for Top & Bottom angles)
-        //TODO: HEREEEE
-        if (Target.x > 0 || indexAngle == 2 || indexAngle == 6)
-        {
-            //spriteRenderer.transform.localScale = Vector3.one;
-
-        }
-        else
-        {
-            //Flip();
-        }
-
-        //spriteRenderer.transform.localScale = flipX;
-
-        // IndexAnim Local Var
-        int frameCount;
-        
-        // IndexAnim offset
-        if (InAir) 
-            frameCount = 4;
-        else 
-            frameCount = 7;
+        int frameCount = 7;
 
         int IndexAnimOffset = indexAngle * frameCount;
 
         // Simple Repeater Animator
         int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * 10, frameCount - 0.01f));
+
+        currentFrame = frames[IndexAnimOffset + indexAnim];
+        setFrame(currentFrame);
         if (indexAnim % 7 == 3)
         {
             if (alreadyShot == false)
@@ -82,39 +60,15 @@ public class Throw : MonoBehaviour
                 alreadyShot = true;
             }
         }
-        else {
-            alreadyShot = false;
-        }
-
-
-        if (!withSword)
-        {
-            currentFrame = frames[IndexAnimOffset + indexAnim];
-            setFrame(currentFrame);
-        }
         else
         {
-            currentFrame = frames[IndexAnimOffset + indexAnim];
-            setFrame(currentFrame);
+            alreadyShot = false;
         }
-
-        // Rest pose if we are below the deadzone
-        if (Target.magnitude < deadzone) 
+        if (indexAnim % 7 == 6)
         {
-            // Simple Pingpong Animator
-            int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * 10, 10.99f));
-
-            if (!withSword)
-            {
-                currentFrame = restPose[indexAnimRest];
-                setFrame(currentFrame);
-            }
-            else
-            {
-                currentFrame = restPoseWithSword[indexAnimRest];
-                setFrame(currentFrame);
-            }
-        }   
+            playerAnimator.enabled = true;
+            this.enabled = false;
+        }
     }
     void setFrame(Texture2D frame)
     {
@@ -122,10 +76,6 @@ public class Throw : MonoBehaviour
     }
     private void Flip()
     {
-        // Switch the way the player is labelled as facing.
-        //m_FacingRight = !m_FacingRight;
-
-        // Multiply the player's x local scale by -1.
         transform.Rotate(0, 180f, 0);
     }
 }
