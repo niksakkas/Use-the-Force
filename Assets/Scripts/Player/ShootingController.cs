@@ -19,6 +19,8 @@ public class ShootingController : MonoBehaviour
     public GameObject blueHit;
     public GameObject purpleHit;
 
+    private Animator playerAnimator;
+    private Throw throwScript;
     private PlayerMovement playerMovement;
     private PlayerController playerController;
     [SerializeField]
@@ -43,6 +45,8 @@ public class ShootingController : MonoBehaviour
         surfacesMask = LayerMask.GetMask("Surfaces");
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
+        throwScript = GetComponent<Throw>();
+        playerAnimator = GetComponent<Animator>();
         aimLineRenderer.material.SetColor("_Color", baseColor * 3);
 
     }
@@ -51,25 +55,14 @@ public class ShootingController : MonoBehaviour
     void Update()
     {  
         pointerInput = getPointerInput();
-        if ((playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true) && m_rigidbody2D.velocity.magnitude <= 1f)
+        if ((playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true) && m_rigidbody2D.velocity.magnitude == 0f)
         {
 
-                aimLineRenderer.enabled = true;
-                aim();
-                if (Input.GetButtonDown("MainAbility"))
-                {
-                    //disable player for a short duration
-                    playerMovement.disabledTimer = 15f;
-
-                    if (playerController.purplePowerupActive == false)
-                    {
-                        playerController.updatePurplePower(0.1f);
-                        shootBlue();
-                    }
-                    else
-                    {
-                        shootPurple();
-                    }
+            aimLineRenderer.enabled = true;
+            aim();
+            if (Input.GetButtonDown("MainAbility"))
+            {
+                StartCoroutine(throwAnimation());
             }
         }
         else
@@ -107,6 +100,23 @@ public class ShootingController : MonoBehaviour
         rotation = Quaternion.Euler(0, 0, 90 - angle);
         firePoint.rotation = rotation;
         updateLaser();
+    }
+
+    public void shoot()
+    {
+
+        //disable player for a short duration
+        playerMovement.disabledTimer = 15f;
+
+        if (playerController.purplePowerupActive == false)
+        {
+            playerController.updatePurplePower(0.1f);
+            shootBlue();
+        }
+        else
+        {
+            shootPurple();
+        }
     }
     private void updateLaser()
     {
@@ -158,6 +168,14 @@ public class ShootingController : MonoBehaviour
     {
         purpleHitEmissionGameObject.SetActive(false);
         blueHitEmissionGameObject.SetActive(false);
+    }
+    private IEnumerator throwAnimation()
+    {
+        playerAnimator.enabled = false;
+        throwScript.enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        playerAnimator.enabled = true;
+        throwScript.enabled = false;
     }
 
 }

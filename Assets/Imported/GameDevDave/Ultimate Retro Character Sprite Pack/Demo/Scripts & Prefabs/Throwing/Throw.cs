@@ -7,11 +7,13 @@ using GameDevDave;
 public class Throw : MonoBehaviour
 {
     public float deadzone;
+
     [Header("Import Texture2D Images here")]
     public Texture2D[] frames, framesSword;
     private Text title;
     private SpriteRenderer spriteRenderer;
     private Texture2D currentFrame;
+    public ShootingController shootingController;
     // Rest Image
     public Texture2D[] restPose, restPoseWithSword;
     // Flipping the character image
@@ -19,6 +21,8 @@ public class Throw : MonoBehaviour
     [HideInInspector]
     public bool withSword;
     public bool InAir;
+    private bool alreadyShot = false;
+    
 
     void Awake () 
     {
@@ -70,6 +74,17 @@ public class Throw : MonoBehaviour
 
         // Simple Repeater Animator
         int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * 10, frameCount - 0.01f));
+        if (indexAnim % 7 == 3)
+        {
+            if (alreadyShot == false)
+            {
+                shootingController.shoot();
+                alreadyShot = true;
+            }
+        }
+        else {
+            alreadyShot = false;
+        }
 
 
         if (!withSword)
@@ -88,7 +103,6 @@ public class Throw : MonoBehaviour
         {
             // Simple Pingpong Animator
             int indexAnimRest = Mathf.FloorToInt(Mathf.PingPong(Time.fixedTime * 10, 10.99f));
-            Debug.Log(indexAnimRest);
 
             if (!withSword)
             {
