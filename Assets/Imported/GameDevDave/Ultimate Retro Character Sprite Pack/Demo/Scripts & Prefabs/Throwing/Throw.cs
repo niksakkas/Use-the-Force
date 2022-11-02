@@ -11,21 +11,22 @@ public class Throw : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Texture2D currentFrame;
     private Animator playerAnimator;
+    [HideInInspector]
     public ShootingController shootingController;
     // Rest Image
     public Texture2D[] restPose, restPoseWithSword;
     // Flipping the character image
     public bool withSword;
     private bool alreadyShot = false;
-    
+    [HideInInspector]
+    public float floatIndexAnim = 0;
+
 
     void Awake () 
     {
         playerAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -47,8 +48,10 @@ public class Throw : MonoBehaviour
 
         int IndexAnimOffset = indexAngle * frameCount;
 
-        // Simple Repeater Animator
-        int indexAnim = Mathf.FloorToInt(Mathf.Repeat(Time.fixedTime * 10, frameCount - 0.01f));
+        
+        // Simple Animator
+        int indexAnim = Mathf.FloorToInt(floatIndexAnim);
+        floatIndexAnim += 0.25f;
 
         currentFrame = frames[IndexAnimOffset + indexAnim];
         setFrame(currentFrame);

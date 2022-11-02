@@ -173,8 +173,9 @@ public class ShootingController : MonoBehaviour
     {
         if (throwScript.enabled == false)
         {
-        playerAnimator.enabled = false;
-        throwScript.enabled = true;
+            playerAnimator.enabled = false;
+            throwScript.enabled = true;
+            throwScript.floatIndexAnim = 0;
         }
 
     }
