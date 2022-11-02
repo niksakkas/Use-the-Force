@@ -62,7 +62,7 @@ public class ShootingController : MonoBehaviour
             aim();
             if (Input.GetButtonDown("MainAbility"))
             {
-                StartCoroutine(throwAnimation());
+                throwAnimation();
             }
         }
         else
@@ -169,13 +169,12 @@ public class ShootingController : MonoBehaviour
         purpleHitEmissionGameObject.SetActive(false);
         blueHitEmissionGameObject.SetActive(false);
     }
-    private IEnumerator throwAnimation()
+    private void throwAnimation()
     {
         if (throwScript.enabled == false)
         {
         playerAnimator.enabled = false;
         throwScript.enabled = true;
-        yield return new WaitForSeconds(0.5f);
         }
 
     }
