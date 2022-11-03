@@ -18,6 +18,7 @@ public class Throw : MonoBehaviour
     // Flipping the character image
     public bool withSword;
     private bool alreadyShot = false;
+    private bool alreadyRotated = false;
     [HideInInspector]
     public float floatIndexAnim = 0;
 
@@ -43,6 +44,17 @@ public class Throw : MonoBehaviour
 
         // Take out the z
         Target.z = 0;
+        //Debug.Log(transform.rotation.y);
+        //Debug.Log(new Quaternion(0f, -1f, 0f, 0f));
+        if (alreadyRotated == false)
+        {
+            if ((transform.rotation.y != -1f && Target.x < 0) || (transform.rotation.y == -1f && Target.x > 0))
+            {
+                Flip();
+                alreadyRotated = true;
+            }
+        }
+
 
         // Continuously loading up the frame loop with the walk animation that has the correct angle
         int indexAngle = Angles.XYTo8Angle(Target.x, Target.y);
@@ -71,11 +83,10 @@ public class Throw : MonoBehaviour
         {
             alreadyShot = false;
         }
-        //if we reached the last frame, stop this script
+        //if we reached the last frame, stop this script and reset it
         if (indexAnim % 7 == 6)
         {
-            playerAnimator.enabled = true;
-            this.enabled = false;
+            resetAbility();
         }
     }
     void setFrame(Texture2D frame)
@@ -85,5 +96,15 @@ public class Throw : MonoBehaviour
     private void Flip()
     {
         transform.Rotate(0, 180f, 0);
+    }
+    private void resetAbility()
+    {
+        playerAnimator.enabled = true;
+        this.enabled = false;
+        if (alreadyRotated == true)
+        {
+            Flip();
+            alreadyRotated = false;
+        }
     }
 }
