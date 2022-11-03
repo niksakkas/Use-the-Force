@@ -30,6 +30,8 @@ public class Throw : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        // Send these once from shootingcontroller
         // Establish origin
         Vector3 Origin = transform.position + transform.up / 2;
 
