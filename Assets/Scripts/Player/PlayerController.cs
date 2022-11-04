@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     public float purplePowerUpDuration;
     public float purplePower = 0;
     public Material purplePowerUpIconMaterial;
+
+    //powerup fires
+    public ParticleSystem powerUpFireBlue;
+    public ParticleSystem powerUpFireRed;
     // aiming stuff
     public GameObject aimingLaser;
     public ShootingController shootingController;
@@ -33,6 +37,9 @@ public class PlayerController : MonoBehaviour
         playerStartingScale = transform.localScale.x;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
+        powerUpFireRed.Stop();
+        powerUpFireBlue.Stop();
+
     }
     private void Update()
     {
@@ -44,6 +51,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("MainAbility"))
         {
+            //only blast if the player is red, powerup is inactive, and 
             if (playerState == ChargeState.Red && purplePowerupActive == false && rb.velocity.magnitude != 0)
             {
                 blast();
@@ -188,19 +196,34 @@ public class PlayerController : MonoBehaviour
             purplePowerupActive = true;
             while (purplePower > 0)
             {
+                handlePowerUpColor();
                 purplePower -= increment;
                 yield return new WaitForSeconds(secondInterval);
             }
             purplePower = 0;
             purplePowerupActive = false;
             purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
-
+            // stop emitting fire when powerup is over
+            powerUpFireRed.Stop();
+            powerUpFireBlue.Stop();
+        }
+    }
+    private void handlePowerUpColor()
+    {
+        if(playerState == ChargeState.Blue)
+        {
+            powerUpFireBlue.Play();
+            powerUpFireRed.Stop();
+        }
+        else
+        {
+            powerUpFireBlue.Stop();
+            powerUpFireRed.Play();
         }
     }
     IEnumerator destroyRedExplosion(GameObject redExplosionObject)
     {
         yield return new WaitForSeconds(5);
-
         Destroy(redExplosionObject);
     }
 }

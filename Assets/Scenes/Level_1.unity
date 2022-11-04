@@ -3105,7 +3105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1421022248
 Transform:
   m_ObjectHideFlags: 0
@@ -8521,7 +8521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1843893024
 Transform:
   m_ObjectHideFlags: 0
@@ -14560,6 +14560,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2126981279}
     m_Modifications:
+    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: powerUpFireRed
+      value: 
+      objectReference: {fileID: 1421022250}
+    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: powerUpFireBlue
+      value: 
+      objectReference: {fileID: 1843893026}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
       value: Player
