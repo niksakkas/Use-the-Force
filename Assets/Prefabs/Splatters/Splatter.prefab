@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: c3a2d19d632b8c240bc0dbe8f6655fba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a0f4af016da4644ca8bd8697ce85e6b, type: 3}
   m_Color: {r: 0.25064337, g: 0.972549, b: 0.16862747, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splatterSprites:
+  - {fileID: 21300000, guid: 34eb528046c059e49864e2cb09ddab89, type: 3}
   - {fileID: 21300000, guid: c3a2d19d632b8c240bc0dbe8f6655fba, type: 3}
-  - {fileID: 21300000, guid: 1b3aef3aff7e28a4f9c4f87d70e894f1, type: 3}
-  - {fileID: 21300000, guid: e9f92b2e907a19a41a381eee3776ddb5, type: 3}
   - {fileID: 21300000, guid: e5ffc817dc810a547bda188cb5525ed9, type: 3}
+  - {fileID: 21300000, guid: 1a0f4af016da4644ca8bd8697ce85e6b, type: 3}
   minRed: {r: 1, g: 0.10196079, b: 0.10196079, a: 1}
   maxRed: {r: 1, g: 0.27569264, b: 0.10196078, a: 1}
   minBlue: {r: 0, g: 0.62527966, b: 1, a: 0}
