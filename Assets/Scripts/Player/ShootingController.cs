@@ -55,6 +55,7 @@ public class ShootingController : MonoBehaviour
     void Update()
     {  
         pointerInput = getPointerInput();
+        //only aim if the player is blue or purple, and is standing still
         if ((playerController.playerState == ChargeState.Blue || playerController.purplePowerupActive == true) && m_rigidbody2D.velocity.magnitude == 0f)
         {
 

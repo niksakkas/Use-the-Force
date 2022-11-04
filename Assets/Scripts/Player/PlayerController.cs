@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("MainAbility"))
         {
-            if (playerState == ChargeState.Red && purplePowerupActive == false)
+            if (playerState == ChargeState.Red && purplePowerupActive == false && rb.velocity.magnitude != 0)
             {
                 blast();
 
