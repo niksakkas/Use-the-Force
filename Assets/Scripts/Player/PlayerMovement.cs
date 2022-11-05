@@ -7,14 +7,10 @@ public class PlayerMovement : MonoBehaviour {
 	public CharacterController2D controller;
 	public Animator animator;
 	public float disabledTimer = 0f;
-
 	public float runSpeed = 400f;
 	float horizontalMove = 0f;
 	float verticalMove = 0f;
 	bool jump = false;
-	
-
-
 	void Update () {
 
         if (disabledTimer == 0)
@@ -29,7 +25,6 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 	}
-
 	void FixedUpdate ()
 	{
 		if (disabledTimer == 0)

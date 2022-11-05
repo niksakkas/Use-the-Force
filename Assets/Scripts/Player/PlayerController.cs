@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float purplePowerUpDuration;
     public float purplePower = 0;
     public Material purplePowerUpIconMaterial;
+    public Material swapChargeIconMaterial;
+    public float chargeSwapCooldown = 1f;
 
     //powerup fires
     public ParticleSystem powerUpFireBlue;
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private GameController gameController;
     private float playerStartingScale;
+    private float swapCharge;
+
 
     private void Start()
     {
@@ -39,15 +43,23 @@ public class PlayerController : MonoBehaviour
         purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
         powerUpFireRed.Stop();
         powerUpFireBlue.Stop();
+        swapCharge = chargeSwapCooldown;
+        swapChargeIconMaterial.SetFloat("_Cooldown", chargeSwapCooldown);
+        swapChargeIconMaterial.SetFloat("_IconCharge", 0f);
 
     }
     private void Update()
     {
+        swapCharge += Time.fixedDeltaTime * 0.1f;
+        swapChargeIconMaterial.SetFloat("_SwapCharge", swapCharge);
         purplePowerUpIconMaterial.SetFloat("_Fill", purplePower);
-
         if (Input.GetButtonDown("ChangeCharge") && playerState!=ChargeState.Purple)
         {
-            changePlayerCharge();
+            if (swapCharge >= chargeSwapCooldown)
+            {
+                swapCharge = 0;
+                changePlayerCharge();
+            }
         }
         if (Input.GetButtonDown("MainAbility"))
         {
@@ -55,7 +67,6 @@ public class PlayerController : MonoBehaviour
             if (playerState == ChargeState.Red && purplePowerupActive == false && rb.velocity.magnitude != 0)
             {
                 blast();
-
             }
         }
         if (Input.GetButtonDown("PurplePowerup"))
@@ -76,8 +87,10 @@ public class PlayerController : MonoBehaviour
     {
         // update the direction of all magnetic fields
         gameController.SendMessage("updateDirectionOfFields", gameObject);
-
-
+        swapColor();
+    }
+    private void swapColor()
+    {
         // set player color
         if (playerState == ChargeState.Red)
         {
@@ -93,13 +106,18 @@ public class PlayerController : MonoBehaviour
         playerState = ChargeState.Blue;
         spriteRenderer.material.SetFloat("_Red", 0);
         spriteRenderer.material.SetFloat("_Blue", 1);
+        swapChargeIconMaterial.SetFloat("_IconCharge", 1f);
+
     }
     private void becomeRed()
     {
         playerState = ChargeState.Red;
         spriteRenderer.material.SetFloat("_Red", 1);
         spriteRenderer.material.SetFloat("_Blue", 0);
+        swapChargeIconMaterial.SetFloat("_IconCharge", 0f);
+
     }
+
 
     //runs when player dies
     public void die()
