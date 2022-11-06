@@ -1390,6 +1390,11 @@ MonoBehaviour:
   aiPath: {fileID: 473666256}
   player: {fileID: 0}
   minDistance: 3
+--- !u!1 &476519747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3025427357699525660, guid: 4d6b191cef8a03441b6ed8785603b0f7, type: 3}
+  m_PrefabInstance: {fileID: 3025427358076292156}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &491725930
 GameObject:
   m_ObjectHideFlags: 0
@@ -14609,6 +14614,10 @@ PrefabInstance:
       propertyPath: powerUpFireBlue
       value: 
       objectReference: {fileID: 1843893026}
+    - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: SwapChargeCooldownIcon
+      value: 
+      objectReference: {fileID: 476519747}
     - target: {fileID: 638214545583079930, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: swapChargeIconMaterial
       value: 
