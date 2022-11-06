@@ -2640,7 +2640,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2694,7 +2694,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 0
-    dampen: 0.3
+    dampen: 0.2
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -4908,5 +4908,6 @@ MonoBehaviour:
   color: 0
   part: {fileID: 1228038360579859021}
   splatter: {fileID: 4715435649366159177, guid: 854befed69d1c354f82f1316bff6800c, type: 3}
+  gameController: {fileID: 0}
   minScale: 0.12
   maxScale: 0.24
