@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform respawnPortalTransform; 
     public bool purplePowerupActive = false;
     public float purplePowerUpDuration;
-    public float purplePower = 0;
+    public float purplePower = 0f;
     public Material purplePowerUpIconMaterial;
     public Material swapChargeIconMaterial;
     public float chargeSwapCooldown = 1f;
@@ -213,6 +213,13 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.color = new Color(0f, 0f, 0f, 0f);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         disableAiming();
+        powerUpFireRed.Stop();
+        powerUpFireBlue.Stop();
+        if (purplePowerupActive)
+        {
+            purplePowerupActive = false;
+            purplePower = 0;
+        }
         //Wait
         yield return new WaitForSeconds(respawnTimer);
         //Make the player smaller

@@ -10,8 +10,6 @@ public class ExplosionController : MonoBehaviour
     public GameController gameController;
     [SerializeField] private float minScale = 0.12f;
     [SerializeField] private float maxScale = 0.24f;
-
-
     List<ParticleCollisionEvent> collisionEvents = new List<ParticleCollisionEvent>();
 
     void Start()

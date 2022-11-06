@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
 
         activeRespawnPortal.SendMessage("activate");
 
-        magneticFields = GameObject.FindObjectsOfType<MagneticField>();
+        magneticFields = FindObjectsOfType<MagneticField>();
 
         //pooling
         pooledRedSplatters = new GameObject[amountToPool/2];
