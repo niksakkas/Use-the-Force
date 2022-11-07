@@ -73,16 +73,16 @@ public class GameController : MonoBehaviour
             return pooledBlueSplatters[bluePoolingCounter % pooledBlueSplatters.Length];
         }
     }
-    public void killPlayer()
+    public void killPlayer(float respawnTimer)
     {
-        StartCoroutine(killPlayerCoroutine());
+        StartCoroutine(killPlayerCoroutine(respawnTimer));
     }
-    private IEnumerator killPlayerCoroutine()
+    private IEnumerator killPlayerCoroutine(float respawnTimer)
     {
         playerController.powerUpFireRed.Stop();
         playerController.powerUpFireBlue.Stop();
         player.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(respawnTimer);
         player.SetActive(true);
         playerController.respawn();
     }

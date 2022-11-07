@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
             purplePower = 0;
         }
         //tell game controller to kill and respawn the player
-        gameController.killPlayer();
+        gameController.killPlayer(respawnTimer);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
