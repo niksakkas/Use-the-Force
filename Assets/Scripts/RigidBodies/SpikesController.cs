@@ -7,9 +7,6 @@ public class SpikesController : MonoBehaviour
     public PlayerController playerController;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       if (collision.collider.GetComponent<Collider2D>().tag == "Player")
-       {
-            playerController.die();
-       }
+
     }
 }

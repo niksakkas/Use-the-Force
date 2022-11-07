@@ -155,13 +155,23 @@ public class PlayerController : MonoBehaviour
     {
         //create explosion
         createDeathParticles();
-        //die and respawn
-        StartCoroutine(dieAndRespawn());
+        //remove active purple powerup
+        if (purplePowerupActive)
+        {
+            purplePowerupActive = false;
+            purplePower = 0;
+        }
+        //tell game controller to kill and respawn the player
+        gameController.killPlayer();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.GetComponent<Collider2D>().tag == "Enemy")
+        {
+            die();
+        }
+        if (collision.collider.GetComponent<Collider2D>().tag == "Spikes")
         {
             die();
         }
@@ -206,27 +216,15 @@ public class PlayerController : MonoBehaviour
             purplePower = 1f;
         }
     }
-    IEnumerator dieAndRespawn()
+
+    public void respawn()
     {
-        //Die
-        Color color = spriteRenderer.color;
-        spriteRenderer.color = new Color(0f, 0f, 0f, 0f);
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        disableAiming();
         powerUpFireRed.Stop();
         powerUpFireBlue.Stop();
-        if (purplePowerupActive)
-        {
-            purplePowerupActive = false;
-            purplePower = 0;
-        }
-        //Wait
-        yield return new WaitForSeconds(respawnTimer);
         //Make the player smaller
         transform.position = respawnPortalTransform.position;
         transform.localScale = new Vector3(respawnStartingScale, respawnStartingScale, respawnStartingScale);
         //Respawn
-        spriteRenderer.color = color;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         enableAiming();
     }

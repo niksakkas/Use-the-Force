@@ -13,13 +13,16 @@ public class GameController : MonoBehaviour
     private int redPoolingCounter = 0;
     private int bluePoolingCounter = 0;
 
-    PlayerController player;
+
+    GameObject player;
+    public PlayerController playerController;
     MagneticField[] magneticFields;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        player.respawnPortalTransform = activeRespawnPortal.transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        playerController.respawnPortalTransform = activeRespawnPortal.transform;
 
         activeRespawnPortal.SendMessage("activate");
 
@@ -50,7 +53,7 @@ public class GameController : MonoBehaviour
             activeRespawnPortal = portal;
             activeRespawnPortal.SendMessage("activate");
         }
-        player.respawnPortalTransform = activeRespawnPortal.transform;
+        playerController.respawnPortalTransform = activeRespawnPortal.transform;
     }
     void updateDirectionOfFields(){
         foreach(MagneticField field in magneticFields)
@@ -69,5 +72,18 @@ public class GameController : MonoBehaviour
             bluePoolingCounter += 1;
             return pooledBlueSplatters[bluePoolingCounter % pooledBlueSplatters.Length];
         }
+    }
+    public void killPlayer()
+    {
+        StartCoroutine(killPlayerCoroutine());
+    }
+    private IEnumerator killPlayerCoroutine()
+    {
+        playerController.powerUpFireRed.Stop();
+        playerController.powerUpFireBlue.Stop();
+        player.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        player.SetActive(true);
+        playerController.respawn();
     }
 }
