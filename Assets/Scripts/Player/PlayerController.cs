@@ -166,6 +166,7 @@ public class PlayerController : MonoBehaviour
         {
             purplePowerupActive = false;
             purplePower = 0;
+            purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
         }
         //tell game controller to kill and respawn the player
         gameController.killPlayer(respawnTimer);

@@ -7,7 +7,6 @@ public class PortalController : MonoBehaviour
     public bool isActive;
     GameController gameController;
     SpriteRenderer m_SpriteRenderer;
-    bool isActivating = false;
     float change = 1;
     
     private void Start()
@@ -22,30 +21,26 @@ public class PortalController : MonoBehaviour
             gameController.SendMessage("setActiveRespawnPortal", gameObject);
         }
     }
-    private void Update(){
-        if(isActivating){
-            if(change > 0f){
-                m_SpriteRenderer.material.SetFloat("_ColorTransition", change);
-                change -= 2*Time.deltaTime;
-            }
-            else{
-                change = 0f;
-                m_SpriteRenderer.material.SetFloat("_ColorTransition", change);
-                isActivating = false;
-            }
 
-
-        }
-    }
     private void activate(){
-        if(isActivating == false){
-            change = 1;
-            isActivating = true;
-        }
-        m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.6f);
+        StartCoroutine(activateCoroutine());
     }
-    private void deactivate(){
+    public void deactivate(){
+
         m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.2f);
         m_SpriteRenderer.material.SetFloat("_ColorTransition", 1);
     }
+
+    public IEnumerator activateCoroutine()
+    {
+        change = 1;
+        m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.6f);
+        while (change > 0f)
+        {
+            m_SpriteRenderer.material.SetFloat("_ColorTransition", change);
+            change -= 2 * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
 }
