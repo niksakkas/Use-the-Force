@@ -4,37 +4,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Gamecontroller
+    private GameController gameController;
+
+    //Main components
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
+    private Rigidbody2D rb;
+
+    //Player charge (colors)
+    public ChargeState playerState = ChargeState.Red;
+    private float swapCharge;
+    public Material swapChargeIconMaterial;
+    public GameObject SwapChargeCooldownIcon;
+    public float chargeSwapCooldown = 1f;
+
+    //Death and respawn
+    private float playerStartingScale;
+    public GameObject deathExplosionPrefab;
+    public Transform respawnPortalTransform;
     [SerializeField] private float respawnTimer;
     [SerializeField] private float scaleIncreaseIncrement = 2f;
     [SerializeField] private float respawnStartingScale = 0.4f;
 
-    public ChargeState playerState = ChargeState.Red;
-    public SpriteRenderer spriteRenderer;
-    public Animator animator;
-    public GameObject deathExplosionPrefab;
-    public GameObject redExplosionPrefab;
-    public Transform respawnPortalTransform; 
+    //Purple powerup
+    public float purplePower = 0f;
     public bool purplePowerupActive = false;
     public float purplePowerUpDuration;
-    public float purplePower = 0f;
     public Material purplePowerUpIconMaterial;
-    public Material swapChargeIconMaterial;
-    public float chargeSwapCooldown = 1f;
-    public GameObject SwapChargeCooldownIcon;
-
-    //powerup fires
     public ParticleSystem powerUpFireBlue;
     public ParticleSystem powerUpFireRed;
-    // aiming stuff
+
+    //Blast (red)
+    private GameObject currentRedExplosion;
+    public GameObject redExplosionPrefab;
+
+    //Aiming stuff (blue)
     public GameObject aimingLaser;
     public ShootingController shootingController;
-
-    private GameObject currentRedExplosion;
-    private Rigidbody2D rb;
-    private GameController gameController;
-    private float playerStartingScale;
-    private float swapCharge;
-
 
     private void Start()
     {
@@ -47,7 +54,6 @@ public class PlayerController : MonoBehaviour
         swapCharge = chargeSwapCooldown;
         swapChargeIconMaterial.SetFloat("_Cooldown", chargeSwapCooldown);
         swapChargeIconMaterial.SetFloat("_IconCharge", 0f);
-
     }
     private void Update()
     {
@@ -64,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButtonDown("MainAbility"))
         {
-            //only blast if the player is red, powerup is inactive, and 
+            //only blast if the player is red, powerup is inactive, and player is moving
             if (playerState == ChargeState.Red && purplePowerupActive == false && rb.velocity.magnitude != 0)
             {
                 blast();

@@ -14766,9 +14766,13 @@ PrefabInstance:
       propertyPath: chargeCooldownIconMaterial
       value: 
       objectReference: {fileID: 2100000, guid: a58347dc73dc3c44f8829a395b70028a, type: 2}
+    - target: {fileID: 2523887549726410065, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2527508806025846360, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_JumpForce
-      value: 300
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556881, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_Name
