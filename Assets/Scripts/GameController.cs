@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     private int redPoolingCounter = 0;
     private int bluePoolingCounter = 0;
 
+    //swap charge icon
+    public Material swapChargeIconMaterial;
+    public GameObject SwapChargeCooldownIcon;
 
     GameObject player;
     public PlayerController playerController;
@@ -44,6 +47,7 @@ public class GameController : MonoBehaviour
             pooledBlueSplatters[i].SendMessage("pickColor", ChargeState.Blue);
         }
     }
+
 
     // Change the active Portal
     void setActiveRespawnPortal(GameObject portal)
@@ -77,6 +81,40 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine(killPlayerCoroutine(respawnTimer));
     }
+    public void rotateAndRecolorChargeIcon()
+    {
+        StartCoroutine(rotateAndRecolorChargeIconCoroutine());
+    }
+    private IEnumerator rotateAndRecolorChargeIconCoroutine()
+    {
+        float rotation = 1.8f;
+        int iterations = Mathf.CeilToInt(180f / rotation);
+        float timeSpanLength = 0.5f / iterations;
+        float colorChangeIncrement = 1f / iterations;
+        float colorChange = swapChargeIconMaterial.GetFloat("_IconCharge");
+        if (colorChange == 1)
+        {
+            for (int i = 0; i < iterations; i++)
+            {
+                SwapChargeCooldownIcon.transform.Rotate(new Vector3(0, 0f, -rotation));
+                colorChange -= colorChangeIncrement;
+                swapChargeIconMaterial.SetFloat("_IconCharge", colorChange);
+                yield return new WaitForSeconds(timeSpanLength);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < iterations; i++)
+            {
+                SwapChargeCooldownIcon.transform.Rotate(new Vector3(0, 0f, +rotation));
+                colorChange += colorChangeIncrement;
+                swapChargeIconMaterial.SetFloat("_IconCharge", colorChange);
+                yield return new WaitForSeconds(timeSpanLength);
+            }
+        }
+        swapChargeIconMaterial.SetFloat("_IconCharge", Mathf.Round(colorChange));
+    }
+
     private IEnumerator killPlayerCoroutine(float respawnTimer)
     {
         playerController.powerUpFireRed.Stop();

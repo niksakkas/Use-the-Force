@@ -14794,6 +14794,14 @@ PrefabInstance:
       propertyPath: activeRespawnPortal
       value: 
       objectReference: {fileID: 1534678634}
+    - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
+      propertyPath: SwapChargeCooldownIcon
+      value: 
+      objectReference: {fileID: 476519747}
+    - target: {fileID: 4953091105930488434, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
+      propertyPath: swapChargeIconMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a58347dc73dc3c44f8829a395b70028a, type: 2}
     - target: {fileID: 4953091105930488435, guid: 275f3e90923848045b3d7ba50ded2769, type: 3}
       propertyPath: m_Name
       value: GameController

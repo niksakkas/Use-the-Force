@@ -113,8 +113,8 @@ public class PlayerController : MonoBehaviour
         playerState = ChargeState.Blue;
         spriteRenderer.material.SetFloat("_Red", 0);
         spriteRenderer.material.SetFloat("_Blue", 1);
-        //swapChargeIconMaterial.SetFloat("_IconCharge", 1f);
-        StartCoroutine(rotateAndRecolorChargeIcon());
+        gameController.rotateAndRecolorChargeIcon();
+        //StartCoroutine(rotateAndRecolorChargeIcon());
 
     }
     private void becomeRed()
@@ -122,38 +122,10 @@ public class PlayerController : MonoBehaviour
         playerState = ChargeState.Red;
         spriteRenderer.material.SetFloat("_Red", 1);
         spriteRenderer.material.SetFloat("_Blue", 0);
-        //swapChargeIconMaterial.SetFloat("_IconCharge", 0f);
-        StartCoroutine(rotateAndRecolorChargeIcon());
+        gameController.rotateAndRecolorChargeIcon();
 
-    }
-    private IEnumerator rotateAndRecolorChargeIcon()
-    {
-        float rotation = 1.8f;
-        int iterations = Mathf.CeilToInt( 180f / rotation);
-        float timeSpanLength = 0.5f/iterations;
-        float colorChangeIncrement = 1f / iterations;
-        float colorChange = swapChargeIconMaterial.GetFloat("_IconCharge");
-        if (colorChange == 1)
-        {
-            for (int i = 0; i < iterations; i++)
-            {
-                SwapChargeCooldownIcon.transform.Rotate(new Vector3(0, 0f, -rotation));
-                colorChange -= colorChangeIncrement;
-                swapChargeIconMaterial.SetFloat("_IconCharge", colorChange);
-                yield return new WaitForSeconds(timeSpanLength);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < iterations; i++)
-            {
-                SwapChargeCooldownIcon.transform.Rotate(new Vector3(0, 0f, +rotation));
-                colorChange += colorChangeIncrement;
-                swapChargeIconMaterial.SetFloat("_IconCharge", colorChange);
-                yield return new WaitForSeconds(timeSpanLength);
-            }
-        }
-        swapChargeIconMaterial.SetFloat("_IconCharge", Mathf.Round(colorChange));
+        //StartCoroutine(rotateAndRecolorChargeIcon());
+
     }
 
     //runs when player dies
