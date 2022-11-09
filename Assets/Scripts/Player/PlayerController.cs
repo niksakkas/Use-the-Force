@@ -42,9 +42,14 @@ public class PlayerController : MonoBehaviour
     //Aiming stuff (blue)
     public GameObject aimingLaser;
     public ShootingController shootingController;
+    
+    //Shadows casting
+    public GameObject shadowsParent;
+    public GameObject currentShadow;
 
     private void Start()
     {
+        currentShadow = shadowsParent.transform.Find(spriteRenderer.sprite.name).gameObject;
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerStartingScale = transform.localScale.x;
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -57,6 +62,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        updatePlayerShadowsCaster();
         swapCharge += Time.fixedDeltaTime * 0.1f;
         swapChargeIconMaterial.SetFloat("_SwapCharge", swapCharge);
         purplePowerUpIconMaterial.SetFloat("_Fill", purplePower);
@@ -258,5 +264,28 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Destroy(redExplosionObject);
+    }
+
+    public void updatePlayerShadowsCaster()
+    {
+        string shadowsCasterName = spriteRenderer.sprite.name;
+
+        if (currentShadow != null)
+        {
+
+
+            Transform currentTransform = shadowsParent.transform.Find(shadowsCasterName);
+            if (currentTransform != null)
+            {
+                GameObject newShadow = shadowsParent.transform.Find(shadowsCasterName).gameObject;
+                if (currentShadow != newShadow)
+                {
+                    currentShadow.SetActive(false);
+                    currentShadow = newShadow;
+                    currentShadow.SetActive(true);
+                }
+            }
+        }
+
     }
 }
