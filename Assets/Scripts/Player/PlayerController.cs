@@ -272,8 +272,6 @@ public class PlayerController : MonoBehaviour
 
         if (currentShadow != null)
         {
-
-
             Transform currentTransform = shadowsParent.transform.Find(shadowsCasterName);
             if (currentTransform != null)
             {
