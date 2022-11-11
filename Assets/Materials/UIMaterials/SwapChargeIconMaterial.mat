@@ -55,13 +55,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Charge: 0
-    - _Cooldown: 1
+    - _Cooldown: 0.7
     - _CooldownRemaining: 1
     - _EnableExternalAlpha: 0
     - _Fill: 0.3
-    - _IconCharge: 1
+    - _IconCharge: 0
     - _PowerUpActive: 0
-    - _SwapCharge: 36.88099
+    - _SwapCharge: 10.915576
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
