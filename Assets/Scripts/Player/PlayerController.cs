@@ -270,6 +270,12 @@ public class PlayerController : MonoBehaviour
     {
         string shadowsCasterName = spriteRenderer.sprite.name;
 
+        //throw animations are pretty much like idle
+        if(shadowsCasterName == "")
+        {
+            shadowsCasterName = "Idle1";
+        }
+
         if (currentShadow != null)
         {
             Transform currentTransform = shadowsParent.transform.Find(shadowsCasterName);
