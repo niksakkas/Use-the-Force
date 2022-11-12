@@ -1387,7 +1387,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1443950707, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_Color.b
-      value: 0.11707878
+      value: 0.11576605
       objectReference: {fileID: 0}
     - target: {fileID: 1443950707, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_Color.g
@@ -3086,29 +3086,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1049401399}
     m_Modifications:
-    - target: {fileID: 1157899695, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157899695, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1157899695, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Color.r
-      value: 0.17243624
-      objectReference: {fileID: 0}
     - target: {fileID: 2236738541581970720, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2236738541581970720, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 11.469448
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236738541581970720, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.02265
+      value: -21.71
       objectReference: {fileID: 0}
     - target: {fileID: 2236738541581970720, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.2027626
+      value: -2.89
       objectReference: {fileID: 0}
     - target: {fileID: 2236738541581970720, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3145,14 +3137,6 @@ PrefabInstance:
     - target: {fileID: 2236738541581970722, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
       propertyPath: m_Name
       value: ZeroGravityField (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2236738541581970723, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2236738541581970723, guid: c400e8a7185a6804087735f2ee384e57, type: 3}
-      propertyPath: m_Color.r
-      value: 0.33436465
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c400e8a7185a6804087735f2ee384e57, type: 3}

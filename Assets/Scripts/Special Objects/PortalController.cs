@@ -14,13 +14,14 @@ public class PortalController : MonoBehaviour
     public UnityEngine.Rendering.Universal.Light2D portalLight;
     float change = 1;
 
-    private void Start()
+    private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         portalLight.color = Color.Lerp(activeLightColor, inactiveLightColor, change);
     }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<Collider2D>().tag == "Player")

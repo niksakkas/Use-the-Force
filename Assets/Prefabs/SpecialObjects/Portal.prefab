@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inactiveLightColor: {r: 0.61, g: 0.16, b: 1, a: 1}
+  activeLightColor: {r: 1, g: 0.16, b: 0.98, a: 1}
+  portalLight: {fileID: 0}
 --- !u!60 &1471515409
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -209,7 +212,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 3
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
