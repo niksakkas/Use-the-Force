@@ -47,8 +47,15 @@ public class PlayerController : MonoBehaviour
     public GameObject shadowsParent;
     public GameObject currentShadow;
 
+    //Light
+    private UnityEngine.Rendering.Universal.Light2D playerLight;
+    public Color blueLightColor;
+    public Color redLightColor;
+
+
     private void Start()
     {
+        playerLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         currentShadow = shadowsParent.transform.Find(spriteRenderer.sprite.name).gameObject;
         rb = gameObject.GetComponent<Rigidbody2D>();
         playerStartingScale = transform.localScale.x;
@@ -113,6 +120,7 @@ public class PlayerController : MonoBehaviour
         {
             becomeRed();
         }
+
     }
     private void becomeBlue()
     {
@@ -120,8 +128,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.material.SetFloat("_Red", 0);
         spriteRenderer.material.SetFloat("_Blue", 1);
         gameController.rotateAndRecolorChargeIcon();
-        //StartCoroutine(rotateAndRecolorChargeIcon());
-
+        playerLight.color = blueLightColor;
     }
     private void becomeRed()
     {
@@ -129,9 +136,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.material.SetFloat("_Red", 1);
         spriteRenderer.material.SetFloat("_Blue", 0);
         gameController.rotateAndRecolorChargeIcon();
-
-        //StartCoroutine(rotateAndRecolorChargeIcon());
-
+        playerLight.color = redLightColor;
     }
 
     //runs when player dies
