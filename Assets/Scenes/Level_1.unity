@@ -6021,22 +6021,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1049401399}
     m_Modifications:
-    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
-      propertyPath: m_Color.a
-      value: 0.09803922
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476366508070471809, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471810, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_Name
       value: RedHomogenousField
@@ -6047,11 +6031,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471814, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.93
+      value: 30.53
       objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471814, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.07
+      value: -1.03
       objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471814, guid: 10a0d7ab6c78ee84caa156612b041e42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7804,14 +7788,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1049401399}
     m_Modifications:
-    - target: {fileID: 1080836350, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
-      propertyPath: magnetStrength
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476366508070471809, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
-      propertyPath: m_Color.a
-      value: 0.09803922
-      objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471810, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_Name
       value: BlueHomogenousField
@@ -7819,10 +7795,6 @@ PrefabInstance:
     - target: {fileID: 1476366508070471814, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1476366508070471814, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 15.739249
       objectReference: {fileID: 0}
     - target: {fileID: 1476366508070471814, guid: 6c4beb6ce7f054c478ea437fc38d920e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8664,18 +8636,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 2002902700}
-    - target: {fileID: 7803341475900658507, guid: 5007eb9788d79394fb7e45f107c597ae, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7803341475900658507, guid: 5007eb9788d79394fb7e45f107c597ae, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7803341475900658507, guid: 5007eb9788d79394fb7e45f107c597ae, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5007eb9788d79394fb7e45f107c597ae, type: 3}
 --- !u!1001 &8085278851148696844
@@ -8695,11 +8655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6399999
+      value: -1.28
       objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.95
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_LocalPosition.z

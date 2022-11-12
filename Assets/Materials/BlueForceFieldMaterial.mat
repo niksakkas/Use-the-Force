@@ -73,7 +73,7 @@ Material:
     - _DegreeOfTilling: {r: 6, g: 6, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _Mid: {r: 0, g: 0.65882355, b: 1, a: 0}
-    - _OverlayingColor: {r: 0.4903686, g: 2.206659, b: 2.754718, a: 1}
+    - _OverlayingColor: {r: 0, g: 1.0672728, b: 2.6104915, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _Rest: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
