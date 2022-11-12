@@ -14,8 +14,11 @@ public class BulletController : MonoBehaviour
     private GameObject newMuzzle;
     private GameObject newHit;
 
+    private UnityEngine.Rendering.Universal.Light2D bulletLight;
+
     void Start()
     {
+        bulletLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         newMuzzle = Instantiate(muzzlePrefab, gameObject.transform.position, hitPrefab.transform.rotation);
         bulletRb.velocity = transform.right * speed;
         StartCoroutine(destroyAllSoon(10));
@@ -48,6 +51,7 @@ public class BulletController : MonoBehaviour
 
     private void hideBullet()
     {
+        bulletLight.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
