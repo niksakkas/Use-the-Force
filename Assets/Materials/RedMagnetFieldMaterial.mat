@@ -55,13 +55,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _Boolean: 1
+    - _Direction: 1
     - _EnableExternalAlpha: 0
     - _Float: 0
+    - _LineIntensity: 2
+    - _Magnitude: 1
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _Color_1: {r: 0.2901961, g: 0.087960035, b: 0.04313725, a: 1}
-    - _FieldColor: {r: 1, g: 0, b: 0, a: 0}
+    - _FieldColor: {r: 1, g: 0, b: 0.13757896, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _LinesColor: {r: 1, g: 0.4377358, b: 0.4377358, a: 0}
+    - _LinesColor: {r: 1, g: 0.43921566, b: 0.43921566, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
