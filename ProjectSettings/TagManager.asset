@@ -52,3 +52,6 @@ TagManager:
   - name: Player
     uniqueID: 79971165
     locked: 0
+  - name: Unlit Door
+    uniqueID: 4014624393
+    locked: 0
