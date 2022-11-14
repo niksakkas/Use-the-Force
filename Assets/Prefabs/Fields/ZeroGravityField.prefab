@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2236738541581970722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.08, y: 13.48, z: 0}
-  m_LocalScale: {x: 10.978734, y: 9.376927, z: 1}
+  m_LocalScale: {x: 10.978734, y: 11.469448, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.48
+  m_FalloffIntensity: 0.8
   m_Color: {r: 0.105882354, g: 0.7490196, b: 0, a: 1}
   m_Intensity: 0.21
   m_LightVolumeIntensity: 1
