@@ -14,14 +14,14 @@ public class PlayerMovement : MonoBehaviour {
 	bool jump = false;
 
 	public float dashSpeed = 100f;
-	int dashRaycastMask;
+	private int dashXmultiplier = 500;
+	private int dashYmultiplier = 130;
 	public Rigidbody2D rb;
 
 
     private void Awake()
     {
 		rb = GetComponent<Rigidbody2D>();
-		dashRaycastMask = (1 << LayerMask.NameToLayer("Surfaces") | (1 << LayerMask.NameToLayer("Enemies")));
 
 	}
 	void Update () {
@@ -66,12 +66,15 @@ public class PlayerMovement : MonoBehaviour {
 
 		int dashIncrements = 20;
 		float dashIncrementLength = dashSpeed/dashIncrements;
+		// Apply a force smoothly over 20 increments
+		// The force should lower every frame, so that the player doesn't have extra force when the dash ends
         for (int i = 0; i < dashIncrements; i++)
         {
 			rb.AddForce(dir * dashIncrementLength * ((dashIncrements - i) /dashIncrements));
 			yield return new WaitForEndOfFrame();
 		}
 	}
+	//old dash handling
 	//RaycastHit2D TryDashing(Vector2 playerOrigin, Vector2 playerTarget)
 	//   {
 	//	Debug.Log(playerOrigin);
@@ -90,14 +93,14 @@ public class PlayerMovement : MonoBehaviour {
 	//}
 	Vector2 getDashDirection()
     {
-		//if(horizontalMove != 0f && verticalMove != 0f)
-  //      {
-		//	return new Vector2(Mathf.Sign(horizontalMove) * Mathf.Sqrt(0.5f), Mathf.Sign(verticalMove) * Mathf.Sqrt(0.5f));
-  //      }
+		if(horizontalMove != 0f && verticalMove != 0f)
+        {
+            return new Vector2(Mathf.Sign(horizontalMove) * Mathf.Sqrt(0.5f) * dashXmultiplier, Mathf.Sign(verticalMove) * Mathf.Sqrt(0.5f) * dashYmultiplier);
+        }
 
-  //      else
-  //      {
-			float x;
+        else
+        {
+            float x;
 			float y;
 			if(horizontalMove == 0f)
             {
@@ -105,7 +108,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             else
             {
-				x = Mathf.Sign(horizontalMove)*500;
+				x = Mathf.Sign(horizontalMove)* dashXmultiplier;
 
 			}
 			if (verticalMove == 0f)
@@ -114,11 +117,11 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else
 			{
-				y = Mathf.Sign(verticalMove)*130;
+				y = Mathf.Sign(verticalMove)* dashYmultiplier;
 
 			}
 			return new Vector2(x, y);
-            
-		//}
-	}
+
+        }
+    }
 }
