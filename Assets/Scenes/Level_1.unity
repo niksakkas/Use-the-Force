@@ -8713,8 +8713,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6946459763702410390, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
+      propertyPath: dashSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946459763702410390, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: dashDistance
-      value: 500
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}

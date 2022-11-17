@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 	float verticalMove = 0f;
 	bool jump = false;
 
-	public float dashDistance = 10f;
+	public float dashSpeed = 100f;
 	int dashRaycastMask;
 	public Rigidbody2D rb;
 
@@ -58,13 +58,22 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Dash"))
         {
 			Vector2 dir = getDashDirection();
-			Vector2 target = dir;
-			Vector2 origin = transform.position;
-			rb.AddForce(dir * dashDistance);
+			StartCoroutine(Dash(dir));
 		}
-    }
+	}
+	IEnumerator Dash(Vector2 dir)
+    {
+
+		int dashIncrements = 20;
+		float dashIncrementLength = dashSpeed/dashIncrements;
+        for (int i = 0; i < dashIncrements; i++)
+        {
+			rb.AddForce(dir * dashIncrementLength * ((dashIncrements - i) /dashIncrements));
+			yield return new WaitForEndOfFrame();
+		}
+	}
 	//RaycastHit2D TryDashing(Vector2 playerOrigin, Vector2 playerTarget)
- //   {
+	//   {
 	//	Debug.Log(playerOrigin);
 	//	Debug.Log(playerTarget.normalized);
 	//	RaycastHit2D hit = Physics2D.Raycast(playerOrigin, playerTarget, dashDistance, dashRaycastMask);
@@ -75,19 +84,19 @@ public class PlayerMovement : MonoBehaviour {
 	//}
 	//RaycastHit2D CanDash(Vector2 origin, Vector2 target)
 	//{
-		
+
 	//	return Physics2D.Raycast(origin, target.normalized, dashDistance, dashRaycastMask);
 
 	//}
 	Vector2 getDashDirection()
     {
-		if(horizontalMove != 0f && verticalMove != 0f)
-        {
-			return new Vector2(Mathf.Sign(horizontalMove) * Mathf.Sqrt(0.5f), Mathf.Sign(verticalMove) * Mathf.Sqrt(0.5f));
-        }
+		//if(horizontalMove != 0f && verticalMove != 0f)
+  //      {
+		//	return new Vector2(Mathf.Sign(horizontalMove) * Mathf.Sqrt(0.5f), Mathf.Sign(verticalMove) * Mathf.Sqrt(0.5f));
+  //      }
 
-        else
-        {
+  //      else
+  //      {
 			float x;
 			float y;
 			if(horizontalMove == 0f)
@@ -96,7 +105,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             else
             {
-				x = Mathf.Sign(horizontalMove);
+				x = Mathf.Sign(horizontalMove)*500;
 
 			}
 			if (verticalMove == 0f)
@@ -105,11 +114,11 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else
 			{
-				y = Mathf.Sign(verticalMove);
+				y = Mathf.Sign(verticalMove)*130;
 
 			}
 			return new Vector2(x, y);
             
-		}
+		//}
 	}
 }
