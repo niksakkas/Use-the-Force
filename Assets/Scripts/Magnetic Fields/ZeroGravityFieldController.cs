@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ZeroGravityFieldController : MonoBehaviour
 {
+    public Rigidbody2D playerRB;
+    float gravityScale;
+    private void Awake()
+    {
+
+        gravityScale = playerRB.gravityScale;
+    }
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
@@ -31,7 +38,7 @@ public class ZeroGravityFieldController : MonoBehaviour
     private void applyPlayerGravityPull(Rigidbody2D playerRB)
     {
         playerRB.velocity = Vector2.zero;
-        playerRB.GetComponent<Rigidbody2D>().gravityScale = 1; // apply gravity pull
+        playerRB.GetComponent<Rigidbody2D>().gravityScale = gravityScale; // apply gravity pull
     }
 
     private void enableVerticalControl(GameObject player)
