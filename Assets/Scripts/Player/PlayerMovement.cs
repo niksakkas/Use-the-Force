@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	float verticalMove = 0f;
 	bool jump = false;
+	PlayerController playerController;
 
 	// Dashing
 	public float dashSpeed = 100f;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     {
 		rb = GetComponent<Rigidbody2D>();
 		playerTrail = GetComponent<TrailRenderer>();
+		playerController = GetComponent<PlayerController>();
 	}
 	void Update () {
 
@@ -130,6 +132,22 @@ public class PlayerMovement : MonoBehaviour {
 
 	IEnumerator EnableDashTrail()
     {
+		SpriteRenderer rb = GetComponent<SpriteRenderer>();
+		Material playerMaterial = rb.material;
+        if (playerController.playerState == ChargeState.Red)
+        {
+			playerTrail.material.color = GlobalVariables.redColor;
+		}
+		else if(playerController.playerState == ChargeState.Blue)
+        {
+			playerTrail.material.color = GlobalVariables.blueColor;
+
+		}
+        else
+        {
+			playerTrail.material.color = Color.green;
+
+		}
 		playerTrail.emitting = true;
 		yield return new WaitForSeconds(0.3f);
 		playerTrail.emitting = false;

@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     //Player charge (colors)
     public ChargeState playerState = ChargeState.Red;
-    private float swapCharge;
+    public float swapCharge;
     public Material swapChargeIconMaterial;
     public GameObject SwapChargeCooldownIcon;
     public float chargeSwapCooldown = 1f;
