@@ -13,16 +13,18 @@ public class PlayerMovement : MonoBehaviour {
 	float verticalMove = 0f;
 	bool jump = false;
 
+	// Dashing
 	public float dashSpeed = 100f;
 	private int dashXmultiplier = 500;
 	private int dashYmultiplier = 130;
 	public Rigidbody2D rb;
+	private TrailRenderer playerTrail;
 
 
     private void Awake()
     {
 		rb = GetComponent<Rigidbody2D>();
-
+		playerTrail = GetComponent<TrailRenderer>();
 	}
 	void Update () {
 
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Dash"))
         {
 			Vector2 dir = getDashDirection();
+			StartCoroutine(EnableDashTrail());
 			StartCoroutine(Dash(dir));
 		}
 	}
@@ -124,4 +127,11 @@ public class PlayerMovement : MonoBehaviour {
 
         }
     }
+
+	IEnumerator EnableDashTrail()
+    {
+		playerTrail.emitting = true;
+		yield return new WaitForSeconds(0.3f);
+		playerTrail.emitting = false;
+	}
 }
