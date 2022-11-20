@@ -1708,38 +1708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1049401399}
     m_Modifications:
-    - target: {fileID: 1443950707, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.b
-      value: 0.11576605
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443950707, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443950707, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1443950707, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: -280342903
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278851132217581, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: playerScript
       value: 
       objectReference: {fileID: 2002902700}
-    - target: {fileID: 8085278852637615208, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.b
-      value: 0.18895638
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278852637615208, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-      propertyPath: m_Color.g
-      value: 0.086274505
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278852637615209, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1788,8 +1760,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedMagnet
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8085278852637615210, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
 --- !u!1 &391998354
 GameObject:
@@ -3421,32 +3392,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &624532880 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8085278851132217580, guid: dc26a1083a0bf8a4baf054482bac8697, type: 3}
-  m_PrefabInstance: {fileID: 341673567}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &624532883
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624532880}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!4 &628702315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7803341475900658504, guid: 5007eb9788d79394fb7e45f107c597ae, type: 3}
@@ -6711,7 +6656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892069239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -31.93, y: -6.87, z: -373.52545}
+  m_LocalPosition: {x: -9.37, y: -6.91, z: -373.52545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8818,11 +8763,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.93
+      value: -9.37
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.43
+      value: -9.47
       objectReference: {fileID: 0}
     - target: {fileID: 6183605693714556895, guid: a573864cbafb97e40b0f76d67fdfb6e7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9061,22 +9006,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1049401399}
     m_Modifications:
-    - target: {fileID: 77403336, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: magnetStrength
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058328563, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058328563, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.data[1]
-      value: -280342903
-      objectReference: {fileID: 0}
-    - target: {fileID: 8085278851132217581, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682265, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: playerScript
       value: 
