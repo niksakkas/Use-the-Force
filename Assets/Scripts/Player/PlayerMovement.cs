@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	float verticalMove = 0f;
 	bool jump = false;
-	PlayerController playerController;
+	
 
 	// Dashing
 	public float dashSpeed = 100f;
@@ -20,13 +20,16 @@ public class PlayerMovement : MonoBehaviour {
 	private int dashYmultiplier = 130;
 	public Rigidbody2D rb;
 	private TrailRenderer playerTrail;
+	PlayerController playerController;
+	CharacterController2D characterController2D;
 
 
-    private void Awake()
+	private void Awake()
     {
 		rb = GetComponent<Rigidbody2D>();
 		playerTrail = GetComponent<TrailRenderer>();
 		playerController = GetComponent<PlayerController>();
+		characterController2D = GetComponent<CharacterController2D>();
 	}
 	void Update () {
 
@@ -59,13 +62,22 @@ public class PlayerMovement : MonoBehaviour {
 
 	void HandleDash()
     {
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown("Dash") && CanDash())
         {
 			Vector2 dir = getDashDirection();
+            if (dir.magnitude == 0)
+            {
+				dir = new Vector2(0f, Mathf.Sign(verticalMove) * dashYmultiplier);
+
+			}
 			StartCoroutine(EnableDashTrail());
 			StartCoroutine(Dash(dir));
 		}
 	}
+	private bool CanDash()
+    {
+		return (!characterController2D.m_Grounded && characterController2D.canDash);
+    }
 	IEnumerator Dash(Vector2 dir)
     {
 
@@ -75,6 +87,7 @@ public class PlayerMovement : MonoBehaviour {
 		// The force should lower every frame, so that the player doesn't have extra force when the dash ends
         for (int i = 0; i < dashIncrements; i++)
         {
+			characterController2D.canDash = false;
 			rb.AddForce(dir * dashIncrementLength * ((dashIncrements - i) /dashIncrements));
 			yield return new WaitForEndOfFrame();
 		}

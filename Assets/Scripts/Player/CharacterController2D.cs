@@ -12,19 +12,20 @@ public class CharacterController2D : MonoBehaviour
 	public bool verticalControl = false;
 	public float flyingSpeedMultiplier = 2.5f;
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;            // Whether or not the player is grounded.
+	public bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
 	public Animator animator;
 
+	//dash
+	public bool canDash = false;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 	}
-
-
 	private void FixedUpdate()
 	{
 		m_Grounded = false;
@@ -37,6 +38,7 @@ public class CharacterController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
 			{
 				m_Grounded = true;
+				canDash = true;
 				animator.SetBool("OnAir", false);
 				return;
 			}
@@ -77,7 +79,6 @@ public class CharacterController2D : MonoBehaviour
 		applyAirResistance();
 	}
 
-
 	private void applyMovement(float horizontalMove, float verticalMove)
 	{
 
@@ -115,4 +116,6 @@ public class CharacterController2D : MonoBehaviour
 		float forceAmount = v*v*airResistance;
 		m_Rigidbody2D.AddForce(direction * forceAmount);
 	}
+
+
 }
