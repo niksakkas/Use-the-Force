@@ -16,6 +16,7 @@ public class HomogenousFieldController : MonoBehaviour
 
     private void Awake()
     {
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         forceDirection = (pointB.position - pointA.position).normalized;
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         height = m_SpriteRenderer.bounds.size.y;
@@ -28,7 +29,7 @@ public class HomogenousFieldController : MonoBehaviour
         {
             Rigidbody2D playerRB = collider.attachedRigidbody;
             float pullOrPush = magneticFieldScript.CalculatePullOrPush(playerScript.playerState);
-            playerRB.AddForce(forceDirection * magneticFieldScript.magnetStrength * pullOrPush);
+            playerRB.AddForce(forceDirection * magneticFieldScript.magnetStrength * pullOrPush * 10f);
 
         }
     }

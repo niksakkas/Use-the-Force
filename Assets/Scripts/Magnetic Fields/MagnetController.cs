@@ -14,6 +14,7 @@ public class MagnetController : MonoBehaviour
     private Vector2 magnetPosition;
 
     private void Awake() {
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         magnetPosition = new Vector2(transform.position.x , transform.position.y);
     }
 
