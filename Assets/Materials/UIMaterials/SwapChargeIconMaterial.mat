@@ -61,7 +61,7 @@ Material:
     - _Fill: 0.3
     - _IconCharge: 1
     - _PowerUpActive: 0
-    - _SwapCharge: 2.269994
+    - _SwapCharge: 7.1518464
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
