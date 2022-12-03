@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	private int dashXmultiplier = 500;
 	private int dashYmultiplier = 130;
 	public Rigidbody2D rb;
-	private TrailRenderer playerTrail;
+	public TrailRenderer playerTrail;
 	PlayerController playerController;
 	CharacterController2D characterController2D;
 

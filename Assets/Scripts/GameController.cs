@@ -19,12 +19,14 @@ public class GameController : MonoBehaviour
 
     GameObject player;
     public PlayerController playerController;
+    public PlayerMovement playerMovement;
     MagneticField[] magneticFields;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
+        playerMovement = player.GetComponent<PlayerMovement>();
         playerController.respawnPortalTransform = activeRespawnPortal.transform;
 
         activeRespawnPortal.SendMessage("activate");
@@ -117,6 +119,8 @@ public class GameController : MonoBehaviour
 
     private IEnumerator killPlayerCoroutine(float respawnTimer)
     {
+        playerMovement.playerTrail.emitting = false;
+
         playerController.powerUpFireRed.Stop();
         playerController.powerUpFireBlue.Stop();
         player.SetActive(false);
