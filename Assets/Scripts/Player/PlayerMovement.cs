@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour {
             if (dir.magnitude == 0)
             {
 				dir = new Vector2(0f, Mathf.Sign(verticalMove) * dashYmultiplier);
-
 			}
 			StartCoroutine(EnableDashTrail());
 			StartCoroutine(Dash(dir));
@@ -91,23 +90,6 @@ public class PlayerMovement : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 	}
-	//old dash handling
-	//RaycastHit2D TryDashing(Vector2 playerOrigin, Vector2 playerTarget)
-	//   {
-	//	Debug.Log(playerOrigin);
-	//	Debug.Log(playerTarget.normalized);
-	//	RaycastHit2D hit = Physics2D.Raycast(playerOrigin, playerTarget, dashDistance, dashRaycastMask);
-	//	Debug.Log(hit.distance);
-
-	//	return hit;
-
-	//}
-	//RaycastHit2D CanDash(Vector2 origin, Vector2 target)
-	//{
-
-	//	return Physics2D.Raycast(origin, target.normalized, dashDistance, dashRaycastMask);
-
-	//}
 	Vector2 getDashDirection()
     {
 		if(horizontalMove != 0f && verticalMove != 0f)
