@@ -64,20 +64,18 @@ public class PlayerController : MonoBehaviour
         powerUpFireRed.Stop();
         powerUpFireBlue.Stop();
         swapCharge = 0f;
-        swapChargeIconMaterial.SetFloat("_Cooldown", chargeSwapCooldown);
         swapChargeIconMaterial.SetFloat("_IconCharge", 0f);
     }
     private void Update()
     {
         updatePlayerShadowsCaster();
-        //swapCharge += Time.time  * 0.1f;
-        swapChargeIconMaterial.SetFloat("_SwapCharge", swapCharge);
         purplePowerUpIconMaterial.SetFloat("_Fill", purplePower);
         if (Input.GetButtonDown("ChangeCharge") && playerState!=ChargeState.Purple)
         {
+            // handle swap charge cooldown
             if (Time.time >= swapCharge)
             {
-                swapCharge = Time.time + chargeSwapCooldown;
+                swapCharge = Time.time + chargeSwapCooldown; 
                 changePlayerCharge();
             }
         }
