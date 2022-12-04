@@ -80,7 +80,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 	IEnumerator Dash(Vector2 dir)
     {
-
 		int dashIncrements = 20;
 		float dashIncrementLength = dashSpeed/dashIncrements;
 		// Apply a force smoothly over 20 increments
@@ -135,7 +134,7 @@ public class PlayerMovement : MonoBehaviour {
 			}
 			else
 			{
-				y = Mathf.Sign(verticalMove)* dashYmultiplier;
+				y = Mathf.Sign(verticalMove)* dashYmultiplier * 0.8f;
 
 			}
 			return new Vector2(x, y);
