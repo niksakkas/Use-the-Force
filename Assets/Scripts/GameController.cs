@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(timeSpanLength);
             }
         }
-        else
+        if (colorChange == 0)
         {
             for (int i = 0; i < iterations; i++)
             {
