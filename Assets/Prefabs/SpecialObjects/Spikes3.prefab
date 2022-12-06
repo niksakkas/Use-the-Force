@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8981223834033092860}
   - component: {fileID: 8981223834033092858}
   - component: {fileID: 8981223834033092859}
+  - component: {fileID: -5077474091419160387}
   m_Layer: 6
   m_Name: Spikes3
   m_TagString: Spikes
@@ -260,3 +261,49 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5077474091419160387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981223834033092862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000005d43c404894e4aef
+  m_ShapePath:
+  - {x: -3.3449993, y: -0.47499847, z: 0}
+  - {x: -3.345874, y: -0.11477684, z: 0}
+  - {x: -3.0130765, y: 0.47212958, z: 0}
+  - {x: -2.6711957, y: -0.11098031, z: 0}
+  - {x: -2.3344657, y: 0.47713253, z: 0}
+  - {x: -2.0029137, y: -0.10338724, z: 0}
+  - {x: -1.6685033, y: 0.4821398, z: 0}
+  - {x: -1.3314328, y: -0.09579416, z: 0}
+  - {x: -1.0025381, y: 0.4821398, z: 0}
+  - {x: -0.6663615, y: -0.09958205, z: 0}
+  - {x: -0.3365737, y: 0.49215004, z: 0}
+  - {x: 0.0019214983, y: -0.08439591, z: 0}
+  - {x: 0.32936698, y: 0.49219328, z: 0}
+  - {x: 0.6701981, y: -0.0995907, z: 0}
+  - {x: 0.9995462, y: 0.487186, z: 0}
+  - {x: 1.3288888, y: -0.09579416, z: 0}
+  - {x: 1.6697254, y: 0.49219328, z: 0}
+  - {x: 2.0003662, y: -0.099595025, z: 0}
+  - {x: 2.3399055, y: 0.48218304, z: 0}
+  - {x: 2.671847, y: -0.09200195, z: 0}
+  - {x: 3.0011861, y: 0.4750051, z: 0}
+  - {x: 3.346407, y: -0.10103494, z: 0}
+  - {x: 3.3449993, y: -0.47499847, z: 0}
+  m_ShapePathHash: -1534971930
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 249870
