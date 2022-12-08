@@ -58,10 +58,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ColorTransition: 1
     - _EnableExternalAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Transition: 1
+    - _TwirlSpeed: 0.2
     - _Twirl_Speed: 0.5
     - _Twirl_Strength: 10
     m_Colors:

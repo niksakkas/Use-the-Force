@@ -8,7 +8,7 @@ public class MagneticField : MonoBehaviour
     public float pushMultiplier;       // when magnet and target are both blue or red
     public float hardPullMultiplier;   // when magnet and target are opposite colors
     public float softPullMultiplier;   // when either the magnet or the target are purple
-    [Range(0, 30)][SerializeField] public float magnetStrength;   // (0,inf) Power of the magnet
+    [Range(0, 50)][SerializeField] public float magnetStrength;   // (0,inf) Power of the magnet
     public ChargeState magnetCharge;
     SpriteRenderer m_SpriteRenderer;
     PlayerController player;
