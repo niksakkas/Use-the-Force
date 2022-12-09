@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6892108259015431826}
   - component: {fileID: 6892108259015431827}
   m_Layer: 6
-  m_Name: Saw
+  m_Name: Saw1
   m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
