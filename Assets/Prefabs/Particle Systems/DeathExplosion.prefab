@@ -4909,5 +4909,5 @@ MonoBehaviour:
   part: {fileID: 1228038360579859021}
   splatter: {fileID: 4715435649366159177, guid: 854befed69d1c354f82f1316bff6800c, type: 3}
   gameController: {fileID: 0}
-  minScale: 0.12
-  maxScale: 0.24
+  minScale: 0.25
+  maxScale: 0.5
