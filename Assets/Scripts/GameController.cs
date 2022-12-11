@@ -22,16 +22,23 @@ public class GameController : MonoBehaviour
     public PlayerMovement playerMovement;
     MagneticField[] magneticFields;
 
+    // pause menu
+    GameObject pauseMenu;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerMovement = player.GetComponent<PlayerMovement>();
         playerController.respawnPortalTransform = activeRespawnPortal.transform;
-
         activeRespawnPortal.SendMessage("activate");
-
         magneticFields = FindObjectsOfType<MagneticField>();
+        //pause menu
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        if(pauseMenu)
+        {
+            DontDestroyOnLoad(pauseMenu);
+        }
 
         //pooling
         pooledRedSplatters = new GameObject[amountToPool/2];

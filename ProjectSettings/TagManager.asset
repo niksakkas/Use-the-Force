@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Explosion
   - Spikes
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
