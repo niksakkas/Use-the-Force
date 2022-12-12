@@ -214,7 +214,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(respawnStartingScale, respawnStartingScale, respawnStartingScale);
         //Respawn
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        enableAiming();
+        //enableAiming();
     }
     private void disableAiming()
     {
