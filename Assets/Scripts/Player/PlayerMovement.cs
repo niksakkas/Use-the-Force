@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,6 @@ public class PlayerMovement : MonoBehaviour {
 	public TrailRenderer playerTrail;
 	PlayerController playerController;
 	CharacterController2D characterController2D;
-
 
 	private void Awake()
     {

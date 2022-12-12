@@ -79,18 +79,18 @@ public class PlayerController : MonoBehaviour
                 changePlayerCharge();
             }
         }
-        if (Input.GetButtonDown("MainAbility"))
-        {
-            //only blast if the player is red, powerup is inactive, and player is moving
-            if (playerState == ChargeState.Red && purplePowerupActive == false && rb.velocity.magnitude != 0)
-            {
-                blast();
-            }
-        }
-        if (Input.GetButtonDown("PurplePowerup"))
-        {
-            StartCoroutine(purplePowerUp());
-        }
+        //if (Input.GetButtonDown("MainAbility"))
+        //{
+        //    //only blast if the player is red, powerup is inactive, and player is moving
+        //    if (playerState == ChargeState.Red && purplePowerupActive == false && rb.velocity.magnitude != 0)
+        //    {
+        //        blast();
+        //    }
+        //}
+        //if (Input.GetButtonDown("PurplePowerup"))
+        //{
+        //    StartCoroutine(purplePowerUp());
+        //}
             //if the player just spawned from the portal, increase his scale back to normal
             if (transform.localScale.x < playerStartingScale)
         {
