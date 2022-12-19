@@ -21,5 +21,5 @@ application.
 Here is an example of a more complicated set of obstacles:
 
 <video id="myBGvid" autoplay muted loop>
-<source src="./README_stuff/Multiple_Obstacles_Example.mp4" type="video/mp4">
+<source src="https://github.com/niksakkas/Use-the-Force/blob/main/README_stuff/Multiple_Obstacles_Example.mp4" type="video/mp4">
 </video>
