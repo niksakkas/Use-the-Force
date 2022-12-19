@@ -10,12 +10,6 @@ The project's assets are shared among the following folders:
 
 <img title="Project" alt="Alt text" src="./README_stuff/Project.png">
 
-## Gameplay
-
-Here is an example of a more complicated set of obstacles:
-
-![](./README_stuff/Multiple_Obstacles_Example.gif)
-
 ## Running the Game
 
 There is also a built game in the repository files. To play it, download and open the repository, then run the:
@@ -23,3 +17,8 @@ There is also a built game in the repository files. To play it, download and ope
 `Use the Force/Use The Force.exe`
 
 application.
+
+Here is an example of a more complicated set of obstacles:
+
+<video src="./README_stuff/Multiple_Obstacles_Example.mov" controls="controls" style="max-width: 730px;">
+</video>
