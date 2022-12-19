@@ -20,5 +20,6 @@ application.
 
 Here is an example of a more complicated set of obstacles:
 
-<video src="./README_stuff/Multiple_Obstacles_Example.mov" controls="controls" style="max-width: 730px;">
+<video id="myBGvid" autoplay muted loop>
+<source src="./README_stuff/Multiple_Obstacles_Example.mp4" type="video/mp4">
 </video>
