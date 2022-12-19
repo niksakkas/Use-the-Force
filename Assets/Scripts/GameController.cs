@@ -35,7 +35,6 @@ public class GameController : MonoBehaviour
         //pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         //if(pauseMenu)
         //{
-        //    Debug.Log("ee");
         //    DontDestroyOnLoad(pauseMenu);
         //}
 
