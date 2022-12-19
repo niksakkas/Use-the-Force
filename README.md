@@ -20,4 +20,5 @@ application.
 
 Here is an example of a more complicated set of obstacles:
 
-https://user-images.githubusercontent.com/50372934/208543426-f8e2b300-1cb9-4235-9749-c83db23d788c.mp4
+https://user-images.githubusercontent.com/50372934/208545806-7fa3e4cd-245f-48ab-84ff-52f6d6bfd624.mp4
+
