@@ -20,6 +20,6 @@ application.
 
 Here is an example of a more complicated set of obstacles:
 
-<video id="myBGvid" autoplay muted loop>
-<source src="https://github.com/niksakkas/Use-the-Force/blob/main/README_stuff/Multiple_Obstacles_Example.mp4" type="video/mp4">
+<video controls="" width="800" height="500" muted="" loop="" autoplay="">
+    <source src="https://github.com/niksakkas/Use-the-Force/blob/main/README_stuff/Multiple_Obstacles_Example.mp4" type="video/mp4">
 </video>

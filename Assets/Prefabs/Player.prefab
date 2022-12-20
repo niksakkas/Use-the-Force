@@ -12566,6 +12566,7 @@ MonoBehaviour:
   dashSpeed: 80
   rb: {fileID: 0}
   playerTrail: {fileID: 0}
+  dashIconMaterial: {fileID: 2100000, guid: 6f043ddbbe12a6f4db7e30e63ccf06fa, type: 2}
 --- !u!114 &2527508806025846360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12590,6 +12591,7 @@ MonoBehaviour:
   flyingSpeedMultiplier: 1.8
   m_Grounded: 0
   animator: {fileID: 2002902706}
+  dashIconMaterial: {fileID: 2100000, guid: 6f043ddbbe12a6f4db7e30e63ccf06fa, type: 2}
   canDash: 0
 --- !u!114 &638214545583079930
 MonoBehaviour:

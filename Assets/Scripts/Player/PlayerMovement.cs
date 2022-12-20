@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 	public TrailRenderer playerTrail;
 	PlayerController playerController;
 	CharacterController2D characterController2D;
+	public Material dashIconMaterial;
 
 	private void Awake()
     {
@@ -86,6 +87,8 @@ public class PlayerMovement : MonoBehaviour {
         for (int i = 0; i < dashIncrements; i++)
         {
 			characterController2D.canDash = false;
+			dashIconMaterial.SetInt("_CanDash", 0);
+
 			rb.AddForce(dir * dashIncrementLength * ((dashIncrements - i) /dashIncrements));
 			yield return new WaitForEndOfFrame();
 		}
