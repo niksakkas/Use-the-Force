@@ -13,6 +13,7 @@ TagManager:
   - Explosion
   - Spikes
   - PauseMenu
+  - DeathCounter
   layers:
   - Default
   - TransparentFX

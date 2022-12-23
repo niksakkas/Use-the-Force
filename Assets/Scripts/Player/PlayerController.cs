@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float respawnTimer;
     [SerializeField] private float scaleIncreaseIncrement = 2f;
     [SerializeField] private float respawnStartingScale = 0.4f;
+    DeathCounter deathCounter;
 
     //Purple powerup
     public float purplePower = 0f;
@@ -53,8 +54,10 @@ public class PlayerController : MonoBehaviour
     public Color redLightColor;
 
 
+
     private void Start()
     {
+        deathCounter = GameObject.FindGameObjectWithTag("DeathCounter").GetComponent<DeathCounter>();
         playerLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         currentShadow = shadowsParent.transform.Find(spriteRenderer.sprite.name).gameObject;
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -151,6 +154,7 @@ public class PlayerController : MonoBehaviour
         }
         //tell game controller to kill and respawn the player
         gameController.killPlayer(respawnTimer);
+        deathCounter.addDeath();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
