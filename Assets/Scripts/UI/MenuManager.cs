@@ -24,9 +24,7 @@ public class MenuManager : MonoBehaviour
     {
         m_spriteRenderer = menuMagnet.GetComponentInChildren<SpriteRenderer>();
     }
-    private void Start()
-    {
-    }
+
     private void Update()
     {
         alpha += 10;
