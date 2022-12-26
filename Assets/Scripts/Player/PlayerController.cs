@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        deathCounter = GameObject.FindGameObjectWithTag("DeathCounter").GetComponent<DeathCounter>();
+        deathCounter = GameObject.FindGameObjectWithTag("DeathCounter")?.GetComponent<DeathCounter>();
         playerLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         currentShadow = shadowsParent.transform.Find(spriteRenderer.sprite.name).gameObject;
         rb = gameObject.GetComponent<Rigidbody2D>();
