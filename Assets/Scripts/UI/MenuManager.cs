@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     // Moving Magnet stuff
     public GameObject menuMagnet;
+    public UnityEngine.Rendering.Universal.Light2D magnetLight;
 
     //rotation
     float r = 23f;
@@ -22,15 +23,18 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+        magnetLight = menuMagnet.GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
+        Debug.Log(magnetLight.color);
         m_spriteRenderer = menuMagnet.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
         alpha += 10;
-        X = (r * Mathf.Cos(alpha * 0.0001f));
-        Y = (r * Mathf.Sin(alpha * 0.0001f));
+        X = (r * Mathf.Cos(alpha * 0.00003f));
+        Y = (r * Mathf.Sin(alpha * 0.00003f));
         menuMagnet.transform.position = new Vector3(X, Y, 0);
+        magnetLight.color = lerpedFieldColor;
         lerpedFieldColor = Color.Lerp(GlobalVariables.blueColor, Color.red, Mathf.PingPong(Time.time * 0.1f, 1));
         m_spriteRenderer.material.SetColor("_FieldColor", lerpedFieldColor);
         m_spriteRenderer.material.SetColor("_LinesColor", lerpedFieldColor);

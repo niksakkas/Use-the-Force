@@ -1732,6 +1732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startScene: 1
   menuMagnet: {fileID: 1890236732}
+  magnetLight: {fileID: 0}
 --- !u!4 &1345393690
 Transform:
   m_ObjectHideFlags: 0
@@ -2337,12 +2338,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1058328563, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
+      propertyPath: m_ShadowIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058328563, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_PointLightInnerRadius
-      value: 0.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1058328563, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 75.87
+      value: 50.5
       objectReference: {fileID: 0}
     - target: {fileID: 8085278851132217580, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_IsActive
@@ -2350,7 +2355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682266, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_Color.a
-      value: 0.43137255
+      value: 0.12941177
       objectReference: {fileID: 0}
     - target: {fileID: 8085278851628682266, guid: 2ff57512cfda7274e9178eab0b118424, type: 3}
       propertyPath: m_Color.b
