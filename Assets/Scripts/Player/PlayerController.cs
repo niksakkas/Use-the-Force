@@ -282,6 +282,7 @@ public class PlayerController : MonoBehaviour
         {
             shadowsCasterName = "Idle1";
         }
+        shadowsCasterName = HandleRunShadows(shadowsCasterName);
 
         if (currentShadow != null)
         {
@@ -298,5 +299,30 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+
+    private string HandleRunShadows(string shadowsCasterName)
+    {
+        string[] splitString = shadowsCasterName.Split("Run");
+        //int runNumber = 0;
+
+        if (splitString.Length != 2)
+        {
+            return shadowsCasterName;
+        }
+        else
+        {
+            //runNumber = int.Parse(splitString[1]);
+            //if (runNumber <= 6 )
+            //{
+            //    runNumber = 3;
+            //}
+            //else
+            //{
+            //    runNumber = 9;
+            //}
+            //return ("Run" + runNumber);
+            return ("Run1");
+        }
     }
 }
