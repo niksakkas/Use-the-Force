@@ -308,6 +308,7 @@ public class PlayerController : MonoBehaviour
 
         if (splitString.Length != 2)
         {
+
             return shadowsCasterName;
         }
         else
