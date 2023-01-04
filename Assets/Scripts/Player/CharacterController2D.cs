@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class CharacterController2D : MonoBehaviour
 	public bool verticalControl = false;
 	public float flyingSpeedMultiplier = 2.5f;
 	const float k_GroundedRadius = .1f; // Radius of the overlap circle to determine if grounded
-	public bool m_Grounded;            // Whether or not the player is grounded.
+	public bool m_Grounded = false;            // Whether or not the player is grounded.
+	public bool aboutToLeaveGround = false;
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -30,11 +32,11 @@ public class CharacterController2D : MonoBehaviour
 	}
 	private void FixedUpdate()
 	{
-		m_Grounded = false;
+		//m_Grounded = false;
 
-		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+        // This can be done using layers instead but Sample Assets will not overwrite your project settings.
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			//check if grounded
@@ -42,12 +44,25 @@ public class CharacterController2D : MonoBehaviour
 			{
 				m_Grounded = true;
 				canDash = true;
+				aboutToLeaveGround = false;
 				dashIconMaterial.SetInt("_CanDash", 1);
 				animator.SetBool("OnAir", false);
 				return;
 			}
 		}
+        if (!aboutToLeaveGround)
+        {
+			StartCoroutine(LeaveGroundSoon());
+        }
 		animator.SetBool("OnAir", true);
+
+	}
+	// Even if the player left the ground, allow jumping for an extra of 0.1 sec (makes the mechanic more forgiving)
+	public IEnumerator LeaveGroundSoon()
+    {
+		aboutToLeaveGround = true;
+		yield return new WaitForSeconds(0.1f);
+		m_Grounded = false;
 
 	}
 

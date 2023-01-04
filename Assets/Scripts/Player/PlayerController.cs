@@ -298,9 +298,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
     }
-
     private string HandleRunShadows(string shadowsCasterName)
     {
         string[] splitString = shadowsCasterName.Split("Run");
