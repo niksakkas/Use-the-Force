@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     public Color blueLightColor;
     public Color redLightColor;
 
+    //Sound
+    [SerializeField] private AudioSource deathAudioSource;
+
     private void Start()
     {
         deathCounter = GameObject.FindGameObjectWithTag("DeathCounter")?.GetComponent<DeathCounter>();
@@ -141,6 +144,7 @@ public class PlayerController : MonoBehaviour
     //runs when player dies
     public void die()
     {
+        //deathAudioSource.Play();
         //create explosion
         createDeathParticles();
         //remove active purple powerup
@@ -159,10 +163,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.GetComponent<Collider2D>().tag == "Enemy")
         {
+            deathAudioSource.Play();
             die();
         }
         if (collision.collider.GetComponent<Collider2D>().tag == "Spikes")
         {
+            deathAudioSource.Play();
             die();
         }
     }
@@ -209,6 +215,7 @@ public class PlayerController : MonoBehaviour
 
     public void respawn()
     {
+        //undo powerup
         powerUpFireRed.Stop();
         powerUpFireBlue.Stop();
         //Make the player smaller
