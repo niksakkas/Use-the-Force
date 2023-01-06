@@ -22,9 +22,12 @@ public class CharacterController2D : MonoBehaviour
 	public Animator animator;
 	public Material dashIconMaterial;
 
-
 	//dash
 	public bool canDash = false;
+
+    //sound
+
+    [SerializeField] private AudioSource jumpAudioSource;
 
 	private void Awake()
 	{
@@ -90,6 +93,7 @@ public class CharacterController2D : MonoBehaviour
 		if (m_Grounded && jump)
 		{
 			// Add a vertical force to the player.
+			jumpAudioSource.Play();
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}

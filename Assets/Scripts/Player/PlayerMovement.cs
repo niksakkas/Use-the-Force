@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour {
 	CharacterController2D characterController2D;
 	public Material dashIconMaterial;
 
+    // Sound
+    [SerializeField] private AudioSource dashAudioSource;
+
 	private void Awake()
     {
 		rb = GetComponent<Rigidbody2D>();
@@ -90,6 +93,7 @@ public class PlayerMovement : MonoBehaviour {
 			dashIconMaterial.SetInt("_CanDash", 0);
 
 			rb.AddForce(dir * dashIncrementLength * ((dashIncrements - i) /dashIncrements));
+			dashAudioSource.Play();
 			yield return new WaitForEndOfFrame();
 		}
 	}

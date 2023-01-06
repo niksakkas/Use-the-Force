@@ -53,8 +53,6 @@ public class PlayerController : MonoBehaviour
     public Color blueLightColor;
     public Color redLightColor;
 
-
-
     private void Start()
     {
         deathCounter = GameObject.FindGameObjectWithTag("DeathCounter")?.GetComponent<DeathCounter>();
