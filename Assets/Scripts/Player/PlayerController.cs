@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     //Sound
     [SerializeField] private AudioSource deathAudioSource;
+    [SerializeField] private AudioSource respawnAudioSource;
 
     private void Start()
     {
@@ -144,7 +145,6 @@ public class PlayerController : MonoBehaviour
     //runs when player dies
     public void die()
     {
-        //deathAudioSource.Play();
         //create explosion
         createDeathParticles();
         //remove active purple powerup
@@ -215,6 +215,7 @@ public class PlayerController : MonoBehaviour
 
     public void respawn()
     {
+        respawnAudioSource.Play();
         //undo powerup
         powerUpFireRed.Stop();
         powerUpFireBlue.Stop();
