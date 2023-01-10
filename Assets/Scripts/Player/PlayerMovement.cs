@@ -25,8 +25,11 @@ public class PlayerMovement : MonoBehaviour {
 	CharacterController2D characterController2D;
 	public Material dashIconMaterial;
 
-    // Sound
-    [SerializeField] private AudioSource dashAudioSource;
+	// Sound
+	[SerializeField] private AudioSource dashAudioSource;
+	[SerializeField] private AudioSource Walk1AudioSource;
+	[SerializeField] private AudioSource Walk2AudioSource;
+	[SerializeField] private AudioSource Walk3AudioSource;
 
 	private void Awake()
     {
@@ -152,5 +155,22 @@ public class PlayerMovement : MonoBehaviour {
 		playerTrail.emitting = true;
 		yield return new WaitForSeconds(0.3f);
 		playerTrail.emitting = false;
+	}
+
+	private void PlayWalkSound()
+    {
+		int walkSoundIndex = Random.Range(0, 3);
+		switch (walkSoundIndex)
+		{
+			case 0:
+				Walk1AudioSource.Play();
+				break;
+			case 1:
+				Walk2AudioSource.Play();
+				break;
+			default:
+				Walk3AudioSource.Play();
+				break;
+		}
 	}
 }
