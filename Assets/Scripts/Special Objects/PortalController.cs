@@ -14,6 +14,9 @@ public class PortalController : MonoBehaviour
     public UnityEngine.Rendering.Universal.Light2D portalLight;
     float change = 1;
 
+    // Sound
+    [SerializeField] private AudioSource activationAudioSource;
+
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -44,6 +47,7 @@ public class PortalController : MonoBehaviour
     public IEnumerator activateCoroutine()
     {
         change = 1;
+        activationAudioSource.Play();
         m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.6f);
         while (change > 0f)
         {
