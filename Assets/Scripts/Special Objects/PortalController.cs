@@ -16,6 +16,7 @@ public class PortalController : MonoBehaviour
 
     // Sound
     [SerializeField] private AudioSource activationAudioSource;
+    [SerializeField] private AudioSource constantAudioSource;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PortalController : MonoBehaviour
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         portalLight.color = Color.Lerp(activeLightColor, inactiveLightColor, change);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

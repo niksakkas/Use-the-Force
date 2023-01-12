@@ -14,6 +14,10 @@ public class HomogenousFieldController : MonoBehaviour
     float height;
     float width;
 
+    // Sound
+    [SerializeField] private AudioSource playerInFieldAudioSource;
+
+
     private void Awake()
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -23,6 +27,13 @@ public class HomogenousFieldController : MonoBehaviour
         width = m_SpriteRenderer.bounds.size.x;
         setShaderTilling();
     }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.GetComponent<Collider2D>().tag == "Player")
+        {
+            playerInFieldAudioSource.Play();
+        }
+    }
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
@@ -31,6 +42,13 @@ public class HomogenousFieldController : MonoBehaviour
             float pullOrPush = magneticFieldScript.CalculatePullOrPush(playerScript.playerState);
             playerRB.AddForce(forceDirection * magneticFieldScript.magnetStrength * pullOrPush * 10f);
 
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.GetComponent<Collider2D>().tag == "Player")
+        {
+            playerInFieldAudioSource.Stop();
         }
     }
     private void setShaderTilling(){
