@@ -23,5 +23,6 @@ Here is an example of a more complicated set of obstacles:
 <video controls="" width="800" height="500" muted="" loop="" autoplay="">
     <source src="https://github.com/niksakkas/Use-the-Force/blob/main/README_stuff/Multiple_Obstacles_Example.mp4" type="video/mp4">
 </video>
-=======
+
+
 https://user-images.githubusercontent.com/50372934/208545806-7fa3e4cd-245f-48ab-84ff-52f6d6bfd624.mp4
