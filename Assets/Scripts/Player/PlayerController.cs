@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         }
         //tell game controller to kill and respawn the player
         gameController.killPlayer(respawnTimer);
-        deathCounter.addDeath();
+        deathCounter?.addDeath();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

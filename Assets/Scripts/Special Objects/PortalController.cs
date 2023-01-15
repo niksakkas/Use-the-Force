@@ -13,6 +13,8 @@ public class PortalController : MonoBehaviour
     public Color activeLightColor = new Color(1, 0.16f, 0.98f, 1f);
     public UnityEngine.Rendering.Universal.Light2D portalLight;
     float change = 1;
+    float basicLightInnerRadius = 0;
+    float basicLightOuterRadius = 0;
 
     // Sound
     [SerializeField] private AudioSource activationAudioSource;
@@ -24,7 +26,14 @@ public class PortalController : MonoBehaviour
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         portalLight.color = Color.Lerp(activeLightColor, inactiveLightColor, change);
-
+        basicLightInnerRadius = portalLight.pointLightInnerRadius;
+        basicLightOuterRadius = portalLight.pointLightOuterRadius;
+    }
+    private void Update()
+    {
+        // pingpong portal's light radius
+        portalLight.pointLightInnerRadius = basicLightInnerRadius + Mathf.PingPong(Time.fixedTime * 0.5f, 0.5f);
+        portalLight.pointLightOuterRadius = basicLightOuterRadius + Mathf.PingPong(Time.fixedTime * 0.5f, 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
