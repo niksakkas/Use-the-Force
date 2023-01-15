@@ -6,6 +6,10 @@ public class ZeroGravityFieldController : MonoBehaviour
 {
     public Rigidbody2D playerRB;
     float gravityScale;
+
+    // Sound
+    [SerializeField] private AudioSource playerInFieldAudioSource;
+
     private void Awake()
     {
 
@@ -17,6 +21,7 @@ public class ZeroGravityFieldController : MonoBehaviour
         {
         disableVerticalControl(collider.gameObject);
         applyPlayerGravityPull(collider.attachedRigidbody);
+        playerInFieldAudioSource.Stop();
         }
 
     }
@@ -29,7 +34,15 @@ public class ZeroGravityFieldController : MonoBehaviour
             removePlayerGravityPull(collider.attachedRigidbody);
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.GetComponent<Collider2D>().tag == "Player")
+        {
+            playerInFieldAudioSource.Play();
+        }
+    }
+
     private void removePlayerGravityPull(Rigidbody2D playerRB)
     {
         playerRB.velocity = Vector2.zero;
