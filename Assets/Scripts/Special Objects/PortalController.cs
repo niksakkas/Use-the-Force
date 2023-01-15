@@ -32,8 +32,8 @@ public class PortalController : MonoBehaviour
     private void Update()
     {
         // pingpong portal's light radius
-        portalLight.pointLightInnerRadius = basicLightInnerRadius + Mathf.PingPong(Time.fixedTime * 0.5f, 0.5f);
-        portalLight.pointLightOuterRadius = basicLightOuterRadius + Mathf.PingPong(Time.fixedTime * 0.5f, 0.5f);
+        portalLight.pointLightInnerRadius = basicLightInnerRadius * (1 + Mathf.PingPong(Time.fixedTime * 0.2f, 0.2f));
+        portalLight.pointLightOuterRadius = basicLightOuterRadius * (1 + Mathf.PingPong(Time.fixedTime * 0.2f, 0.2f));
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

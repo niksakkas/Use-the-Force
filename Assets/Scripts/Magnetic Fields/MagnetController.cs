@@ -10,12 +10,26 @@ public class MagnetController : MonoBehaviour
     public PlayerController playerScript;
     public MagneticField magneticFieldScript;
     public ChargeState magnetCharge = ChargeState.Blue;
-    
     private Vector2 magnetPosition;
+
+    //Light
+    public UnityEngine.Rendering.Universal.Light2D portalLight;
+    float basicLightInnerRadius = 0;
+    float basicLightOuterRadius = 0;
 
     private void Awake() {
         playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
         magnetPosition = new Vector2(transform.position.x , transform.position.y);
+        portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
+        basicLightInnerRadius = portalLight.pointLightInnerRadius;
+        basicLightOuterRadius = portalLight.pointLightOuterRadius;
+    }
+
+    private void Update()
+    {
+        // pingpong magnet's light radius
+        portalLight.pointLightInnerRadius = basicLightInnerRadius * (1 + Mathf.PingPong(Time.fixedTime * 0.2f, 0.2f));
+        portalLight.pointLightOuterRadius = basicLightOuterRadius * (1 + Mathf.PingPong(Time.fixedTime * 0.2f, 0.2f));
     }
 
     //pushes player accordingly when he is within the field
