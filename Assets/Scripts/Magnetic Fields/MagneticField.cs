@@ -13,7 +13,10 @@ public class MagneticField : MonoBehaviour
     SpriteRenderer m_SpriteRenderer;
     PlayerController player;
     float direction;
-    
+
+    // Sound
+    [SerializeField] private AudioSource playerInFieldAudioSource;
+
 
     private void Awake(){
         player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
@@ -23,12 +26,8 @@ public class MagneticField : MonoBehaviour
             displayMagnitude();
             setShaderDirection();
             direction = CalculatePullOrPush(player.playerState);
-
         }
-
-
     }
-
     public float CalculatePullOrPush(ChargeState targetCharge)
     {
         switch ((int)targetCharge * (int)magnetCharge)
@@ -61,6 +60,22 @@ public class MagneticField : MonoBehaviour
     private void changeDirection(){
         direction *= -1f;
         m_SpriteRenderer.material.SetFloat("_Direction", direction);
+    }
+
+    //sound
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.GetComponent<Collider2D>().tag == "Player")
+        {
+            playerInFieldAudioSource.Stop();
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.GetComponent<Collider2D>().tag == "Player")
+        {
+            playerInFieldAudioSource.Play();
+        }
     }
 
 }

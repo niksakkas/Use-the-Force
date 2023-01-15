@@ -14,10 +14,6 @@ public class HomogenousFieldController : MonoBehaviour
     float height;
     float width;
 
-    // Sound
-    [SerializeField] private AudioSource playerInFieldAudioSource;
-
-
     private void Awake()
     {
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -27,13 +23,7 @@ public class HomogenousFieldController : MonoBehaviour
         width = m_SpriteRenderer.bounds.size.x;
         setShaderTilling();
     }
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.GetComponent<Collider2D>().tag == "Player")
-        {
-            playerInFieldAudioSource.Play();
-        }
-    }
+
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
@@ -44,13 +34,7 @@ public class HomogenousFieldController : MonoBehaviour
 
         }
     }
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.GetComponent<Collider2D>().tag == "Player")
-        {
-            playerInFieldAudioSource.Stop();
-        }
-    }
+
     private void setShaderTilling(){
         // float multiplier = height/weight;
         Vector2 tilling = new Vector2(width/2,height/2);

@@ -332,6 +332,7 @@ MonoBehaviour:
   softPullMultiplier: 0
   magnetStrength: 15
   magnetCharge: -1
+  playerInFieldAudioSource: {fileID: 3986634862517056034}
 --- !u!114 &2088940067
 MonoBehaviour:
   m_ObjectHideFlags: 0
