@@ -6,26 +6,41 @@ public class ZeroGravityFieldController : MonoBehaviour
 {
     public Rigidbody2D playerRB;
     float gravityScale;
-
     // Sound
+    private float baseVolume;
     [SerializeField] private AudioSource playerInFieldAudioSource;
 
     private void Awake()
     {
-
         gravityScale = playerRB.gravityScale;
+        baseVolume = playerInFieldAudioSource.volume;
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
-        disableVerticalControl(collider.gameObject);
-        applyPlayerGravityPull(collider.attachedRigidbody);
-        playerInFieldAudioSource.Stop();
+            disableVerticalControl(collider.gameObject);
+            applyPlayerGravityPull(collider.attachedRigidbody);
+            StartCoroutine(stopSound());
         }
+    }
+    IEnumerator stopSound()
+    {
+        int numOfIncrements = 5;
+        float volumeIncrement = playerInFieldAudioSource.volume * (1f / numOfIncrements);
+        for (int i = 0; i < numOfIncrements; i++)
+        {
+            playerInFieldAudioSource.volume -= volumeIncrement;
+            yield return new WaitForSeconds(0.1f);
+        }
+        playerInFieldAudioSource.Stop();
 
     }
-
+    private void startSound()
+    {
+        playerInFieldAudioSource.Play();
+        playerInFieldAudioSource.volume = baseVolume;
+    }
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
@@ -39,10 +54,9 @@ public class ZeroGravityFieldController : MonoBehaviour
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
-            playerInFieldAudioSource.Play();
+            startSound();
         }
     }
-
     private void removePlayerGravityPull(Rigidbody2D playerRB)
     {
         playerRB.velocity = Vector2.zero;
