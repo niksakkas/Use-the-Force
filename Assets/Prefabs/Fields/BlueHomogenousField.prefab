@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 598db7772391c7846bb14c0b93aecf5d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9a1d3b4ba18b6ba4dac2bcbf71255289, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
@@ -314,7 +314,6 @@ MonoBehaviour:
   pointB: {fileID: 1476366508417022468}
   playerScript: {fileID: 0}
   magneticFieldScript: {fileID: 1080836350}
-  playerInFieldAudioSource: {fileID: 3986634862517056034}
 --- !u!114 &1080836350
 MonoBehaviour:
   m_ObjectHideFlags: 0
