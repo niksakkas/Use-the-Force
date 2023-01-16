@@ -17,7 +17,6 @@ public class MagneticField : MonoBehaviour
     // Sound
     [SerializeField] private AudioSource playerInFieldAudioSource;
 
-
     private void Awake(){
         player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
         if (player)
@@ -26,6 +25,29 @@ public class MagneticField : MonoBehaviour
             displayMagnitude();
             setShaderDirection();
             direction = CalculatePullOrPush(player.playerState);
+        }
+        setSoundBasedOnStrength();
+    }
+    void setSoundBasedOnStrength()
+    {
+        switch (magnetStrength)
+        {
+            case < 1:
+                playerInFieldAudioSource.volume = 0.5f;
+                playerInFieldAudioSource.pitch = 1f;
+                break;
+            case < 5:
+                playerInFieldAudioSource.volume = 0.6f;
+                playerInFieldAudioSource.pitch = 1.67f;
+                break;
+            case < 20:
+                playerInFieldAudioSource.volume = 0.7f;
+                playerInFieldAudioSource.pitch = 2.33f;
+                break;
+            default:
+                playerInFieldAudioSource.volume = 0.8f;
+                playerInFieldAudioSource.pitch = 3f;
+                break;
         }
     }
     public float CalculatePullOrPush(ChargeState targetCharge)
@@ -74,6 +96,7 @@ public class MagneticField : MonoBehaviour
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
+            Debug.Log(magnetStrength);
             playerInFieldAudioSource.Play();
         }
     }

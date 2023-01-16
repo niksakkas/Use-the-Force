@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     //Main components
     public SpriteRenderer spriteRenderer;
     public Animator animator;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     //Player charge (colors)
     public ChargeState playerState = ChargeState.Red;
