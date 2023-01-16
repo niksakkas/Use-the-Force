@@ -16,6 +16,9 @@ public class MagneticField : MonoBehaviour
 
     // Sound
     [SerializeField] private AudioSource playerInFieldAudioSource;
+    private float baseVolume;
+    private bool playerInField = false;
+    private int numOfIncrements;
 
     private void Awake(){
         player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
@@ -28,6 +31,10 @@ public class MagneticField : MonoBehaviour
         }
         setSoundBasedOnStrength();
     }
+    private void Start()
+    {
+        baseVolume = playerInFieldAudioSource.volume;
+    }
     void setSoundBasedOnStrength()
     {
         switch (magnetStrength)
@@ -35,18 +42,22 @@ public class MagneticField : MonoBehaviour
             case < 1:
                 playerInFieldAudioSource.volume = 0.5f;
                 playerInFieldAudioSource.pitch = 1f;
+                numOfIncrements = 10;
                 break;
             case < 5:
                 playerInFieldAudioSource.volume = 0.6f;
                 playerInFieldAudioSource.pitch = 1.67f;
+                numOfIncrements = 13;
                 break;
             case < 20:
                 playerInFieldAudioSource.volume = 0.7f;
                 playerInFieldAudioSource.pitch = 2.33f;
+                numOfIncrements = 16;
                 break;
             default:
                 playerInFieldAudioSource.volume = 0.8f;
                 playerInFieldAudioSource.pitch = 3f;
+                numOfIncrements = 20;
                 break;
         }
     }
@@ -64,7 +75,6 @@ public class MagneticField : MonoBehaviour
                 return 0f;
         }
     }
-
     // show the force by the velocity magnitude of the shader lines
     private void displayMagnitude(){
         m_SpriteRenderer.material.SetFloat("_Magnitude", magnetStrength/3f);
@@ -83,22 +93,41 @@ public class MagneticField : MonoBehaviour
         direction *= -1f;
         m_SpriteRenderer.material.SetFloat("_Direction", direction);
     }
-
     //sound
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
-            playerInFieldAudioSource.Stop();
+            playerInField = false;
+            StartCoroutine(stopSound());
         }
+    }
+    IEnumerator stopSound()
+    {
+        float volumeIncrement = playerInFieldAudioSource.volume * (1f / numOfIncrements);
+        for (int i = 0; i < numOfIncrements; i++)
+        {
+            if (playerInField)
+            {
+                yield break;
+            }
+            playerInFieldAudioSource.volume -= volumeIncrement;
+            yield return new WaitForSeconds(0.1f);
+        }
+            playerInFieldAudioSource.Stop();
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
-            Debug.Log(magnetStrength);
-            playerInFieldAudioSource.Play();
+            playerInField = true;
+            startSound();
         }
+    }
+    private void startSound()
+    {
+        playerInFieldAudioSource.Play();
+        playerInFieldAudioSource.volume = baseVolume;
     }
 
 }
