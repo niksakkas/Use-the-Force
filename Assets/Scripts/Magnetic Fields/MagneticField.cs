@@ -19,6 +19,7 @@ public class MagneticField : MonoBehaviour
     private float baseVolume;
     private bool playerInField = false;
     private int numOfIncrements;
+    private bool startSoundRunning = false;
 
     private void Awake(){
         player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
@@ -121,13 +122,29 @@ public class MagneticField : MonoBehaviour
         if (collider.GetComponent<Collider2D>().tag == "Player")
         {
             playerInField = true;
-            startSound();
+            if (!startSoundRunning)
+            {
+                StartCoroutine(startSound());
+            }
         }
     }
-    private void startSound()
+    private IEnumerator startSound()
     {
+        startSoundRunning = true;
+        float volumeIncreaseIncrement = baseVolume / 10;
         playerInFieldAudioSource.Play();
-        playerInFieldAudioSource.volume = baseVolume;
+        
+        while (playerInFieldAudioSource.volume < baseVolume)
+        {
+            if (!playerInField)
+            {
+                startSoundRunning = false;
+                yield break;
+            }
+            playerInFieldAudioSource.volume += volumeIncreaseIncrement;
+            yield return new WaitForSeconds(0.1f);
+        }
+        startSoundRunning = false;
     }
 
 }
