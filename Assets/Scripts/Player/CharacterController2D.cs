@@ -7,15 +7,16 @@ public class CharacterController2D : MonoBehaviour
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	// [SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
-	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
-	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
+	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
+	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
+	[SerializeField] private Transform m_LeftCheck;                          // A position marking where to check for colliders on the right side
+	[SerializeField] private Transform m_RightCheck;                          // A position marking where to check for colliders on the right side
 	[Range(0,1)] [SerializeField] private float airResistance;
 	public bool verticalControl = false;
 	public float flyingSpeedMultiplier = 2.5f;
-	const float k_GroundedRadius = .1f; // Radius of the overlap circle to determine if grounded
+	const float colliderCheckRadius = .1f; // Radius of the overlap circle to determine if there are colliders nearby
 	public bool m_Grounded = false;            // Whether or not the player is grounded.
 	public bool aboutToLeaveGround = false;
-	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
@@ -37,7 +38,7 @@ public class CharacterController2D : MonoBehaviour
 	{
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite the project settings.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, colliderCheckRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
 			//check if grounded
@@ -87,7 +88,14 @@ public class CharacterController2D : MonoBehaviour
 		// Air control is allowed, but at lower speed 
 		else
 		{
-			this.applyMovement(horizontalMove * 0.5f, verticalMove * 0.5f);
+            if (isAirControlAllowed(horizontalMove))
+            {
+				this.applyMovement(horizontalMove * 0.5f, verticalMove * 0.5f);
+            }
+            else
+            {
+				this.applyMovement(0f, 0f);
+			}
 		}
 		// If the player should jump...
 		if (m_Grounded && jump)
@@ -98,6 +106,36 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
 		applyAirResistance();
+	}
+	private bool isAirControlAllowed(float velocityDirection)
+    {
+		if(velocityDirection > 0)
+        {
+			Collider2D[] colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, colliderCheckRadius, m_WhatIsGround);
+			for (int i = 0; i < colliders.Length; i++)
+			{
+				//check if a collider is found
+				if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+        else if(velocityDirection < 0)
+        {
+			Collider2D[] colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, colliderCheckRadius, m_WhatIsGround);
+			for (int i = 0; i < colliders.Length; i++)
+			{
+                //check if a collider is found
+                if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+        else { return true; }
 	}
 
 	private void applyMovement(float horizontalMove, float verticalMove)
@@ -127,9 +165,14 @@ public class CharacterController2D : MonoBehaviour
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
-
-		// Multiply the player's x local scale by -1.
+				// rotate player
 		transform.Rotate(0, 180f, 0);
+		// Right and Left checks remain at the same positions
+		Vector3 temp;
+		temp = m_LeftCheck.position;
+		m_LeftCheck.position = m_RightCheck.position;
+		m_RightCheck.position = temp;
+
 	}
 	private void applyAirResistance(){
 		Vector2 direction = - m_Rigidbody2D.velocity.normalized;
