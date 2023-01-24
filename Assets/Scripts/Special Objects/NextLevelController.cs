@@ -9,6 +9,7 @@ public class NextLevelController : MonoBehaviour
     {
         if(collision.collider.tag == "Player")
         {
+            Debug.Log("advance to next level!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
