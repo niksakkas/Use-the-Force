@@ -32,6 +32,16 @@ ADD VIDEO HERE
 
 The player is affected by magnetic fields based on their respective "charge" states:
 
+### Magnets
+
+ADD VIDEO HERE
+
+### Forcefields
+
+ADD VIDEO HERE
+
+There are also no-gravity fields:
+
 ADD VIDEO HERE
 
 The player can change his own charge to reverse the direction magnetic fields push him towards:
