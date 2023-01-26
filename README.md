@@ -32,7 +32,9 @@ ADD VIDEO HERE
 
 If the player collides with spikes or saws he dies and respawns at the currently active portal (the pink one)
 
-https://user-images.githubusercontent.com/50372934/214963672-88f192dc-0ffa-49c7-87dd-f0f46d3b1094.mp4
+
+Uploading Portals _ Spikes.mp4…
+
 
 The player is affected by magnetic fields based on their respective "charge" states:
 
