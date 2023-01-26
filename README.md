@@ -16,7 +16,7 @@ You can build the game through the Unity Editor and then run it.
 
 There is also a built game in the repository files. To play it, download and open the repository, then run the:
 
-`Use the Force/Use The Force.exe`
+`Game/Use The Force.exe`
 
 application.
 
@@ -27,6 +27,10 @@ The player has basic abilities such as jump and dash:
 ADD VIDEO HERE
 
 The goal of each level is to reach the door and advance to the next one:
+
+ADD VIDEO HERE
+
+If the player collides with spikes or saws he dies and respawns at the currently active portal (the pink one)
 
 ADD VIDEO HERE
 
