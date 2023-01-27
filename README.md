@@ -22,9 +22,13 @@ application.
 
 ## Mechanics
 
-The player has basic abilities such as jump and dash:
+The player has basic abilities such as jump 
 
-ADD VIDEO HERE
+https://user-images.githubusercontent.com/50372934/215200761-913f4107-5010-4de6-abd9-f08c39b6b5b2.mp4
+
+and dash:
+
+https://user-images.githubusercontent.com/50372934/215200862-11539e4a-5b89-4481-adbe-3886809c3f53.mp4
 
 The goal of each level is to reach the door and advance to the next one:
 
@@ -32,9 +36,7 @@ ADD VIDEO HERE
 
 If the player collides with spikes or saws he dies and respawns at the currently active portal (the pink one)
 
-
-Uploading Portals _ Spikes.mp4…
-
+https://user-images.githubusercontent.com/50372934/215200581-9a7312b0-160b-4b06-807e-be9260a45e04.mp4
 
 The player is affected by magnetic fields based on their respective "charge" states:
 
