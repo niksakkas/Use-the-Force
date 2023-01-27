@@ -38,7 +38,7 @@ If the player collides with spikes or saws he dies and respawns at the currently
 
 https://user-images.githubusercontent.com/50372934/215200581-9a7312b0-160b-4b06-807e-be9260a45e04.mp4
 
-The player is affected by magnetic fields based on their respective "charge" states. The player can change his own charge to reverse the direction magnetic fields push him towards:
+The player is affected by magnetic fields based on their respective "charge" states. The player can change his own charge to reverse the direction magnetic fields push him towards.
 
 ### Magnets
 
@@ -49,9 +49,6 @@ https://user-images.githubusercontent.com/50372934/215209985-0251ff54-a52a-4619-
 https://user-images.githubusercontent.com/50372934/215210066-86af7e40-614a-4f92-a570-d2069deed55a.mp4
 
 There are also no-gravity fields:
-
-ADD VIDEO HERE
-
 
 ADD VIDEO HERE
 
