@@ -50,7 +50,7 @@ https://user-images.githubusercontent.com/50372934/215259445-20f2435c-016d-4a78-
 
 There are also no-gravity fields:
 
-ADD VIDEO HERE
+https://user-images.githubusercontent.com/50372934/215261670-2ee71e07-a7c9-4275-947f-796b62c98d6a.mp4
 
 Here is an example of a more complicated set of obstacles:
 
