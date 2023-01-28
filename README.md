@@ -42,11 +42,11 @@ The player is affected by magnetic fields based on their respective "charge" sta
 
 ### Magnets
 
-https://user-images.githubusercontent.com/50372934/215209985-0251ff54-a52a-4619-9f95-f7101c5e1df4.mp4
+https://user-images.githubusercontent.com/50372934/215259424-db027c35-d35c-449d-b00b-7773da410cf0.mp4
 
 ### Forcefields
 
-https://user-images.githubusercontent.com/50372934/215210066-86af7e40-614a-4f92-a570-d2069deed55a.mp4
+https://user-images.githubusercontent.com/50372934/215259445-20f2435c-016d-4a78-9828-91eafa4c4e70.mp4
 
 There are also no-gravity fields:
 
