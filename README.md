@@ -62,12 +62,12 @@ There are some fighting abilities I have not integrated to the game yet
 
 ### Blast Red
 
-ADD VIDEO HERE
+https://user-images.githubusercontent.com/50372934/215265968-a0c0eae8-1735-4c31-b3ba-28be387fa3c9.mp4
 
 ### Shoot Blue
 
-ADD VIDEO HERE
+https://user-images.githubusercontent.com/50372934/215265972-ce5892ee-abda-4326-b471-e0f2d0a22200.mp4
 
 ### Purple Powerup (combination of the two)
 
-ADD VIDEO HERE
+https://user-images.githubusercontent.com/50372934/215265976-fc564e5b-05d4-4fd9-adee-f797d55743cf.mp4
