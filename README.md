@@ -58,7 +58,7 @@ https://user-images.githubusercontent.com/50372934/215259514-09c75250-69e2-4405-
 
 ## Not yet integrated mechanics
 
-There are some fighting abilities I have not integrated to the game yet
+There are some fighting abilities I have not integrated to the game yet:
 
 ### Blast Red
 
@@ -68,6 +68,8 @@ https://user-images.githubusercontent.com/50372934/215265968-a0c0eae8-1735-4c31-
 
 https://user-images.githubusercontent.com/50372934/215265972-ce5892ee-abda-4326-b471-e0f2d0a22200.mp4
 
-### Purple Powerup (combination of the two)
+### Purple Powerup
+
+I also created a powerup that combines the abilities mentioned above. It lasts for a few seconds and can be used from both charge states.
 
 https://user-images.githubusercontent.com/50372934/215265976-fc564e5b-05d4-4fd9-adee-f797d55743cf.mp4
