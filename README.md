@@ -54,7 +54,7 @@ ADD VIDEO HERE
 
 Here is an example of a more complicated set of obstacles:
 
-https://user-images.githubusercontent.com/50372934/208545806-7fa3e4cd-245f-48ab-84ff-52f6d6bfd624.mp4
+https://user-images.githubusercontent.com/50372934/215259514-09c75250-69e2-4405-9348-94e5a8d339f7.mp4
 
 ## Not yet integrated mechanics
 
