@@ -32,7 +32,7 @@ https://user-images.githubusercontent.com/50372934/215200862-11539e4a-5b89-4481-
 
 The goal of each level is to reach the door and advance to the next one:
 
-https://user-images.githubusercontent.com/50372934/215261858-a39a3bba-0231-4975-8160-2f16ca975511.mp4
+https://user-images.githubusercontent.com/50372934/215261925-4da5e86d-b420-49e9-97e1-09754eba84e5.mp4
 
 If the player collides with spikes or saws he dies and respawns at the currently active portal (the pink one)
 
