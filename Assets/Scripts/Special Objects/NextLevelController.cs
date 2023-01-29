@@ -12,8 +12,15 @@ public class NextLevelController : MonoBehaviour
     private void Awake()
     {
         fadeImage = GameObject.FindGameObjectWithTag("FadeImage")?.GetComponent<Image>();
-        Debug.Log(fadeImage);
         iterationDuration = fadeDuration / fadeIterations;
+    }
+    private void Update()
+    {
+        // this is to advance through levels easily during debugging. TODO: remove when done
+        if (Input.GetButtonDown("MainAbility"))
+        {
+            StartCoroutine(leaveCurrentLevel());
+        }
     }
     private void Start()
     {
@@ -59,14 +66,14 @@ public class NextLevelController : MonoBehaviour
     }
     IEnumerator enterCurrentLevel()
     {
-        Debug.Log("enter new level!");
         Color tempColor = fadeImage.color;
-        while(fadeImage.color.a < 1) { 
+        while(fadeImage.color.a > 0) {
             tempColor.a -= iterationDuration;
             fadeImage.color = tempColor;
             yield return new WaitForSeconds(iterationDuration);
         }
-        tempColor.a = 1;
+        tempColor.a = 0;
         fadeImage.color = tempColor;
     }
+
 }

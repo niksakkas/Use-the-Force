@@ -8,7 +8,7 @@ public class EndMenuManager : MonoBehaviour
 {
     private void Awake()
     {
-        Destroy(GameObject.FindGameObjectWithTag("DeathCounter"));
+        Destroy(GameObject.FindGameObjectWithTag("StaticCanvas"));
     }
     public void BackToStartingScreen()
     {
