@@ -23,9 +23,10 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject staticCanvas = GameObject.FindGameObjectWithTag("StaticCanvas");
-        if (staticCanvas){
-            Destroy(staticCanvas);
+        GameObject StaticElements = GameObject.FindGameObjectWithTag("StaticElements");
+        if (StaticElements)
+        {
+            Destroy(StaticElements);
         }
         magnetLight = menuMagnet.GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
         m_spriteRenderer = menuMagnet.GetComponentInChildren<SpriteRenderer>();

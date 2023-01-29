@@ -23,7 +23,6 @@ public class DeathCounter : MonoBehaviour
     {
         deaths++;
 
-
         if (toogle == true)
         {
             tempDeathCounterText.text = "Deaths: " + deaths;

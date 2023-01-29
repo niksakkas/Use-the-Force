@@ -9,18 +9,22 @@ public class NextLevelController : MonoBehaviour
     [SerializeField] private float fadeDuration = 1f;
     private int fadeIterations = 100;
     private float iterationDuration;
+
+    [SerializeField] private AudioSource nextLevelAudioSource;
+
     private void Awake()
     {
+        nextLevelAudioSource = GameObject.FindGameObjectWithTag("LevelCompletedSound")?.GetComponent<AudioSource>();
         fadeImage = GameObject.FindGameObjectWithTag("FadeImage")?.GetComponent<Image>();
         iterationDuration = fadeDuration / fadeIterations;
     }
     private void Update()
     {
-        // this is to advance through levels easily during debugging. TODO: remove when done
-        if (Input.GetButtonDown("MainAbility"))
-        {
-            StartCoroutine(leaveCurrentLevel());
-        }
+        // this is to advance through levels easily during debugging. Comment this block when done with debugging
+        //if (Input.GetButtonDown("MainAbility"))
+        //{
+        //    StartCoroutine(leaveCurrentLevel());
+        //}
     }
     private void Start()
     {
@@ -47,7 +51,7 @@ public class NextLevelController : MonoBehaviour
     }
     IEnumerator leaveCurrentLevel()
     {
-        Debug.Log("leave current level!");
+        nextLevelAudioSource.Play();
         if (fadeImage)
         {
             for (int i = 0; i < fadeIterations; i++)

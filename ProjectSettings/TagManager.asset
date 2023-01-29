@@ -15,8 +15,9 @@ TagManager:
   - PauseMenu
   - FadeImage
   - MusicPlayer
-  - StaticCanvas
   - DeathCounter
+  - LevelCompletedSound
+  - StaticElements
   layers:
   - Default
   - TransparentFX
