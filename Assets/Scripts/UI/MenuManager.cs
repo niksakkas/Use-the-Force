@@ -23,8 +23,8 @@ public class MenuManager : MonoBehaviour
 
     private void Awake()
     {
+
         magnetLight = menuMagnet.GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
-        Debug.Log(magnetLight.color);
         m_spriteRenderer = menuMagnet.GetComponentInChildren<SpriteRenderer>();
     }
 

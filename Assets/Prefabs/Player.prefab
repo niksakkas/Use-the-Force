@@ -173,7 +173,7 @@ MonoBehaviour:
   - {x: -0.05002891, y: -0.08998904, z: 0}
   m_ShapePathHash: -134894205
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81866
+  m_InstanceId: -4811878
 --- !u!1 &517649036
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   - {x: -0.010007013, y: 0.059964493, z: 0}
   m_ShapePathHash: 573626521
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81872
+  m_InstanceId: -4811890
 --- !u!1 &520503587
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   - {x: -0.020119775, y: -0.10991225, z: 0}
   m_ShapePathHash: -1631300813
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81878
+  m_InstanceId: -4811884
 --- !u!1 &626797196
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   - {x: -0.08998913, y: -0.119969696, z: 0}
   m_ShapePathHash: 1000825175
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81884
+  m_InstanceId: -4811866
 --- !u!1 &631269045
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   - {x: -0.000024585042, y: 0.0600268, z: 0}
   m_ShapePathHash: 6367791
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81890
+  m_InstanceId: -4811926
 --- !u!1 &693681514
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +839,7 @@ MonoBehaviour:
   - {x: -0.010036894, y: 0.05007362, z: 0}
   m_ShapePathHash: -1810268181
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81896
+  m_InstanceId: -4811908
 --- !u!1 &807801133
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
   - {x: -0.0199532, y: 0.07011222, z: 0}
   m_ShapePathHash: -462379469
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81902
+  m_InstanceId: -4811902
 --- !u!1 &1086894518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   - {x: -0.06004122, y: -0.09005738, z: 0}
   m_ShapePathHash: 1967552728
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81914
+  m_InstanceId: -4811872
 --- !u!1 &1192887312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1368,7 @@ MonoBehaviour:
   - {x: -0.049758703, y: -0.14957175, z: 0}
   m_ShapePathHash: -1885428561
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81920
+  m_InstanceId: -4811860
 --- !u!1 &1236470881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   - {x: -0.020011056, y: 0.059981976, z: 0}
   m_ShapePathHash: 1268033793
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81926
+  m_InstanceId: -4811932
 --- !u!1 &1242976213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,7 @@ MonoBehaviour:
   - {x: -0.010007013, y: 0.059964493, z: 0}
   m_ShapePathHash: -1446566412
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81932
+  m_InstanceId: -4811896
 --- !u!1 &1285637596
 GameObject:
   m_ObjectHideFlags: 0
@@ -11889,7 +11889,7 @@ MonoBehaviour:
   - {x: -0.000058917318, y: 0.06022993, z: 0}
   m_ShapePathHash: -863187944
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81976
+  m_InstanceId: -4811920
 --- !u!1 &2030743857
 GameObject:
   m_ObjectHideFlags: 0
@@ -12173,7 +12173,7 @@ MonoBehaviour:
   - {x: -0.000058917318, y: 0.050336197, z: 0}
   m_ShapePathHash: -178355463
   m_Mesh: {fileID: 0}
-  m_InstanceId: 81996
+  m_InstanceId: -4811914
 --- !u!1 &871097200577908682
 GameObject:
   m_ObjectHideFlags: 0
@@ -13094,8 +13094,9 @@ GameObject:
   - component: {fileID: 2002902706}
   - component: {fileID: 2002902707}
   - component: {fileID: 6183605693880962761}
-  - component: {fileID: 2002902719}
   - component: {fileID: 2002902709}
+  - component: {fileID: 2002902719}
+  - component: {fileID: 9137782127402514226}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -13499,6 +13500,85 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 7d08cf29a17499d4ea0404d246c139be, type: 3}
   withSword: 0
   floatIndexAnim: 0
+--- !u!114 &2002902709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183605693714556881}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.632
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 0.18
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 0.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!96 &2002902719
 TrailRenderer:
   serializedVersion: 2
@@ -13607,7 +13687,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0
---- !u!114 &2002902709
+--- !u!114 &9137782127402514226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

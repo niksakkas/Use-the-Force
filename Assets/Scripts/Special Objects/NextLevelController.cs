@@ -11,44 +11,62 @@ public class NextLevelController : MonoBehaviour
     private float iterationDuration;
     private void Awake()
     {
-        fadeImage = GameObject.FindGameObjectWithTag("FadeImage").GetComponent<Image>();
+        fadeImage = GameObject.FindGameObjectWithTag("FadeImage")?.GetComponent<Image>();
+        Debug.Log(fadeImage);
         iterationDuration = fadeDuration / fadeIterations;
     }
     private void Start()
     {
-        if (fadeImage.color.a > 0.99f)
+        if(fadeImage)
         {
-            StartCoroutine(enterCurrentLevel());
+
+            if (fadeImage.color.a > 0.99f)
+            {
+                StartCoroutine(enterCurrentLevel());
+            }
+        }
+        else
+        {
+            Debug.Log("fadeimage not found");
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.tag == "Player")
         {
+            collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             StartCoroutine(leaveCurrentLevel());
         }
     }
     IEnumerator leaveCurrentLevel()
     {
         Debug.Log("leave current level!");
-        for (int i = 0; i < fadeIterations; i++)
+        if (fadeImage)
         {
-            var temp = fadeImage.color;
-            temp.a += iterationDuration;
-            fadeImage.color = temp;
-            yield return new WaitForSeconds(iterationDuration);
+            for (int i = 0; i < fadeIterations; i++)
+            {
+                var temp = fadeImage.color;
+                temp.a += iterationDuration;
+                fadeImage.color = temp;
+                yield return new WaitForSeconds(iterationDuration);
+            }
+        }
+        else
+        {
+            Debug.Log("fadeimage not found");
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     IEnumerator enterCurrentLevel()
     {
         Debug.Log("enter new level!");
-        for (int i = 0; i < fadeIterations; i++)
-        {
-            var tempColor = fadeImage.color;
+        Color tempColor = fadeImage.color;
+        while(fadeImage.color.a < 1) { 
             tempColor.a -= iterationDuration;
             fadeImage.color = tempColor;
             yield return new WaitForSeconds(iterationDuration);
         }
+        tempColor.a = 1;
+        fadeImage.color = tempColor;
     }
 }
