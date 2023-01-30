@@ -20,9 +20,20 @@ public class MenuManager : MonoBehaviour
     //Color
     SpriteRenderer m_spriteRenderer;
     Color lerpedFieldColor;
+    //Button Sound
+    GameObject buttonSound;
 
     private void Awake()
     {
+        GameObject[] buttonSounds = GameObject.FindGameObjectsWithTag("ButtonSound");
+        // if there is no other button sound player, activate this one, otherwise destroy it
+        if (buttonSounds.Length == 2)
+        {
+            Destroy(buttonSounds[1]);
+        }
+        buttonSound = buttonSounds[0];
+        DontDestroyOnLoad(buttonSound);
+
         GameObject StaticElements = GameObject.FindGameObjectWithTag("StaticElements");
         if (StaticElements)
         {
@@ -46,10 +57,12 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        buttonSound.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(startScene);
     }
     public void QuitGame()
     {
+        buttonSound.GetComponent<AudioSource>().Play();
         Application.Quit();
     }
 }

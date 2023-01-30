@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-
-
     [SerializeField] GameObject pauseMenu;
+    private AudioSource buttonClickSound;
 
+    private void Awake()
+    {
+        buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound").GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
@@ -31,6 +34,7 @@ public class PauseMenuController : MonoBehaviour
     }
     public void Resume()
     {
+        buttonClickSound.Play();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -40,11 +44,13 @@ public class PauseMenuController : MonoBehaviour
     }
     public void Home()
     {
+        buttonClickSound.Play();
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
     public void QuitGame()
     {
+        buttonClickSound.Play();
         Application.Quit();
     }
 }

@@ -18,6 +18,7 @@ TagManager:
   - DeathCounter
   - LevelCompletedSound
   - StaticElements
+  - ButtonSound
   layers:
   - Default
   - TransparentFX
