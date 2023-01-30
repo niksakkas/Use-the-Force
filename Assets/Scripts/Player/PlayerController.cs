@@ -18,6 +18,12 @@ public class PlayerController : MonoBehaviour
     public Material swapChargeIconMaterial;
     public GameObject SwapChargeCooldownIcon;
     public float chargeSwapCooldown = 1f;
+    int iterations = 100;
+    float timeSpanLength;
+    float colorChangeIncrement; 
+    float playerColor;
+    float swapColorDuration = 0.5f;
+
 
     //Death and respawn
     private float playerStartingScale;
@@ -70,6 +76,11 @@ public class PlayerController : MonoBehaviour
         powerUpFireBlue.Stop();
         swapCharge = 0f;
         swapChargeIconMaterial.SetFloat("_IconCharge", 0f);
+        //swap color variables
+        timeSpanLength = swapColorDuration / iterations;
+        colorChangeIncrement = 1f / iterations;
+        playerColor = spriteRenderer.material.GetFloat("_Red");
+
     }
     private void Update()
     {
@@ -114,32 +125,51 @@ public class PlayerController : MonoBehaviour
     }
     private void swapColor()
     {
+
         // set player color
         if (playerState == ChargeState.Red)
         {
-            becomeBlue();
+            StartCoroutine(becomeBlue());
         }
         else
         {
-            becomeRed();
+            StartCoroutine(becomeRed());
         }
 
     }
-    private void becomeBlue()
-    {
-        playerState = ChargeState.Blue;
-        spriteRenderer.material.SetFloat("_Red", 0);
-        spriteRenderer.material.SetFloat("_Blue", 1);
-        gameController.rotateAndRecolorChargeIcon();
-        playerLight.color = blueLightColor;
-    }
-    private void becomeRed()
+    IEnumerator becomeRed()
     {
         playerState = ChargeState.Red;
-        spriteRenderer.material.SetFloat("_Red", 1);
-        spriteRenderer.material.SetFloat("_Blue", 0);
         gameController.rotateAndRecolorChargeIcon();
         playerLight.color = redLightColor;
+
+        for (int i = 0; i < iterations; i++)
+        {
+            playerColor += colorChangeIncrement;
+            spriteRenderer.material.SetFloat("_Red", playerColor);
+            spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
+            yield return new WaitForSeconds(timeSpanLength);
+        }
+        playerColor = 1;
+        spriteRenderer.material.SetFloat("_Red", playerColor);
+        spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
+    }
+    private IEnumerator becomeBlue()
+    {
+        playerState = ChargeState.Blue;
+        gameController.rotateAndRecolorChargeIcon();
+        playerLight.color = blueLightColor;
+
+        for (int i = 0; i < iterations; i++)
+        {
+            playerColor -= colorChangeIncrement;
+            spriteRenderer.material.SetFloat("_Red", playerColor);
+            spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
+            yield return new WaitForSeconds(timeSpanLength);
+        }
+        playerColor = 0;
+        spriteRenderer.material.SetFloat("_Red", playerColor);
+        spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
     }
 
     //runs when player dies
@@ -154,6 +184,18 @@ public class PlayerController : MonoBehaviour
             purplePower = 0;
             purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
         }
+        //set material colors 
+
+        if(playerState == ChargeState.Red)
+        {
+            playerColor = 1;
+        }
+        else
+        {
+            playerColor = 0;
+        }
+        spriteRenderer.material.SetFloat("_Red", playerColor);
+        spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
         //tell game controller to kill and respawn the player
         gameController.killPlayer(respawnTimer);
         deathCounter?.addDeath();
