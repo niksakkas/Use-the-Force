@@ -44,9 +44,10 @@ public class PortalController : MonoBehaviour
         }
     }
 
-    private void activate(){
+    private void activate(bool playSound = true)
+    {
 
-        StartCoroutine(activateCoroutine());
+        StartCoroutine(activateCoroutine(playSound));
     }
     public void deactivate(){
         change = 1;
@@ -55,10 +56,13 @@ public class PortalController : MonoBehaviour
         m_SpriteRenderer.material.SetFloat("_ColorTransition", 1);
     }
 
-    public IEnumerator activateCoroutine()
+    public IEnumerator activateCoroutine(bool playSound)
     {
+        if (playSound)
+        {
+            activationAudioSource.Play();
+        }
         change = 1;
-        activationAudioSource.Play();
         m_SpriteRenderer.material.SetFloat("_TwirlSpeed", 0.6f);
         while (change > 0f)
         {

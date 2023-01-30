@@ -51,14 +51,14 @@ public class NextLevelController : MonoBehaviour
     }
     IEnumerator leaveCurrentLevel()
     {
+        Color tempColor = fadeImage.color;
         nextLevelAudioSource.Play();
         if (fadeImage)
         {
-            for (int i = 0; i < fadeIterations; i++)
+            while (fadeImage.color.a < 1)
             {
-                var temp = fadeImage.color;
-                temp.a += iterationDuration;
-                fadeImage.color = temp;
+                tempColor.a += iterationDuration;
+                fadeImage.color = tempColor;
                 yield return new WaitForSeconds(iterationDuration);
             }
         }
@@ -71,7 +71,8 @@ public class NextLevelController : MonoBehaviour
     IEnumerator enterCurrentLevel()
     {
         Color tempColor = fadeImage.color;
-        while(fadeImage.color.a > 0) {
+        while(fadeImage.color.a > 0) 
+        {
             tempColor.a -= iterationDuration;
             fadeImage.color = tempColor;
             yield return new WaitForSeconds(iterationDuration);

@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
         playerMovement = player.GetComponent<PlayerMovement>();
         playerController.respawnPortalTransform = activeRespawnPortal.transform;
-        activeRespawnPortal.SendMessage("activate");
+        activeRespawnPortal.SendMessage("activate", false);
         magneticFields = FindObjectsOfType<MagneticField>();
         //pause menu
         //pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
         if (portal != activeRespawnPortal){
             activeRespawnPortal.SendMessage("deactivate");
             activeRespawnPortal = portal;
-            activeRespawnPortal.SendMessage("activate");
+            activeRespawnPortal.SendMessage("activate", true);
         }
         playerController.respawnPortalTransform = activeRespawnPortal.transform;
     }
