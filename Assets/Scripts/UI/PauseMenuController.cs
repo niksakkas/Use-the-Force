@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class PauseMenuController : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] Slider slider;
     private AudioSource buttonClickSound;
+    private MusicController musicController;
 
     private void Awake()
     {
-        buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound").GetComponent<AudioSource>();
+        musicController = GameObject.FindGameObjectWithTag("MusicPlayer")?.GetComponent<MusicController>();
+        if (musicController)
+        {
+            slider.value = musicController.GetComponent<AudioSource>().volume;
+        }
+        buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound")?.GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -34,7 +40,10 @@ public class PauseMenuController : MonoBehaviour
     }
     public void Resume()
     {
-        buttonClickSound.Play();
+        if (buttonClickSound)
+        {
+            buttonClickSound.Play();
+        }
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -44,13 +53,27 @@ public class PauseMenuController : MonoBehaviour
     }
     public void Home()
     {
-        buttonClickSound.Play();
+        if (buttonClickSound)
+        {
+            buttonClickSound.Play();
+        }
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
     public void QuitGame()
     {
-        buttonClickSound.Play();
+        if (buttonClickSound)
+        {
+            buttonClickSound.Play();
+        }
         Application.Quit();
     }
+    public void changeMusicVolume()
+    {
+        if (musicController)
+        {
+            musicController.GetComponent<AudioSource>().volume = slider.value;
+        }
+    }
+    
 }
