@@ -43,8 +43,6 @@ public class GameController : MonoBehaviour
         pooledBlueSplatters = GameObject.FindGameObjectsWithTag("BlueSplatter");
         Vector3 splatterStartingPosition = new Vector3(0.0f, 0.0f, -1000.0f);
 
-        Debug.Log(pooledRedSplatters.Length);
-
         if (pooledRedSplatters.Length == 0)
         {
             //splatter pooling
