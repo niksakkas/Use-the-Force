@@ -1,24 +1,42 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections.Generic;
+using System.Linq;
 
 public class PauseMenuController : MonoBehaviour
 {
+    [SerializeField] GameObject pauseMenuCanvas;
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] Slider slider;
     private AudioSource buttonClickSound;
+    // Music Slider
+    [SerializeField] Slider musicSlider;
     private MusicController musicController;
+    // Sound Slider
+    [SerializeField] Slider soundSlider;
+    AudioSource[] soundObjects;
+    float[] soundObjectsStartingVolume;
 
     private void Awake()
     {
+        DontDestroyOnLoad(pauseMenu);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        getAllSceneSoundEffects();
+        changeSoundEffectsVolume();
+    }
+
+    private void Start()
+    {
         musicController = GameObject.FindGameObjectWithTag("MusicPlayer")?.GetComponent<MusicController>();
-        if (musicController)
-        {
-            slider.value = musicController.GetComponent<AudioSource>().volume;
-        }
+        getAllSceneSoundEffects();
+        changeSoundEffectsVolume();
+        setMusicVolume();
         buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound")?.GetComponent<AudioSource>();
     }
+
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
@@ -35,8 +53,28 @@ public class PauseMenuController : MonoBehaviour
     }
     public void Pause()
     {
-        pauseMenu.SetActive(true);
+        pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
+    }
+    private void getAllSceneSoundEffects(){
+        soundObjects = FindObjectsOfType<AudioSource>();
+        List<AudioSource> tempSoundObjectList = new List<AudioSource>(soundObjects);
+        List<float> tempVolumeList = new List<float>();
+
+        foreach (AudioSource soundObject in soundObjects.ToList())
+        {
+            // Music player is controlled by a different slider
+            if (soundObject.gameObject.tag != "MusicPlayer")
+            {
+                tempVolumeList.Add(soundObject.volume);
+            }
+            else
+            {
+                tempSoundObjectList.Remove(soundObject);
+            }
+        };
+        soundObjects = tempSoundObjectList.ToArray();
+        soundObjectsStartingVolume = tempVolumeList.ToArray();
     }
     public void Resume()
     {
@@ -44,7 +82,7 @@ public class PauseMenuController : MonoBehaviour
         {
             buttonClickSound.Play();
         }
-        pauseMenu.SetActive(false);
+        pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
     }
     public bool IsPaused()
@@ -68,12 +106,19 @@ public class PauseMenuController : MonoBehaviour
         }
         Application.Quit();
     }
-    public void changeMusicVolume()
+    public void setMusicVolume()
     {
         if (musicController)
         {
-            musicController.GetComponent<AudioSource>().volume = slider.value;
+            musicController.GetComponent<AudioSource>().volume = musicSlider.value;
         }
     }
-    
+    public void changeSoundEffectsVolume()
+    {
+        for (int i = 0; i < soundObjects.Length; i++)
+        {
+            soundObjects[i].volume = soundObjectsStartingVolume[i] * soundSlider.value;
+        }
+        
+    }
 }
