@@ -23,6 +23,10 @@ public class GameController : MonoBehaviour
     MagneticField[] magneticFields;
 
 
+    private void Awake()
+    {
+        poolSplatters();
+    }
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,31 +35,51 @@ public class GameController : MonoBehaviour
         playerController.respawnPortalTransform = activeRespawnPortal.transform;
         activeRespawnPortal.SendMessage("activate", false);
         magneticFields = FindObjectsOfType<MagneticField>();
-        //pause menu
-        //pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
-        //if(pauseMenu)
-        //{
-        //    DontDestroyOnLoad(pauseMenu);
-        //}
-
-        //pooling
-        pooledRedSplatters = new GameObject[amountToPool/2];
-        pooledBlueSplatters = new GameObject[amountToPool/2];
+    }
+    private void poolSplatters()
+    {
+        //GameObject splatters
+        pooledRedSplatters = GameObject.FindGameObjectsWithTag("RedSplatter");
+        pooledBlueSplatters = GameObject.FindGameObjectsWithTag("BlueSplatter");
         Vector3 splatterStartingPosition = new Vector3(0.0f, 0.0f, -1000.0f);
 
-        for (int i = 0; i < amountToPool/2; i++)
+        Debug.Log(pooledRedSplatters.Length);
+
+        if (pooledRedSplatters.Length == 0)
         {
-            pooledRedSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
-            pooledRedSplatters[i].SendMessage("pickColor", ChargeState.Red);
+            //splatter pooling
+            pooledRedSplatters = new GameObject[amountToPool / 2];
+            pooledBlueSplatters = new GameObject[amountToPool / 2];
+            for (int i = 0; i < amountToPool / 2; i++)
+            {
+                pooledRedSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
+                pooledRedSplatters[i].SendMessage("pickColor", ChargeState.Red);
+                pooledRedSplatters[i].tag = "RedSplatter";
+                DontDestroyOnLoad(pooledRedSplatters[i]);
+            }
+            for (int i = 0; i < amountToPool / 2; i++)
+            {
+                pooledBlueSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
+                pooledBlueSplatters[i].SendMessage("pickColor", ChargeState.Blue);
+                pooledBlueSplatters[i].tag = "BlueSplatter";
+                DontDestroyOnLoad(pooledBlueSplatters[i]);
+            }
         }
-        for (int i = 0; i < amountToPool/2; i++)
+        else
         {
-            pooledBlueSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
-            pooledBlueSplatters[i].SendMessage("pickColor", ChargeState.Blue);
+            for (int i = 0; i < amountToPool / 2; i++)
+            {
+                pooledRedSplatters[i].transform.position = splatterStartingPosition;
+                DontDestroyOnLoad(pooledRedSplatters[i]);
+            }
+            for (int i = 0; i < amountToPool / 2; i++)
+            {
+                pooledBlueSplatters[i].transform.position = splatterStartingPosition;
+                DontDestroyOnLoad(pooledBlueSplatters[i]);
+
+            }
         }
     }
-
-
     // Change the active Portal
     void setActiveRespawnPortal(GameObject portal)
     {
@@ -72,7 +96,7 @@ public class GameController : MonoBehaviour
             field.SendMessage("changeDirection");
         }
     }
-    public GameObject setSplattersPosition(ChargeState color)
+    public GameObject getNextSplatter(ChargeState color)
     {
         if (color == ChargeState.Red) { 
             redPoolingCounter += 1;

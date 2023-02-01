@@ -42,7 +42,7 @@ public class ExplosionController : MonoBehaviour
     void createSplatter(Vector3 newSplashosition, float velocityMagnitude)
     {
         //get splatter from pool
-        GameObject splatterObject = gameController.GetComponentInChildren<GameController>().setSplattersPosition(color);
+        GameObject splatterObject = gameController.GetComponentInChildren<GameController>().getNextSplatter(color);
         //set splatter position to the point of collision
         splatterObject.transform.position = newSplashosition;
         //add a random rotation and scale to splatter

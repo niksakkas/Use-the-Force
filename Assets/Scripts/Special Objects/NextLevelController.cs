@@ -51,10 +51,13 @@ public class NextLevelController : MonoBehaviour
     }
     IEnumerator leaveCurrentLevel()
     {
-        Color tempColor = fadeImage.color;
-        nextLevelAudioSource.Play();
+        if (nextLevelAudioSource)
+        {
+            nextLevelAudioSource.Play();
+        }
         if (fadeImage)
         {
+            Color tempColor = fadeImage.color;
             while (fadeImage.color.a < 1)
             {
                 tempColor.a += iterationDuration;

@@ -19,6 +19,9 @@ TagManager:
   - LevelCompletedSound
   - StaticElements
   - ButtonSound
+  - StaticCanvas
+  - BlueSplatter
+  - RedSplatter
   layers:
   - Default
   - TransparentFX

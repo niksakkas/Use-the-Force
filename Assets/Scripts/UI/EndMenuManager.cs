@@ -11,19 +11,25 @@ public class EndMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound").GetComponent<AudioSource>();
+        buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound")?.GetComponent<AudioSource>();
         Destroy(GameObject.FindGameObjectWithTag("StaticElements"));
         Destroy(GameObject.FindGameObjectWithTag("MusicPlayer"));
     }
     public void BackToStartingScreen()
     {
-        buttonClickSound.Play();
+        if (buttonClickSound)
+        {
+            buttonClickSound.Play();
+        }
         SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
     {
-        buttonClickSound.Play();
+        if (buttonClickSound)
+        {
+            buttonClickSound.Play();
+        }
         Application.Quit();
     }
 }
