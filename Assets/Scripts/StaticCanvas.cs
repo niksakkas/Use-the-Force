@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 using TMPro;
 
-public class DeathCounter : MonoBehaviour
+public class StaticCanvas : MonoBehaviour
 {
     public int deaths = 0;
     public TMP_Text deathCounterText;
     public TMP_Text tempDeathCounterText;
     private bool toogle = true;
+    [SerializeField] AudioSource nextLevelSound;
+
 
     private void Start()
     {

@@ -22,10 +22,10 @@ public class NextLevelController : MonoBehaviour
     private void Update()
     {
         // this is to advance through levels easily during debugging. Comment this block when done with debugging
-        if (Input.GetButtonDown("MainAbility"))
-        {
-            StartCoroutine(leaveCurrentLevel());
-        }
+        //if (Input.GetButtonDown("MainAbility"))
+        //{
+        //    StartCoroutine(leaveCurrentLevel());
+        //}
     }
     private void Start()
     {
@@ -54,7 +54,6 @@ public class NextLevelController : MonoBehaviour
     {
         if (nextLevelAudioSource)
         {
-            Debug.Log(nextLevelAudioSource.volume);
             nextLevelAudioSource.Play();
         }
         if (fadeImage)

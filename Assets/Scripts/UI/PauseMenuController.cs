@@ -25,7 +25,7 @@ public class PauseMenuController : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         getAllSceneSoundEffects();
-        changeSoundEffectsVolume();
+        changeNewSoundEffectsVolume();
     }
 
     private void Start()
@@ -120,5 +120,18 @@ public class PauseMenuController : MonoBehaviour
             soundObjects[i].volume = soundObjectsStartingVolume[i] * soundSlider.value;
         }
         
+    }
+    public void changeNewSoundEffectsVolume()
+    {
+        for (int i = 0; i < soundObjects.Length; i++)
+        {
+            // tagged soundeffects are not destroyed after load scene, so don't change their volume when loading scenes
+            // their volume changes only when the player uses the slider
+            if(soundObjects[i].gameObject.tag == "Untagged")
+            {
+                soundObjects[i].volume = soundObjectsStartingVolume[i] * soundSlider.value;
+            }
+        }
+
     }
 }
