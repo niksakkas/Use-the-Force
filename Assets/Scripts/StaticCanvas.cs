@@ -11,15 +11,16 @@ public class StaticCanvas : MonoBehaviour
     private bool toogle = true;
     [SerializeField] AudioSource nextLevelSound;
 
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         tempDeathCounterText.alignment = TextAlignmentOptions.Left;
         deathCounterText.alignment = TextAlignmentOptions.Left;
         deathCounterText.text = "Deaths: 0";
         tempDeathCounterText.text = "Deaths: 0";
-
-        DontDestroyOnLoad(gameObject);
     }
     public void addDeath()
     {

@@ -14,9 +14,6 @@ public class NextLevelController : MonoBehaviour
 
     private void Awake()
     {
-
-        nextLevelAudioSource = GameObject.FindGameObjectWithTag("LevelCompletedSound")?.GetComponent<AudioSource>();
-        fadeImage = GameObject.FindGameObjectWithTag("FadeImage")?.GetComponent<Image>();
         iterationDuration = fadeDuration / fadeIterations;
     }
     private void Update()
@@ -29,7 +26,10 @@ public class NextLevelController : MonoBehaviour
     }
     private void Start()
     {
-        if(fadeImage)
+        nextLevelAudioSource = GameObject.FindGameObjectWithTag("LevelCompletedSound")?.GetComponent<AudioSource>();
+        fadeImage = GameObject.FindGameObjectWithTag("FadeImage")?.GetComponent<Image>();
+
+        if (fadeImage)
         {
 
             if (fadeImage.color.a > 0.99f)

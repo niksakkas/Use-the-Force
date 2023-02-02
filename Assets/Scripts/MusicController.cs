@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public class MusicController : MonoBehaviour
-{    void Awake()
+public class MusicController : MonoBehaviour{    
+    void Start()
     {
         // if there is no other music player, activate this one, otherwise destroy it
         if(GameObject.FindGameObjectsWithTag("MusicPlayer").Length == 1)

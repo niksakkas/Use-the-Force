@@ -20,8 +20,11 @@ public class MagneticField : MonoBehaviour
     private bool playerInField = false;
     private int numOfIncrements;
     private bool startSoundRunning = false;
-
-    private void Awake(){
+    private void Awake()
+    {
+        baseVolume = playerInFieldAudioSource.volume;
+    }
+    private void Start(){
         player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
         if (player)
         {
@@ -31,10 +34,6 @@ public class MagneticField : MonoBehaviour
             direction = CalculatePullOrPush(player.playerState);
         }
         setSoundBasedOnStrength();
-    }
-    private void Start()
-    {
-        baseVolume = playerInFieldAudioSource.volume;
     }
     void setSoundBasedOnStrength()
     {

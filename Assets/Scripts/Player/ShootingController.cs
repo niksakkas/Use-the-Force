@@ -39,16 +39,15 @@ public class ShootingController : MonoBehaviour
         blueHitEmissionGameObject.SetActive(false);
         purpleHitEmissionGameObject = Instantiate(purpleHit);
         purpleHitEmissionGameObject.SetActive(false);
-    }
-    void Start()
-    {
-        surfacesMask = LayerMask.GetMask("Surfaces");
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
         throwScript = GetComponent<Throw>();
         playerAnimator = GetComponent<Animator>();
         aimLineRenderer.material.SetColor("_Color", baseColor * 3);
-
+    }
+    void Start()
+    {
+        surfacesMask = LayerMask.GetMask("Surfaces");
     }
 
     // Update is called once per frame

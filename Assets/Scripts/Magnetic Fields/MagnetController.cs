@@ -18,11 +18,14 @@ public class MagnetController : MonoBehaviour
     float basicLightOuterRadius = 0;
 
     private void Awake() {
-        playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
         magnetPosition = new Vector2(transform.position.x , transform.position.y);
         portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         basicLightInnerRadius = portalLight.pointLightInnerRadius;
         basicLightOuterRadius = portalLight.pointLightOuterRadius;
+    }
+    private void Start()
+    {
+        playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerController>();
     }
 
     private void Update()

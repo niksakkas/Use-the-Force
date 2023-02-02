@@ -63,14 +63,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource deathAudioSource;
     [SerializeField] private AudioSource respawnAudioSource;
 
-    private void Start()
+    private void Awake()
     {
-        staticCanvas = GameObject.FindGameObjectWithTag("StaticElements")?.GetComponent<StaticCanvas>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
         playerLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         currentShadow = shadowsParent.transform.Find(spriteRenderer.sprite.name).gameObject;
-        rb = gameObject.GetComponent<Rigidbody2D>();
         playerStartingScale = transform.localScale.x;
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         purplePowerUpIconMaterial.SetFloat("_PowerUpActive", 0);
         powerUpFireRed.Stop();
         powerUpFireBlue.Stop();
@@ -80,7 +78,11 @@ public class PlayerController : MonoBehaviour
         timeSpanLength = swapColorDuration / iterations;
         colorChangeIncrement = 1f / iterations;
         playerColor = spriteRenderer.material.GetFloat("_Red");
-
+    }
+    private void Start()
+    {
+        staticCanvas = GameObject.FindGameObjectWithTag("StaticElements")?.GetComponent<StaticCanvas>();
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
     private void Update()
     {

@@ -16,7 +16,8 @@ public class BulletController : MonoBehaviour
 
     private UnityEngine.Rendering.Universal.Light2D bulletLight;
 
-    void Start()
+
+    void Awake()
     {
         bulletLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         newMuzzle = Instantiate(muzzlePrefab, gameObject.transform.position, hitPrefab.transform.rotation);

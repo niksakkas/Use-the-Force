@@ -10,7 +10,7 @@ public class EndMenuManager : MonoBehaviour
     GameObject pauseMenu;
     GameObject musicPlayer;
 
-    private void Awake()
+    private void Start()
     {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         if (pauseMenu)
@@ -21,6 +21,7 @@ public class EndMenuManager : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("StaticElements"));
         StartCoroutine(stopMusic());
     }
+
     private IEnumerator stopMusic()
     {
         musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer");

@@ -22,12 +22,15 @@ public class PortalController : MonoBehaviour
 
     private void Awake()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         portalLight = GetComponent<UnityEngine.Rendering.Universal.Light2D>();
         portalLight.color = Color.Lerp(activeLightColor, inactiveLightColor, change);
         basicLightInnerRadius = portalLight.pointLightInnerRadius;
         basicLightOuterRadius = portalLight.pointLightOuterRadius;
+    }
+    private void Start()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
     private void Update()
     {

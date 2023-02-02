@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
     }
     void Update()
     {

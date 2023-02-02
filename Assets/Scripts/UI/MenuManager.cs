@@ -24,7 +24,7 @@ public class MenuManager : MonoBehaviour
     GameObject buttonSound;
     GameObject pauseMenu;
 
-    private void Awake()
+    private void Start()
     {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         if (pauseMenu)

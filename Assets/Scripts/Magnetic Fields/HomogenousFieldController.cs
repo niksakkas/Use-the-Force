@@ -16,12 +16,15 @@ public class HomogenousFieldController : MonoBehaviour
 
     private void Awake()
     {
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         forceDirection = (pointB.position - pointA.position).normalized;
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         height = m_SpriteRenderer.bounds.size.y;
         width = m_SpriteRenderer.bounds.size.x;
         setShaderTilling();
+    }
+    private void Start()
+    {
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     private void OnTriggerStay2D(Collider2D collider)
