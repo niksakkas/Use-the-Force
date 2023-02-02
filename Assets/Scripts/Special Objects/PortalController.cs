@@ -6,12 +6,12 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class PortalController : MonoBehaviour
 {
-    public bool isActive;
+    [SerializeField] private bool isActive;
     GameController gameController;
     SpriteRenderer m_SpriteRenderer;
-    public Color inactiveLightColor = new Color(0.61f, 0.16f, 1f, 1f);
-    public Color activeLightColor = new Color(1, 0.16f, 0.98f, 1f);
-    public UnityEngine.Rendering.Universal.Light2D portalLight;
+    [SerializeField] private Color inactiveLightColor = new Color(0.61f, 0.16f, 1f, 1f);
+    [SerializeField] private Color activeLightColor = new Color(1, 0.16f, 0.98f, 1f);
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D portalLight;
     float change = 1;
     float basicLightInnerRadius = 0;
     float basicLightOuterRadius = 0;

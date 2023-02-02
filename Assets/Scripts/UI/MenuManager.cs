@@ -9,8 +9,8 @@ public class MenuManager : MonoBehaviour
     public int startScene;
 
     // Moving Magnet stuff
-    public GameObject menuMagnet;
-    public UnityEngine.Rendering.Universal.Light2D magnetLight;
+    [SerializeField] private GameObject menuMagnet;
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D magnetLight;
 
     //rotation
     float r = 23f;

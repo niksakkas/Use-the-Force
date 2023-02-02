@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class MagnetController : MonoBehaviour
 {
-    [Range(0,1)][SerializeField] public float helpFactor;             // [0,1] The degree to which the magnet's pull will assists the players current movement
-    [Range(0,2)][SerializeField] public float distanceImportance;    // [0,inf) The higher this is, the more powerful the magnet gets if the object is close
-    public PlayerController playerScript;
-    public MagneticField magneticFieldScript;
+    [Range(0,1)][SerializeField] private float helpFactor;             // [0,1] The degree to which the magnet's pull will assists the players current movement
+    [Range(0,2)][SerializeField] private float distanceImportance;    // [0,inf) The higher this is, the more powerful the magnet gets if the object is close
+    [SerializeField] private PlayerController playerScript;
+    [SerializeField] private MagneticField magneticFieldScript;
     public ChargeState magnetCharge = ChargeState.Blue;
     private Vector2 magnetPosition;
 

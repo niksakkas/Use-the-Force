@@ -5,21 +5,21 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     //portals
-    public GameObject activeRespawnPortal;
-    public GameObject[] pooledRedSplatters;
-    public GameObject[] pooledBlueSplatters;
-    public int amountToPool = 1000;
-    public GameObject splatter;
+    [SerializeField] private GameObject activeRespawnPortal;
+    [SerializeField] private GameObject[] pooledRedSplatters;
+    [SerializeField] private GameObject[] pooledBlueSplatters;
+    [SerializeField] private int amountToPool = 1000;
+    [SerializeField] private GameObject splatter;
     private int redPoolingCounter = 0;
     private int bluePoolingCounter = 0;
 
     //swap charge icon
-    public Material swapChargeIconMaterial;
-    public GameObject SwapChargeCooldownIcon;
+    [SerializeField] private Material swapChargeIconMaterial;
+    [SerializeField] private GameObject SwapChargeCooldownIcon;
 
     GameObject player;
-    public PlayerController playerController;
-    public PlayerMovement playerMovement;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerMovement playerMovement;
     MagneticField[] magneticFields;
 
 

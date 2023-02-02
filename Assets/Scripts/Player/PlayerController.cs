@@ -35,27 +35,27 @@ public class PlayerController : MonoBehaviour
     StaticCanvas staticCanvas;
 
     //Purple powerup
-    public float purplePower = 0f;
+    [SerializeField] private float purplePower = 0f;
     public bool purplePowerupActive = false;
-    public float purplePowerUpDuration;
-    public Material purplePowerUpIconMaterial;
+    [SerializeField] private float purplePowerUpDuration;
+    [SerializeField] private Material purplePowerUpIconMaterial;
     public ParticleSystem powerUpFireBlue;
     public ParticleSystem powerUpFireRed;
 
     //Blast (red)
     private GameObject currentRedExplosion;
-    public GameObject redExplosionPrefab;
+    [SerializeField] private GameObject redExplosionPrefab;
 
     //Aiming stuff (blue)
-    public GameObject aimingLaser;
-    public ShootingController shootingController;
-    
+    [SerializeField] private GameObject aimingLaser;
+    [SerializeField] private ShootingController shootingController;
+
     //Shadows casting
-    public GameObject shadowsParent;
-    public GameObject currentShadow;
+    [SerializeField] private GameObject shadowsParent;
+    [SerializeField] private GameObject currentShadow;
 
     //Light
-    private UnityEngine.Rendering.Universal.Light2D playerLight;
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D playerLight;
     public Color blueLightColor;
     public Color redLightColor;
 

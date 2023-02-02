@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HomogenousFieldController : MonoBehaviour
 {
-    public Transform pointA;
-    public Transform pointB;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
+    [SerializeField] private PlayerController playerScript;
+    [SerializeField] private MagneticField magneticFieldScript;
     private Vector2 forceDirection;
-    public PlayerController playerScript;
-    public MagneticField magneticFieldScript;
 
     SpriteRenderer m_SpriteRenderer;
     float height;

@@ -5,9 +5,9 @@ using TMPro;
 
 public class StaticCanvas : MonoBehaviour
 {
-    public int deaths = 0;
-    public TMP_Text deathCounterText;
-    public TMP_Text tempDeathCounterText;
+    [SerializeField] private int deaths = 0;
+    [SerializeField] private TMP_Text deathCounterText;
+    [SerializeField] private TMP_Text tempDeathCounterText;
     private bool toogle = true;
     [SerializeField] AudioSource nextLevelSound;
 

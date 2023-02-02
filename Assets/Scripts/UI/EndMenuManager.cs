@@ -10,13 +10,16 @@ public class EndMenuManager : MonoBehaviour
     GameObject pauseMenu;
     GameObject musicPlayer;
 
-    private void Start()
+    private void Awake()
     {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         if (pauseMenu)
         {
             Destroy(pauseMenu);
         }
+    }
+    private void Start()
+    {
         buttonClickSound = GameObject.FindGameObjectWithTag("ButtonSound")?.GetComponent<AudioSource>();
         Destroy(GameObject.FindGameObjectWithTag("StaticElements"));
         StartCoroutine(stopMusic());

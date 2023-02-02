@@ -7,8 +7,8 @@ public class NextLevelController : MonoBehaviour
 {
     public Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
-    private int fadeIterations = 100;
-    private float iterationDuration;
+    [SerializeField] private int fadeIterations = 100;
+    [SerializeField] private float iterationDuration;
 
     [SerializeField] private AudioSource nextLevelAudioSource;
 
@@ -19,10 +19,10 @@ public class NextLevelController : MonoBehaviour
     private void Update()
     {
         // this is to advance through levels easily during debugging. Comment this block when done with debugging
-        //if (Input.GetButtonDown("MainAbility"))
-        //{
-        //    StartCoroutine(leaveCurrentLevel());
-        //}
+        if (Input.GetButtonDown("MainAbility"))
+        {
+            StartCoroutine(leaveCurrentLevel());
+        }
     }
     private void Start()
     {

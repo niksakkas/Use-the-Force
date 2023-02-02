@@ -12,16 +12,16 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_LeftCheck;                          // A position marking where to check for colliders on the right side
 	[SerializeField] private Transform m_RightCheck;                          // A position marking where to check for colliders on the right side
 	[Range(0,1)] [SerializeField] private float airResistance;
-	public bool verticalControl = false;
-	public float flyingSpeedMultiplier = 2.5f;
-	const float colliderCheckRadius = .1f; // Radius of the overlap circle to determine if there are colliders nearby
-	public bool m_Grounded = false;            // Whether or not the player is grounded.
-	public bool aboutToLeaveGround = false;
+	[SerializeField] public bool verticalControl = false;
+	[SerializeField] private float flyingSpeedMultiplier = 2.5f;
+	private const float colliderCheckRadius = .1f; // Radius of the overlap circle to determine if there are colliders nearby
+	[SerializeField] public bool m_Grounded = false;            // Whether or not the player is grounded.
+	[SerializeField] private bool aboutToLeaveGround = false;
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 velocity = Vector3.zero;
-	public Animator animator;
-	public Material dashIconMaterial;
+	[SerializeField] private Animator animator;
+	[SerializeField] private Material dashIconMaterial;
 
 	//dash
 	public bool canDash = false;

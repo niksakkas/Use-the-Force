@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZeroGravityFieldController : MonoBehaviour
 {
-    public Rigidbody2D playerRB;
+    [SerializeField] private Rigidbody2D playerRB;
     float gravityScale;
     // Sound
     private float baseVolume;
