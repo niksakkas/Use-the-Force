@@ -22,9 +22,15 @@ public class MenuManager : MonoBehaviour
     Color lerpedFieldColor;
     //Button Sound
     GameObject buttonSound;
+    GameObject pauseMenu;
 
     private void Awake()
     {
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        if (pauseMenu)
+        {
+            Destroy(pauseMenu);
+        }
         GameObject[] buttonSounds = GameObject.FindGameObjectsWithTag("ButtonSound");
         // if there is no other button sound player, activate this one, otherwise destroy it
         if (buttonSounds.Length == 2)
