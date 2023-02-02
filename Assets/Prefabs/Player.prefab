@@ -173,7 +173,7 @@ MonoBehaviour:
   - {x: -0.05002891, y: -0.08998904, z: 0}
   m_ShapePathHash: -134894205
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811878
+  m_InstanceId: 124414
 --- !u!1 &517649036
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   - {x: -0.010007013, y: 0.059964493, z: 0}
   m_ShapePathHash: 573626521
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811890
+  m_InstanceId: 124420
 --- !u!1 &520503587
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   - {x: -0.020119775, y: -0.10991225, z: 0}
   m_ShapePathHash: -1631300813
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811884
+  m_InstanceId: 124426
 --- !u!1 &626797196
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   - {x: -0.08998913, y: -0.119969696, z: 0}
   m_ShapePathHash: 1000825175
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811866
+  m_InstanceId: 124432
 --- !u!1 &631269045
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   - {x: -0.000024585042, y: 0.0600268, z: 0}
   m_ShapePathHash: 6367791
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811926
+  m_InstanceId: 124438
 --- !u!1 &693681514
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +839,7 @@ MonoBehaviour:
   - {x: -0.010036894, y: 0.05007362, z: 0}
   m_ShapePathHash: -1810268181
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811908
+  m_InstanceId: 124444
 --- !u!1 &807801133
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
   - {x: -0.0199532, y: 0.07011222, z: 0}
   m_ShapePathHash: -462379469
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811902
+  m_InstanceId: 124450
 --- !u!1 &1086894518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   - {x: -0.06004122, y: -0.09005738, z: 0}
   m_ShapePathHash: 1967552728
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811872
+  m_InstanceId: 124462
 --- !u!1 &1192887312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1368,7 @@ MonoBehaviour:
   - {x: -0.049758703, y: -0.14957175, z: 0}
   m_ShapePathHash: -1885428561
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811860
+  m_InstanceId: 124468
 --- !u!1 &1236470881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   - {x: -0.020011056, y: 0.059981976, z: 0}
   m_ShapePathHash: 1268033793
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811932
+  m_InstanceId: 124474
 --- !u!1 &1242976213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,7 @@ MonoBehaviour:
   - {x: -0.010007013, y: 0.059964493, z: 0}
   m_ShapePathHash: -1446566412
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811896
+  m_InstanceId: 124480
 --- !u!1 &1285637596
 GameObject:
   m_ObjectHideFlags: 0
@@ -11889,7 +11889,7 @@ MonoBehaviour:
   - {x: -0.000058917318, y: 0.06022993, z: 0}
   m_ShapePathHash: -863187944
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811920
+  m_InstanceId: 124524
 --- !u!1 &2030743857
 GameObject:
   m_ObjectHideFlags: 0
@@ -12173,7 +12173,7 @@ MonoBehaviour:
   - {x: -0.000058917318, y: 0.050336197, z: 0}
   m_ShapePathHash: -178355463
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4811914
+  m_InstanceId: 124544
 --- !u!1 &871097200577908682
 GameObject:
   m_ObjectHideFlags: 0
@@ -13318,6 +13318,7 @@ MonoBehaviour:
   shootingController: {fileID: 2002902707}
   shadowsParent: {fileID: 243423372}
   currentShadow: {fileID: 0}
+  playerLight: {fileID: 0}
   blueLightColor: {r: 0, g: 0.43849897, b: 1, a: 1}
   redLightColor: {r: 1, g: 0, b: 0, a: 1}
   deathAudioSource: {fileID: 0}

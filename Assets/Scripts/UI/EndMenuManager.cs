@@ -28,14 +28,17 @@ public class EndMenuManager : MonoBehaviour
     private IEnumerator stopMusic()
     {
         musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer");
-        AudioSource music = musicPlayer.GetComponent<AudioSource>();
-        float startingSound = music.volume;
-        for (int i = 0; i < 20; i++)
+        if (musicPlayer)
         {
-            music.volume = (20f - (float)i) * startingSound / 20f;
-            yield return new WaitForSeconds(0.05f);
+            AudioSource music = musicPlayer.GetComponent<AudioSource>();
+            float startingSound = music.volume;
+            for (int i = 0; i < 20; i++)
+            {
+                music.volume = (20f - (float)i) * startingSound / 20f;
+                yield return new WaitForSeconds(0.05f);
+            }
+            Destroy(musicPlayer);
         }
-        Destroy(musicPlayer);
     }
     public void BackToStartingScreen()
     {

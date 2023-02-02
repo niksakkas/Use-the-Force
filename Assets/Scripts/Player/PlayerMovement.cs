@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour {
 	float verticalMove = 0f;
 	bool jump = false;
 	
-
 	// Dashing
 	public float dashSpeed = 100f;
 	private int dashXmultiplier = 500;
@@ -39,7 +38,6 @@ public class PlayerMovement : MonoBehaviour {
 		characterController2D = GetComponent<CharacterController2D>();
 	}
 	void Update () {
-
         if (disabledTimer == 0)
         {
 			horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -138,6 +136,7 @@ public class PlayerMovement : MonoBehaviour {
     {
 		SpriteRenderer rb = GetComponent<SpriteRenderer>();
 		Material playerMaterial = rb.material;
+		
         if (playerController.playerState == ChargeState.Red)
         {
 			playerTrail.material.color = GlobalVariables.redColor;

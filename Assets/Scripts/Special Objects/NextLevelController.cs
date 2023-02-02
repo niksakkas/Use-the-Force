@@ -19,10 +19,10 @@ public class NextLevelController : MonoBehaviour
     private void Update()
     {
         // this is to advance through levels easily during debugging. Comment this block when done with debugging
-        if (Input.GetButtonDown("MainAbility"))
-        {
-            StartCoroutine(leaveCurrentLevel());
-        }
+        //if (Input.GetButtonDown("PurplePowerup"))
+        //{
+        //    StartCoroutine(leaveCurrentLevel());
+        //}
     }
     private void Start()
     {
