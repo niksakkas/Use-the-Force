@@ -6,14 +6,21 @@ using TMPro;
 public class StaticCanvas : MonoBehaviour
 {
     [SerializeField] private int deaths = 0;
+    [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text deathCounterText;
     [SerializeField] private TMP_Text tempDeathCounterText;
     private bool toogle = true;
     [SerializeField] AudioSource nextLevelSound;
+    Scene scene;
 
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        updateLevelText();
     }
     private void Start()
     {
@@ -21,6 +28,12 @@ public class StaticCanvas : MonoBehaviour
         deathCounterText.alignment = TextAlignmentOptions.Left;
         deathCounterText.text = "Deaths: 0";
         tempDeathCounterText.text = "Deaths: 0";
+        updateLevelText();
+    }
+    private void updateLevelText()
+    {
+        scene = SceneManager.GetActiveScene();
+        levelText.text = "Level " + scene.buildIndex;
     }
     public void addDeath()
     {
