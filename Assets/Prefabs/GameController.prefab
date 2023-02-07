@@ -50,8 +50,9 @@ MonoBehaviour:
   pooledBlueSplatters: []
   amountToPool: 1500
   splatter: {fileID: 4715435649366159177, guid: 854befed69d1c354f82f1316bff6800c, type: 3}
-  swapChargeIconMaterial: {fileID: 0}
+  swapChargeIconMaterial: {fileID: 2100000, guid: a58347dc73dc3c44f8829a395b70028a, type: 2}
   SwapChargeCooldownIcon: {fileID: 0}
+  staticElements: {fileID: 2819724377767989450, guid: dba8422305523aa45b32313426fe7e2a, type: 3}
   playerController: {fileID: 0}
   playerMovement: {fileID: 0}
 --- !u!114 &1340841022
