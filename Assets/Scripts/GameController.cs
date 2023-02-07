@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     //swap charge icon
     [SerializeField] private Material swapChargeIconMaterial;
     [SerializeField] private GameObject SwapChargeCooldownIcon;
+    [SerializeField] private GameObject staticElements;
 
     GameObject player;
     [SerializeField] private PlayerController playerController;
@@ -29,6 +30,10 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
+        if(!GameObject.FindGameObjectWithTag("StaticElements"))
+        {
+            Instantiate(staticElements);
+        }
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         playerMovement = player.GetComponent<PlayerMovement>();
