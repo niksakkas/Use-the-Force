@@ -26,9 +26,10 @@ public class CharacterController2D : MonoBehaviour
 	//dash
 	public bool canDash = false;
 
-    //sound
+	//sound
 
-    [SerializeField] private AudioSource jumpAudioSource;
+	[SerializeField] private AudioSource jumpAudioSource;
+	[SerializeField] private AudioSource landAudioSource;
 
 	private void Awake()
 	{
@@ -44,6 +45,11 @@ public class CharacterController2D : MonoBehaviour
 			//check if grounded
 			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
 			{
+				//if m_Grounded is false and the player is gorunded, then the player landed on this frame, so play the landing sound effect
+				if(m_Grounded == false)
+                {
+					landAudioSource.Play();
+				}
 				m_Grounded = true;
 				canDash = true;
 				aboutToLeaveGround = false;
@@ -65,9 +71,7 @@ public class CharacterController2D : MonoBehaviour
 		aboutToLeaveGround = true;
 		yield return new WaitForSeconds(0.1f);
 		m_Grounded = false;
-
 	}
-
 	public void Move(float horizontalMove, float verticalMove, bool jump)
 	{
 		// If the player has no vertival control ignore vertical commands
