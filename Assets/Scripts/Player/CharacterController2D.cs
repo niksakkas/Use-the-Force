@@ -45,7 +45,7 @@ public class CharacterController2D : MonoBehaviour
 			//check if grounded
 			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
 			{
-				//if m_Grounded is false and the player is gorunded, then the player landed on this frame, so play the landing sound effect
+				//if m_Grounded is false and the player is grounded, then the player landed on this frame, so play the landing sound effect
 				if(m_Grounded == false)
                 {
 					landAudioSource.Play();
