@@ -2,7 +2,7 @@
 
 ## Description
 
-Use the Force is a 2D platformer game where the player takes control of a “magnetically-charged character” and use the forces of surrounding magnetic fields combined with his own abilities to advance through the game’s levels. It was developed using the Unity Engine.
+Use the Force is a 2D platformer game where the player takes control of a “magnetically-charged character” and use the forces of surrounding magnetic fields combined with his own abilities to advance through the game’s levels. It was developed using the Unity Engine (version 2021.3.7f1).
 
 ## Structure
 
