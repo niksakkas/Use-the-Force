@@ -147,14 +147,10 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < iterations; i++)
         {
             playerColor += colorChangeIncrement;
-            //spriteRenderer.material.SetFloat("_Red", playerColor);
-            //spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
             setPlayerColor(playerColor, 1f - playerColor);
             yield return new WaitForSeconds(timeSpanLength);
         }
         playerColor = 1;
-        //spriteRenderer.material.SetFloat("_Red", playerColor);
-        //spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
         setPlayerColor(playerColor, 1f - playerColor);
     }
     private IEnumerator becomeBlue()
@@ -166,14 +162,10 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < iterations; i++)
         {
             playerColor -= colorChangeIncrement;
-            //spriteRenderer.material.SetFloat("_Red", playerColor);
-            //spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
             setPlayerColor(playerColor, 1f - playerColor);
             yield return new WaitForSeconds(timeSpanLength);
         }
         playerColor = 0;
-        //spriteRenderer.material.SetFloat("_Red", playerColor);
-        //spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
         setPlayerColor(playerColor, 1f - playerColor);
     }
     private void setPlayerColor(float red, float blue)
@@ -204,8 +196,7 @@ public class PlayerController : MonoBehaviour
         {
             playerColor = 0;
         }
-        //spriteRenderer.material.SetFloat("_Red", playerColor);
-        //spriteRenderer.material.SetFloat("_Blue", 1f - playerColor);
+
         setPlayerColor(playerColor, 1f - playerColor);
 
         //tell game controller to kill and respawn the player

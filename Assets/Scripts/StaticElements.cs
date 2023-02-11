@@ -9,8 +9,8 @@ public class StaticElements : MonoBehaviour
     [SerializeField] private TMP_Text levelText;
     [SerializeField] private TMP_Text deathCounterText;
     [SerializeField] private TMP_Text tempDeathCounterText;
-    private bool toogle = true;
     [SerializeField] AudioSource nextLevelSound;
+    private bool toogle = true;
     Scene scene;
 
     private void Awake()

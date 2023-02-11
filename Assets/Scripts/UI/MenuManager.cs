@@ -12,27 +12,30 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject menuMagnet;
     [SerializeField] private UnityEngine.Rendering.Universal.Light2D magnetLight;
 
-    //rotation
+    // Rotation
     float r = 23f;
     float alpha = 0f;
     float X;
     float Y;
-    //Color
+    // Color
     SpriteRenderer m_spriteRenderer;
     Color lerpedFieldColor;
-    //Button Sound
+    // Button Sound
     GameObject buttonSound;
     GameObject pauseMenu;
+    // Light
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D SceneLight;
 
     private void Start()
     {
+        // destroy PauseMenu if it exists
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         if (pauseMenu)
         {
             Destroy(pauseMenu);
         }
+        // destroy ButtonSound if it exists
         GameObject[] buttonSounds = GameObject.FindGameObjectsWithTag("ButtonSound");
-        // if there is no other button sound player, activate this one, otherwise destroy it
         if (buttonSounds.Length == 2)
         {
             Destroy(buttonSounds[1]);
@@ -40,6 +43,7 @@ public class MenuManager : MonoBehaviour
         buttonSound = buttonSounds[0];
         DontDestroyOnLoad(buttonSound);
 
+        // destroy StaticElements gameObject if it exists
         GameObject StaticElements = GameObject.FindGameObjectWithTag("StaticElements");
         if (StaticElements)
         {
@@ -47,6 +51,9 @@ public class MenuManager : MonoBehaviour
         }
         magnetLight = menuMagnet.GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>();
         m_spriteRenderer = menuMagnet.GetComponentInChildren<SpriteRenderer>();
+        
+        // enable scene light 
+        SceneLight.enabled = true;
     }
 
     private void Update()
