@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     //Sound
     [SerializeField] private AudioSource deathAudioSource;
     [SerializeField] private AudioSource respawnAudioSource;
+    [SerializeField] private AudioSource swapChargeAudioSource;
 
     private void Awake()
     {
@@ -123,6 +124,9 @@ public class PlayerController : MonoBehaviour
         // update the direction of all magnetic fields
         gameController.SendMessage("updateDirectionOfFields", gameObject);
         swapColor();
+        swapChargeAudioSource.pitch = Random.Range(0.8f, 1.2f);
+        swapChargeAudioSource.Play();
+
     }
     private void swapColor()
     {
