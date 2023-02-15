@@ -48,7 +48,7 @@ MonoBehaviour:
   activeRespawnPortal: {fileID: 0}
   pooledRedSplatters: []
   pooledBlueSplatters: []
-  amountToPool: 1500
+  amountToPool: 300
   splatter: {fileID: 4715435649366159177, guid: 854befed69d1c354f82f1316bff6800c, type: 3}
   swapChargeIconMaterial: {fileID: 2100000, guid: a58347dc73dc3c44f8829a395b70028a, type: 2}
   SwapChargeCooldownIcon: {fileID: 0}
