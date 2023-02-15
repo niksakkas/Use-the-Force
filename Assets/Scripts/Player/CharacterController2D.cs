@@ -5,8 +5,9 @@ public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] private float m_JumpForce;							// Amount of force added when the player jumps.
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
-	// [SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
-	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
+	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
+	private Collider2D[] playerSurroundingColliders = new Collider2D[10];  //an array that holds the surrounding colliders of the player
+	private int numOfSurroundingColliders;
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Transform m_LeftCheck;                          // A position marking where to check for colliders on the right side
@@ -27,7 +28,6 @@ public class CharacterController2D : MonoBehaviour
 	public bool canDash = false;
 
 	//sound
-
 	[SerializeField] private AudioSource jumpAudioSource;
 	[SerializeField] private AudioSource landAudioSource;
 
@@ -39,11 +39,11 @@ public class CharacterController2D : MonoBehaviour
 	{
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite the project settings.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, colliderCheckRadius, m_WhatIsGround);
-		for (int i = 0; i < colliders.Length; i++)
+        numOfSurroundingColliders = Physics2D.OverlapCircleNonAlloc(m_GroundCheck.position, colliderCheckRadius, playerSurroundingColliders, m_WhatIsGround);
+		for (int i = 0; i < numOfSurroundingColliders; i++)
 		{
 			//check if grounded
-			if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
+			if (playerSurroundingColliders[i].gameObject != gameObject && playerSurroundingColliders[i].gameObject.tag != "MagnetCollider" && playerSurroundingColliders[i].gameObject.tag != "ZeroGravityField" && playerSurroundingColliders[i].gameObject.tag != "HomogenousField")
 			{
 				//if m_Grounded is false and the player is grounded, then the player landed on this frame, so play the landing sound effect
 				if(m_Grounded == false)
@@ -115,11 +115,11 @@ public class CharacterController2D : MonoBehaviour
     {
 		if(velocityDirection > 0)
         {
-			Collider2D[] colliders = Physics2D.OverlapCircleAll(m_RightCheck.position, colliderCheckRadius, m_WhatIsGround);
-			for (int i = 0; i < colliders.Length; i++)
+			numOfSurroundingColliders = Physics2D.OverlapCircleNonAlloc(m_RightCheck.position, colliderCheckRadius, playerSurroundingColliders, m_WhatIsGround);
+			for (int i = 0; i < numOfSurroundingColliders; i++)
 			{
 				//check if a collider is found
-				if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
+				if (playerSurroundingColliders[i].gameObject != gameObject && playerSurroundingColliders[i].gameObject.tag != "MagnetCollider" && playerSurroundingColliders[i].gameObject.tag != "ZeroGravityField" && playerSurroundingColliders[i].gameObject.tag != "HomogenousField")
 				{
 					return false;
 				}
@@ -128,11 +128,11 @@ public class CharacterController2D : MonoBehaviour
 		}
         else if(velocityDirection < 0)
         {
-			Collider2D[] colliders = Physics2D.OverlapCircleAll(m_LeftCheck.position, colliderCheckRadius, m_WhatIsGround);
-			for (int i = 0; i < colliders.Length; i++)
+			numOfSurroundingColliders = Physics2D.OverlapCircleNonAlloc(m_LeftCheck.position, colliderCheckRadius, playerSurroundingColliders, m_WhatIsGround);
+			for (int i = 0; i < numOfSurroundingColliders; i++)
 			{
-                //check if a collider is found
-                if (colliders[i].gameObject != gameObject && colliders[i].gameObject.tag != "MagnetCollider" && colliders[i].gameObject.tag != "ZeroGravityField" && colliders[i].gameObject.tag != "HomogenousField")
+				//check if a collider is found
+				if (playerSurroundingColliders[i].gameObject != gameObject && playerSurroundingColliders[i].gameObject.tag != "MagnetCollider" && playerSurroundingColliders[i].gameObject.tag != "ZeroGravityField" && playerSurroundingColliders[i].gameObject.tag != "HomogenousField")
 				{
 					return false;
 				}
