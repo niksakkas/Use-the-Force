@@ -60,12 +60,12 @@ public class ZeroGravityFieldController : MonoBehaviour
     private void removePlayerGravityPull(Rigidbody2D playerRB)
     {
         playerRB.velocity = Vector2.zero;
-        playerRB.GetComponent<Rigidbody2D>().gravityScale = 0; // remove gravity pull
+        playerRB.gravityScale = 0; // remove gravity pull
     }
     private void applyPlayerGravityPull(Rigidbody2D playerRB)
     {
         playerRB.velocity = Vector2.zero;
-        playerRB.GetComponent<Rigidbody2D>().gravityScale = gravityScale; // apply gravity pull
+        playerRB.gravityScale = gravityScale; // apply gravity pull
     }
 
     private void enableVerticalControl(GameObject player)
