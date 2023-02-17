@@ -46,41 +46,23 @@ public class GameController : MonoBehaviour
         //GameObject splatters
         pooledRedSplatters = GameObject.FindGameObjectsWithTag("RedSplatter");
         pooledBlueSplatters = GameObject.FindGameObjectsWithTag("BlueSplatter");
-        Vector3 splatterStartingPosition = new Vector3(0.0f, 0.0f, -1000.0f);
-
-        if (pooledRedSplatters.Length == 0)
+        Vector3 splatterStartingPosition = new Vector3(0.0f, 0.0f, -100.0f);
+        //splatter pooling
+        pooledRedSplatters = new GameObject[amountToPool / 2];
+        pooledBlueSplatters = new GameObject[amountToPool / 2];
+        for (int i = 0; i < amountToPool / 2; i++)
         {
-            //splatter pooling
-            pooledRedSplatters = new GameObject[amountToPool / 2];
-            pooledBlueSplatters = new GameObject[amountToPool / 2];
-            for (int i = 0; i < amountToPool / 2; i++)
-            {
-                pooledRedSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
-                pooledRedSplatters[i].SendMessage("pickColor", ChargeState.Red);
-                pooledRedSplatters[i].tag = "RedSplatter";
-                DontDestroyOnLoad(pooledRedSplatters[i]);
-            }
-            for (int i = 0; i < amountToPool / 2; i++)
-            {
-                pooledBlueSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
-                pooledBlueSplatters[i].SendMessage("pickColor", ChargeState.Blue);
-                pooledBlueSplatters[i].tag = "BlueSplatter";
-                DontDestroyOnLoad(pooledBlueSplatters[i]);
-            }
+            pooledRedSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
+            pooledRedSplatters[i].SendMessage("pickColor", ChargeState.Red);
+            pooledRedSplatters[i].tag = "RedSplatter";
+            pooledRedSplatters[i].SetActive(false);
         }
-        else
+        for (int i = 0; i < amountToPool / 2; i++)
         {
-            for (int i = 0; i < amountToPool / 2; i++)
-            {
-                pooledRedSplatters[i].transform.position = splatterStartingPosition;
-                DontDestroyOnLoad(pooledRedSplatters[i]);
-            }
-            for (int i = 0; i < amountToPool / 2; i++)
-            {
-                pooledBlueSplatters[i].transform.position = splatterStartingPosition;
-                DontDestroyOnLoad(pooledBlueSplatters[i]);
-
-            }
+            pooledBlueSplatters[i] = Instantiate(splatter, splatterStartingPosition, Quaternion.identity);
+            pooledBlueSplatters[i].SendMessage("pickColor", ChargeState.Blue);
+            pooledBlueSplatters[i].tag = "BlueSplatter";
+            pooledBlueSplatters[i].SetActive(false);
         }
     }
     // Change the active Portal

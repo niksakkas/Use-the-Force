@@ -43,6 +43,7 @@ public class ExplosionController : MonoBehaviour
     {
         //get splatter from pool
         GameObject splatterObject = gameController.GetComponentInChildren<GameController>().getNextSplatter(color);
+        splatterObject.SetActive(true);
         //set splatter position to the point of collision
         splatterObject.transform.position = newSplashosition;
         //add a random rotation and scale to splatter
