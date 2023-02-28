@@ -18,6 +18,10 @@ There is also a built game in the repository files. To play it, download and ope
 
 `Game/Use The Force.exe`
 
+There is a also a playthroug of the game at:
+
+`Game/Playthrough.mp4`
+
 application.
 
 ## Mechanics
