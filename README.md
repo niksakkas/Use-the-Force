@@ -18,10 +18,6 @@ There is also a built game in the repository files. To play it, download and ope
 
 `Game/Use The Force.exe`
 
-There is a also a playthroug of the game at:
-
-`Game/Playthrough.mp4`
-
 application.
 
 ## Mechanics
@@ -77,3 +73,9 @@ https://user-images.githubusercontent.com/50372934/215265972-ce5892ee-abda-4326-
 I also created a powerup that combines the abilities mentioned above. It lasts for a few seconds and can be used from both charge states.
 
 https://user-images.githubusercontent.com/50372934/215265976-fc564e5b-05d4-4fd9-adee-f797d55743cf.mp4
+
+## Playthrough
+
+There is also a playthrough of the game at:
+
+`Game/Playthrough.mp4`
